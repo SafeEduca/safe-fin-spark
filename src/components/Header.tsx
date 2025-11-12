@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
+import safeLogo from "@/assets/safe-logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,9 +43,12 @@ const Header = () => {
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <h1 className="text-2xl font-heading font-bold text-primary">
-            SAFE<span className="text-accent">.</span>
-          </h1>
+          <img 
+            src={safeLogo} 
+            alt="SAFE Educação Financeira" 
+            className="h-12 w-auto cursor-pointer"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          />
         </div>
 
         {/* Desktop Navigation */}

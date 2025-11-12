@@ -88,21 +88,22 @@ const Programs = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {programs.map((program) => (
-            <ProgramCard
-              key={program.id}
-              title={program.title}
-              description={program.description}
-              image={program.image}
-              highlights={program.highlights}
-              onCTAClick={() => setActiveModal(program.id)}
-              ctaText={program.ctaText}
-              variant={program.variant}
-            />
+            <div key={program.id} id={program.id} className="scroll-mt-24">
+              <ProgramCard
+                title={program.title}
+                description={program.description}
+                image={program.image}
+                highlights={program.highlights}
+                onCTAClick={() => setActiveModal(program.id)}
+                ctaText={program.ctaText}
+                variant={program.variant}
+              />
+            </div>
           ))}
         </div>
 
         {/* SAFETY Card - In Development */}
-        <div className="mt-16 max-w-3xl mx-auto">
+        <div id="safety" className="mt-16 max-w-3xl mx-auto scroll-mt-24">
           <div className="bg-gradient-gold rounded-2xl p-8 shadow-lg text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-4">
               <span className="text-3xl">🚀</span>
