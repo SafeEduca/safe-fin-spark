@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProgramsOpen, setIsProgramsOpen] = useState(false);
+  const [isMobileProgramsOpen, setIsMobileProgramsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,8 +21,17 @@ const Header = () => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
+      setIsProgramsOpen(false);
+      setIsMobileProgramsOpen(false);
     }
   };
+
+  const programs = [
+    { name: "SAFE Kids", id: "safe-kids" },
+    { name: "Finanças em Foco", id: "financas-em-foco" },
+    { name: "Rumo à Liberdade", id: "rumo-liberdade" },
+    { name: "SAFETY", id: "safety" },
+  ];
 
   return (
     <header
@@ -44,12 +55,35 @@ const Header = () => {
           >
             Sobre
           </button>
-          <button
-            onClick={() => scrollToSection("programas")}
-            className="text-foreground hover:text-accent transition-colors font-medium"
+          
+          {/* Programs Dropdown */}
+          <div 
+            className="relative"
+            onMouseEnter={() => setIsProgramsOpen(true)}
+            onMouseLeave={() => setIsProgramsOpen(false)}
           >
-            Programas
-          </button>
+            <button
+              className="text-foreground hover:text-accent transition-colors font-medium flex items-center gap-1"
+            >
+              Programas
+              <ChevronDown className={`w-4 h-4 transition-transform ${isProgramsOpen ? 'rotate-180' : ''}`} />
+            </button>
+            
+            {isProgramsOpen && (
+              <div className="absolute top-full left-0 mt-2 w-56 bg-background border border-border rounded-lg shadow-lg overflow-hidden z-50 animate-scale-in">
+                {programs.map((program) => (
+                  <button
+                    key={program.id}
+                    onClick={() => scrollToSection(program.id)}
+                    className="w-full text-left px-4 py-3 hover:bg-accent/10 hover:text-accent transition-colors font-medium border-b border-border last:border-b-0"
+                  >
+                    {program.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           <button
             onClick={() => scrollToSection("depoimentos")}
             className="text-foreground hover:text-accent transition-colors font-medium"
@@ -87,12 +121,32 @@ const Header = () => {
             >
               Sobre
             </button>
-            <button
-              onClick={() => scrollToSection("programas")}
-              className="text-foreground hover:text-accent transition-colors font-medium text-left py-2"
-            >
-              Programas
-            </button>
+            
+            {/* Mobile Programs Dropdown */}
+            <div>
+              <button
+                onClick={() => setIsMobileProgramsOpen(!isMobileProgramsOpen)}
+                className="text-foreground hover:text-accent transition-colors font-medium text-left py-2 flex items-center justify-between w-full"
+              >
+                Programas
+                <ChevronDown className={`w-4 h-4 transition-transform ${isMobileProgramsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isMobileProgramsOpen && (
+                <div className="pl-4 mt-2 space-y-2 animate-scale-in">
+                  {programs.map((program) => (
+                    <button
+                      key={program.id}
+                      onClick={() => scrollToSection(program.id)}
+                      className="text-muted-foreground hover:text-accent transition-colors font-medium text-left py-2 block w-full"
+                    >
+                      {program.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <button
               onClick={() => scrollToSection("depoimentos")}
               className="text-foreground hover:text-accent transition-colors font-medium text-left py-2"

@@ -3,6 +3,7 @@ import ProgramCard from "./ProgramCard";
 import LeadModal from "./LeadModal";
 import safeKidsImage from "@/assets/safe-kids-program.jpg";
 import financasEmFocoImage from "@/assets/financas-em-foco.jpg";
+import rumoLiberdadeImage from "@/assets/rumo-liberdade.jpg";
 import safeCompanyImage from "@/assets/safe-company.jpg";
 
 const Programs = () => {
@@ -40,6 +41,21 @@ const Programs = () => {
       variant: "dark" as const,
     },
     {
+      id: "rumo-liberdade",
+      title: "Rumo à Liberdade",
+      description:
+        "Alcance sua Independência Financeira: Construa seu caminho para a liberdade total.",
+      image: rumoLiberdadeImage,
+      highlights: [
+        "Planejamento de independência financeira",
+        "Estratégias avançadas de investimentos",
+        "Gestão de patrimônio",
+        "Construção de renda passiva",
+        "Mentoria personalizada com especialistas",
+      ],
+      ctaText: "Quero conquistar minha liberdade financeira",
+    },
+    {
       id: "safe-company",
       title: "SAFE Company",
       description:
@@ -53,6 +69,7 @@ const Programs = () => {
         "ROI comprovado",
       ],
       ctaText: "Solicite uma Proposta Personalizada",
+      variant: "dark" as const,
     },
   ];
 
@@ -69,7 +86,7 @@ const Programs = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {programs.map((program) => (
             <ProgramCard
               key={program.id}
@@ -118,6 +135,11 @@ const Programs = () => {
         isOpen={activeModal === "financas-em-foco"}
         onClose={() => setActiveModal(null)}
         programName="Finanças em Foco"
+      />
+      <LeadModal
+        isOpen={activeModal === "rumo-liberdade"}
+        onClose={() => setActiveModal(null)}
+        programName="Rumo à Liberdade"
       />
       <LeadModal
         isOpen={activeModal === "safe-company"}
