@@ -1,117 +1,178 @@
-import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { Play, X } from "lucide-react";
 
-const testimonials = [
+const testimonialVideos = [
   {
-    name: "Maria Silva",
-    role: "Mãe de aluno SAFE Kids",
-    content:
-      "Meu filho aprendeu a poupar e entender o valor do dinheiro de uma forma incrível. O programa é lúdico e educativo!",
-    rating: 5,
+    id: 1,
+    title: "Transformação Financeira - Família Silva",
+    category: "Pais",
+    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    description: "Como o SAFE Kids mudou a vida financeira da nossa família",
   },
   {
-    name: "João Santos",
-    role: "Participante Finanças em Foco",
-    content:
-      "Consegui organizar minhas finanças e começar a investir. O curso mudou completamente minha relação com o dinheiro.",
-    rating: 5,
+    id: 2,
+    title: "De Endividado a Investidor",
+    category: "Aluno",
+    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    description: "Minha jornada no Finanças em Foco",
   },
   {
-    name: "Ana Costa",
-    role: "RH Manager - Empresa Parceira",
-    content:
-      "O programa SAFE Company trouxe uma melhoria significativa no bem-estar financeiro dos nossos colaboradores.",
-    rating: 5,
+    id: 3,
+    title: "Educação Financeira desde Cedo",
+    category: "Pais",
+    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    description: "O impacto do SAFE Kids na vida do meu filho",
   },
   {
-    name: "Pedro Oliveira",
-    role: "Empreendedor",
-    content:
-      "As ferramentas e conhecimentos que adquiri foram essenciais para o crescimento do meu negócio.",
-    rating: 5,
+    id: 4,
+    title: "Impacto na Empresa",
+    category: "Empresa",
+    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    description: "Como o SAFE Company transformou nossa equipe",
+  },
+  {
+    id: 5,
+    title: "Conquistando a Liberdade Financeira",
+    category: "Aluno",
+    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    description: "Minha jornada no Rumo à Liberdade",
+  },
+  {
+    id: 6,
+    title: "Criando Filhos Financeiramente Inteligentes",
+    category: "Família",
+    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    description: "Nossa experiência com o SAFE Kids",
   },
 ];
 
 const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedVideo, setSelectedVideo] = useState<typeof testimonialVideos[0] | null>(null);
+  const [filter, setFilter] = useState<string>("Todos");
 
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  const categories = ["Todos", "Aluno", "Pais", "Família", "Empresa"];
 
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  useEffect(() => {
-    const timer = setInterval(nextTestimonial, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  const filteredVideos = filter === "Todos" 
+    ? testimonialVideos 
+    : testimonialVideos.filter(video => video.category === filter);
 
   return (
     <section id="depoimentos" className="py-24 bg-background">
       <div className="container mx-auto px-4">
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6">
-            O que dizem sobre <span className="text-accent">nós</span>
+            SAFE <span className="text-accent">Stories</span>
           </h2>
-          <div className="w-24 h-1 bg-accent mx-auto"></div>
-        </div>
+          <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            Histórias reais de transformação e impacto na vida de nossos alunos, famílias e empresas
+          </p>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative bg-card rounded-2xl shadow-lg p-8 md:p-12">
-            <Quote className="absolute top-4 left-4 w-12 h-12 text-accent/20" />
-            
-            <div className="relative z-10 animate-fade-in-up" key={currentIndex}>
-              <p className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed italic">
-                "{testimonials[currentIndex].content}"
-              </p>
-              <div className="flex items-center gap-2 mb-4">
-                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <span key={i} className="text-accent text-2xl">★</span>
-                ))}
-              </div>
-              <div>
-                <p className="font-heading font-bold text-foreground text-lg">
-                  {testimonials[currentIndex].name}
-                </p>
-                <p className="text-muted-foreground">{testimonials[currentIndex].role}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={prevTestimonial}
-                aria-label="Depoimento anterior"
+          {/* Category Filter */}
+          <div className="flex flex-wrap justify-center gap-3">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setFilter(category)}
+                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+                  filter === category
+                    ? "bg-accent text-accent-foreground shadow-gold"
+                    : "bg-secondary text-foreground hover:bg-accent/20"
+                }`}
               >
-                <ChevronLeft />
-              </Button>
-              <div className="flex gap-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentIndex ? "bg-accent w-8" : "bg-muted"
-                    }`}
-                    aria-label={`Ir para depoimento ${index + 1}`}
-                  />
-                ))}
-              </div>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={nextTestimonial}
-                aria-label="Próximo depoimento"
-              >
-                <ChevronRight />
-              </Button>
-            </div>
+                {category}
+              </button>
+            ))}
           </div>
         </div>
+
+        {/* Video Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {filteredVideos.map((video, index) => (
+            <div
+              key={video.id}
+              className="group cursor-pointer animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() => setSelectedVideo(video)}
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                {/* Thumbnail */}
+                <div className="relative aspect-video bg-muted">
+                  <img
+                    src={video.thumbnail}
+                    alt={video.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-primary/60 group-hover:bg-primary/40 transition-all duration-300 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center shadow-gold transform group-hover:scale-110 transition-transform duration-300">
+                      <Play className="w-8 h-8 text-accent-foreground ml-1" fill="currentColor" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div className="p-6 bg-card">
+                  <div className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-sm font-semibold mb-3">
+                    {video.category}
+                  </div>
+                  <h3 className="text-xl font-heading font-bold text-foreground mb-2 line-clamp-2">
+                    {video.title}
+                  </h3>
+                  <p className="text-muted-foreground line-clamp-2">
+                    {video.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Video Modal */}
+        {selectedVideo && (
+          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 animate-fade-in">
+            <div className="relative w-full max-w-5xl">
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="absolute -top-12 right-0 text-white hover:text-accent transition-colors"
+                aria-label="Fechar vídeo"
+              >
+                <X size={32} />
+              </button>
+
+              {/* Video Player */}
+              <div className="relative aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
+                <iframe
+                  src={selectedVideo.videoUrl}
+                  title={selectedVideo.title}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+
+              {/* Video Info */}
+              <div className="mt-6 text-center">
+                <div className="inline-block px-4 py-1 rounded-full bg-accent/20 text-accent text-sm font-semibold mb-3">
+                  {selectedVideo.category}
+                </div>
+                <h3 className="text-2xl font-heading font-bold text-white mb-2">
+                  {selectedVideo.title}
+                </h3>
+                <p className="text-white/80">
+                  {selectedVideo.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
