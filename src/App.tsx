@@ -8,6 +8,7 @@ import SafeKids from "./pages/SafeKids";
 import FinancasEmFoco from "./pages/FinancasEmFoco";
 import RumoLiberdade from "./pages/RumoLiberdade";
 import Safety from "./pages/Safety";
+import SafeStories from "./pages/SafeStories";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/financas-em-foco" element={<FinancasEmFoco />} />
           <Route path="/rumo-liberdade" element={<RumoLiberdade />} />
           <Route path="/safety" element={<Safety />} />
+          <Route path="/safe-stories" element={<SafeStories />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

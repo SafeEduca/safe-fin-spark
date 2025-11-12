@@ -94,7 +94,7 @@ const Header = () => {
           </div>
 
           <button
-            onClick={() => scrollToSection("depoimentos")}
+            onClick={() => navigate("/safe-stories")}
             className="text-foreground hover:text-accent transition-colors font-medium"
           >
             SAFE Stories
@@ -161,7 +161,10 @@ const Header = () => {
             </div>
 
             <button
-              onClick={() => scrollToSection("depoimentos")}
+              onClick={() => {
+                navigate("/safe-stories");
+                setIsMobileMenuOpen(false);
+              }}
               className="text-foreground hover:text-accent transition-colors font-medium text-left py-2"
             >
               SAFE Stories
