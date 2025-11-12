@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ProgramCard from "./ProgramCard";
 import LeadModal from "./LeadModal";
 import safeKidsImage from "@/assets/safe-kids-program.jpg";
@@ -8,10 +9,12 @@ import safeCompanyImage from "@/assets/safe-company.jpg";
 
 const Programs = () => {
   const [activeModal, setActiveModal] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const programs = [
     {
       id: "safe-kids",
+      path: "/safe-kids",
       title: "SAFE Kids",
       description:
         "O Começo de Tudo: Dê ao seu filho a inteligência financeira que a escola não ensina.",
@@ -22,10 +25,11 @@ const Programs = () => {
         "Desenvolvimento de habilidades financeiras desde cedo",
         "Certificado de conclusão",
       ],
-      ctaText: "Quero saber mais sobre o SAFE Kids",
+      ctaText: "Ver programa completo",
     },
     {
       id: "financas-em-foco",
+      path: "/financas-em-foco",
       title: "Finanças em Foco",
       description:
         "Para Adolescentes: Preparando-se para o Futuro com inteligência financeira desde cedo.",
@@ -37,11 +41,12 @@ const Programs = () => {
         "Planejamento para universidade e carreira",
         "Desenvolvimento de mentalidade empreendedora",
       ],
-      ctaText: "Quero participar do Finanças em Foco",
+      ctaText: "Ver programa completo",
       variant: "dark" as const,
     },
     {
       id: "rumo-liberdade",
+      path: "/rumo-liberdade",
       title: "Rumo à Liberdade",
       description:
         "Para Adultos: Conquiste sua Independência Financeira e construa o futuro dos seus sonhos.",
@@ -54,10 +59,11 @@ const Programs = () => {
         "Planejamento de aposentadoria antecipada",
         "Mentoria personalizada com especialistas",
       ],
-      ctaText: "Quero conquistar minha liberdade financeira",
+      ctaText: "Ver programa completo",
     },
     {
       id: "safe-company",
+      path: "#",
       title: "SAFE Company",
       description:
         "Bem-Estar e Produtividade: Transforme a saúde financeira de seus colaboradores.",
@@ -69,7 +75,7 @@ const Programs = () => {
         "Programas personalizados para empresas",
         "ROI comprovado",
       ],
-      ctaText: "Solicite uma Proposta Personalizada",
+      ctaText: "Solicitar Proposta",
       variant: "dark" as const,
     },
   ];
@@ -87,7 +93,7 @@ const Programs = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
           {programs.map((program) => (
             <div key={program.id} id={program.id} className="scroll-mt-24">
               <ProgramCard
@@ -95,7 +101,13 @@ const Programs = () => {
                 description={program.description}
                 image={program.image}
                 highlights={program.highlights}
-                onCTAClick={() => setActiveModal(program.id)}
+                onCTAClick={() => {
+                  if (program.path === "#") {
+                    setActiveModal(program.id);
+                  } else {
+                    navigate(program.path);
+                  }
+                }}
                 ctaText={program.ctaText}
                 variant={program.variant}
               />
@@ -104,54 +116,34 @@ const Programs = () => {
         </div>
 
         {/* SAFETY Card - In Development */}
-        <div id="safety" className="mt-16 max-w-3xl mx-auto scroll-mt-24">
-          <div className="bg-gradient-gold rounded-2xl p-8 shadow-lg text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-4">
-              <span className="text-3xl">🚀</span>
+        <div id="safety" className="mt-12 md:mt-16 max-w-3xl mx-auto scroll-mt-24">
+          <div className="bg-gradient-gold rounded-2xl p-6 md:p-8 shadow-lg text-center">
+            <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-primary/20 rounded-full mb-4">
+              <span className="text-2xl md:text-3xl">🚀</span>
             </div>
-            <h3 className="text-2xl font-heading font-bold text-accent-foreground mb-4">
+            <h3 className="text-xl md:text-2xl font-heading font-bold text-accent-foreground mb-4">
               SAFETY - Software Educacional
             </h3>
-            <p className="text-accent-foreground/90 mb-6 leading-relaxed">
+            <p className="text-sm md:text-base text-accent-foreground/90 mb-6 leading-relaxed">
               Nossa plataforma digital de educação financeira está em desenvolvimento. Seja o
               primeiro a experimentar uma nova forma de aprender sobre finanças de maneira
               interativa e gamificada.
             </p>
             <button
-              onClick={() => setActiveModal("safety")}
-              className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary-hover transition-all duration-300 hover:scale-105 shadow-md"
+              onClick={() => navigate("/safety")}
+              className="bg-primary text-primary-foreground px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:bg-primary-hover transition-all duration-300 hover:scale-105 shadow-md text-sm md:text-base"
             >
-              Em Desenvolvimento - Seja o Primeiro a Saber
+              Ver mais sobre o SAFETY
             </button>
           </div>
         </div>
       </div>
 
-      {/* Modals */}
-      <LeadModal
-        isOpen={activeModal === "safe-kids"}
-        onClose={() => setActiveModal(null)}
-        programName="SAFE Kids"
-      />
-      <LeadModal
-        isOpen={activeModal === "financas-em-foco"}
-        onClose={() => setActiveModal(null)}
-        programName="Finanças em Foco"
-      />
-      <LeadModal
-        isOpen={activeModal === "rumo-liberdade"}
-        onClose={() => setActiveModal(null)}
-        programName="Rumo à Liberdade"
-      />
+      {/* Modal for SAFE Company only */}
       <LeadModal
         isOpen={activeModal === "safe-company"}
         onClose={() => setActiveModal(null)}
         programName="SAFE Company"
-      />
-      <LeadModal
-        isOpen={activeModal === "safety"}
-        onClose={() => setActiveModal(null)}
-        programName="SAFETY - Software Educacional"
       />
     </section>
   );

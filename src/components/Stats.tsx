@@ -82,9 +82,9 @@ const Stats = () => {
   }, [isVisible]);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-primary">
+    <section ref={sectionRef} className="py-16 md:py-20 bg-primary">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
@@ -93,14 +93,14 @@ const Stats = () => {
                 className="text-center animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-full mb-4">
-                  <Icon className="w-8 h-8 text-accent" />
+                <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-accent/20 rounded-full mb-3 md:mb-4">
+                  <Icon className="w-6 h-6 md:w-8 md:h-8 text-accent" />
                 </div>
-                <div className="text-4xl md:text-5xl font-heading font-bold text-primary-foreground mb-2">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-2">
                   {counters[index]}
                   {stat.suffix}
                 </div>
-                <div className="text-primary-foreground/80 font-medium">{stat.label}</div>
+                <div className="text-sm md:text-base text-primary-foreground/80 font-medium">{stat.label}</div>
               </div>
             );
           })}

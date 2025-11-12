@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import safeLogo from "@/assets/safe-logo.png";
 
 const Header = () => {
@@ -8,6 +9,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProgramsOpen, setIsProgramsOpen] = useState(false);
   const [isMobileProgramsOpen, setIsMobileProgramsOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,10 +30,10 @@ const Header = () => {
   };
 
   const programs = [
-    { name: "SAFE Kids", id: "safe-kids" },
-    { name: "Finanças em Foco", id: "financas-em-foco" },
-    { name: "Rumo à Liberdade", id: "rumo-liberdade" },
-    { name: "SAFETY", id: "safety" },
+    { name: "SAFE Kids", path: "/safe-kids" },
+    { name: "Finanças em Foco", path: "/financas-em-foco" },
+    { name: "Rumo à Liberdade", path: "/rumo-liberdade" },
+    { name: "SAFETY", path: "/safety" },
   ];
 
   return (
@@ -42,14 +44,13 @@ const Header = () => {
     >
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img 
             src={safeLogo} 
             alt="SAFE Educação Financeira" 
-            className="h-12 w-auto cursor-pointer"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="h-10 md:h-12 w-auto"
           />
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
@@ -76,13 +77,17 @@ const Header = () => {
             {isProgramsOpen && (
               <div className="absolute top-full left-0 mt-2 w-56 bg-background border border-border rounded-lg shadow-lg overflow-hidden z-50 animate-scale-in">
                 {programs.map((program) => (
-                  <button
-                    key={program.id}
-                    onClick={() => scrollToSection(program.id)}
-                    className="w-full text-left px-4 py-3 hover:bg-accent/10 hover:text-accent transition-colors font-medium border-b border-border last:border-b-0"
+                  <Link
+                    key={program.path}
+                    to={program.path}
+                    onClick={() => {
+                      setIsProgramsOpen(false);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="block w-full text-left px-4 py-3 hover:bg-accent/10 hover:text-accent transition-colors font-medium border-b border-border last:border-b-0"
                   >
                     {program.name}
-                  </button>
+                  </Link>
                 ))}
               </div>
             )}
@@ -139,13 +144,17 @@ const Header = () => {
               {isMobileProgramsOpen && (
                 <div className="pl-4 mt-2 space-y-2 animate-scale-in">
                   {programs.map((program) => (
-                    <button
-                      key={program.id}
-                      onClick={() => scrollToSection(program.id)}
-                      className="text-muted-foreground hover:text-accent transition-colors font-medium text-left py-2 block w-full"
+                    <Link
+                      key={program.path}
+                      to={program.path}
+                      onClick={() => {
+                        setIsMobileProgramsOpen(false);
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="block text-muted-foreground hover:text-accent transition-colors font-medium text-left py-2 w-full"
                     >
                       {program.name}
-                    </button>
+                    </Link>
                   ))}
                 </div>
               )}
