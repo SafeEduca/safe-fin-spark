@@ -115,14 +115,8 @@ const Header = () => {
           >
             SAFE Stories
           </button>
-          <button
-            onClick={() => scrollToSection("contato")}
-            className="text-foreground hover:text-accent transition-colors font-medium"
-          >
-            Contato
-          </button>
-          <Button variant="hero" onClick={() => scrollToSection("programas")}>
-            Quero Saber Mais
+          <Button variant="hero" asChild>
+            <Link to="/contato">Contato</Link>
           </Button>
         </div>
 
@@ -185,14 +179,8 @@ const Header = () => {
             >
               SAFE Stories
             </button>
-            <button
-              onClick={() => scrollToSection("contato")}
-              className="text-foreground hover:text-accent transition-colors font-medium text-left py-2"
-            >
-              Contato
-            </button>
-            <Button variant="hero" onClick={() => scrollToSection("programas")} className="w-full">
-              Quero Saber Mais
+            <Button variant="hero" asChild className="w-full">
+              <Link to="/contato" onClick={() => setIsMobileMenuOpen(false)}>Contato</Link>
             </Button>
           </div>
         </div>

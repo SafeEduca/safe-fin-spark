@@ -10,6 +10,7 @@ import RumoLiberdade from "./pages/RumoLiberdade";
 import SafeCompany from "./pages/SafeCompany";
 import Safety from "./pages/Safety";
 import SafeStories from "./pages/SafeStories";
+import Contato from "./pages/Contato";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/safe-company" element={<SafeCompany />} />
           <Route path="/safety" element={<Safety />} />
           <Route path="/safe-stories" element={<SafeStories />} />
+          <Route path="/contato" element={<Contato />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

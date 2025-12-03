@@ -1,18 +1,69 @@
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Check, Clock, Users, Award, Target, TrendingUp, Briefcase, Brain } from "lucide-react";
+import { ArrowLeft, Check, Clock, Users, Award, Target, TrendingUp, Briefcase, Brain, HelpCircle, Quote, Rocket, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LeadModal from "@/components/LeadModal";
 import { useState, useEffect } from "react";
 import financasImage from "@/assets/financas-em-foco.png";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const FinancasEmFoco = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [animatedStats, setAnimatedStats] = useState({ teens: 0, hours: 0, projects: 0 });
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    const duration = 2000;
+    const steps = 60;
+    const interval = duration / steps;
+    
+    let step = 0;
+    const timer = setInterval(() => {
+      step++;
+      const progress = step / steps;
+      setAnimatedStats({
+        teens: Math.floor(350 * progress),
+        hours: Math.floor(64 * progress),
+        projects: Math.floor(120 * progress),
+      });
+      if (step >= steps) clearInterval(timer);
+    }, interval);
+    
+    return () => clearInterval(timer);
   }, []);
+
+  const faqs = [
+    {
+      question: "Preciso ter conhecimento prévio sobre finanças?",
+      answer: "Não! O programa foi desenvolvido para começar do básico. Você vai aprender tudo do zero, de forma progressiva e prática."
+    },
+    {
+      question: "Como funciona o simulador de investimentos?",
+      answer: "Você terá acesso a um simulador onde pode praticar investimentos com dinheiro virtual, aprendendo na prática como funciona o mercado financeiro sem riscos."
+    },
+    {
+      question: "Posso fazer o curso mesmo sendo menor de idade?",
+      answer: "Sim! O programa é direcionado para adolescentes de 15 a 18 anos. Menores de 18 anos precisam da autorização dos pais para participar."
+    },
+    {
+      question: "Há suporte após o término do curso?",
+      answer: "Sim! Você terá acesso à comunidade de alunos por 6 meses após a conclusão, além de materiais complementares e atualizações."
+    },
+  ];
+
+  const journey = [
+    { icon: Lightbulb, title: "Despertar", desc: "Entenda seu relacionamento com o dinheiro" },
+    { icon: Target, title: "Planejar", desc: "Defina metas e crie seu orçamento" },
+    { icon: TrendingUp, title: "Investir", desc: "Aprenda a fazer seu dinheiro trabalhar" },
+    { icon: Rocket, title: "Decolar", desc: "Conquiste sua independência financeira" },
+  ];
 
   return (
     <div className="min-h-screen">
@@ -83,6 +134,54 @@ const FinancasEmFoco = () => {
           </div>
         </section>
 
+        {/* Journey Timeline */}
+        <section className="py-16 bg-gradient-to-b from-slate-100 to-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-center mb-12 text-slate-800">
+              Sua Jornada de <span className="text-amber-500">Transformação</span>
+            </h2>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 max-w-4xl mx-auto">
+              {journey.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <div key={index} className="flex items-center">
+                    <div className="flex flex-col items-center text-center group">
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform mb-3">
+                        <Icon className="w-8 h-8 text-amber-400" />
+                      </div>
+                      <h3 className="font-heading font-bold text-slate-800">{step.title}</h3>
+                      <p className="text-sm text-slate-600 max-w-[120px]">{step.desc}</p>
+                    </div>
+                    {index < journey.length - 1 && (
+                      <div className="hidden md:block w-16 h-1 bg-gradient-to-r from-amber-400 to-amber-500 mx-2"></div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="py-12 bg-slate-800">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-amber-400 mb-2">+{animatedStats.teens}</div>
+                <p className="text-slate-300">Adolescentes Formados</p>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-amber-400 mb-2">{animatedStats.hours}h</div>
+                <p className="text-slate-300">de Conteúdo Prático</p>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-amber-400 mb-2">+{animatedStats.projects}</div>
+                <p className="text-slate-300">Projetos Realizados</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Quick Info */}
         <section className="py-12 bg-slate-100">
           <div className="container mx-auto px-4">
@@ -95,7 +194,7 @@ const FinancasEmFoco = () => {
               ].map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <div key={index} className="bg-white rounded-xl p-6 text-center shadow-md border border-slate-200 hover:border-amber-400/50 transition-colors">
+                  <div key={index} className="bg-white rounded-xl p-6 text-center shadow-md border border-slate-200 hover:border-amber-400/50 transition-all hover:-translate-y-1">
                     <Icon className={`w-10 h-10 ${item.color} mx-auto mb-3`} />
                     <div className="text-sm text-slate-500 mb-1">{item.label}</div>
                     <div className="font-heading font-bold text-slate-800 text-lg">{item.value}</div>
@@ -114,7 +213,7 @@ const FinancasEmFoco = () => {
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 shadow-lg border border-slate-200">
+              <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl flex items-center justify-center">
                     <Briefcase className="w-6 h-6 text-amber-400" />
@@ -138,7 +237,7 @@ const FinancasEmFoco = () => {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 shadow-lg border border-slate-200">
+              <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center">
                     <TrendingUp className="w-6 h-6 text-white" />
@@ -162,7 +261,7 @@ const FinancasEmFoco = () => {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 shadow-lg border border-slate-200">
+              <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl flex items-center justify-center">
                     <Target className="w-6 h-6 text-amber-400" />
@@ -186,7 +285,7 @@ const FinancasEmFoco = () => {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 shadow-lg border border-slate-200">
+              <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center">
                     <Brain className="w-6 h-6 text-white" />
@@ -210,16 +309,78 @@ const FinancasEmFoco = () => {
                 </ul>
               </div>
             </div>
+          </div>
+        </section>
 
-            <div className="text-center">
-              <Button 
-                size="lg" 
-                onClick={() => setIsModalOpen(true)}
-                className="bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 text-amber-400 font-bold text-lg px-8 py-6 shadow-lg border border-amber-400/30"
-              >
-                Quero participar do Finanças em Foco
-              </Button>
+        {/* Testimonial */}
+        <section className="py-16 bg-gradient-to-br from-slate-800 to-slate-700">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 text-center border border-amber-400/20">
+              <Quote className="w-12 h-12 text-amber-400/50 mx-auto mb-6" />
+              <p className="text-xl md:text-2xl text-white font-medium mb-6 leading-relaxed">
+                "Antes do curso eu não sabia nem o que era um CDB. Hoje já tenho meus primeiros investimentos e um plano para a faculdade!"
+              </p>
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-12 h-12 bg-amber-400 rounded-full flex items-center justify-center">
+                  <span className="font-bold text-slate-900">LM</span>
+                </div>
+                <div className="text-left">
+                  <p className="font-bold text-white">Lucas M.</p>
+                  <p className="text-slate-300 text-sm">17 anos, Curitiba</p>
+                </div>
+              </div>
             </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 bg-slate-100">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-slate-200 text-slate-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <HelpCircle className="w-4 h-4" />
+                Perguntas Frequentes
+              </div>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-800">
+                Tire suas dúvidas
+              </h2>
+            </div>
+            
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden"
+                >
+                  <AccordionTrigger className="px-6 py-5 text-left font-heading font-bold text-slate-800 hover:no-underline hover:text-amber-600">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-5 text-slate-600">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-slate-800 mb-4">
+              Comece a construir seu futuro financeiro agora!
+            </h2>
+            <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
+              Quanto antes você começar, mais cedo conquistará sua independência financeira.
+            </p>
+            <Button 
+              size="lg" 
+              onClick={() => setIsModalOpen(true)}
+              className="bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 text-amber-400 font-bold text-lg px-8 py-6 shadow-lg border border-amber-400/30"
+            >
+              Quero participar do Finanças em Foco
+            </Button>
           </div>
         </section>
       </main>
