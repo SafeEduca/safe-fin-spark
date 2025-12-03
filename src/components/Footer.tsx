@@ -21,8 +21,8 @@ const Footer = () => {
             alt="SAFE Educação Financeira" 
             className="h-20 md:h-24 mb-4 drop-shadow-lg"
           />
-          <p className="text-white/70 text-center max-w-md">
-            Facilitando o acesso à educação financeira e transformando vidas desde 2023.
+          <p className="text-white/70 text-center max-w-lg text-lg italic">
+            "Transformar financeiramente é investir no futuro de todas as gerações!"
           </p>
         </div>
 
