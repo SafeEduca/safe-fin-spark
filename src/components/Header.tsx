@@ -68,6 +68,7 @@ const Header = () => {
             onMouseLeave={() => setIsProgramsOpen(false)}
           >
             <button
+              onClick={() => setIsProgramsOpen(!isProgramsOpen)}
               className="text-foreground hover:text-accent transition-colors font-medium flex items-center gap-1"
             >
               Programas
@@ -75,7 +76,7 @@ const Header = () => {
             </button>
             
             {isProgramsOpen && (
-              <div className="absolute top-full left-0 mt-2 w-56 bg-background border border-border rounded-lg shadow-lg overflow-hidden z-50 animate-scale-in">
+              <div className="absolute top-full left-0 mt-2 w-56 bg-card border border-border rounded-lg shadow-xl overflow-hidden z-[100] animate-scale-in">
                 {programs.map((program) => (
                   <Link
                     key={program.path}
@@ -84,7 +85,7 @@ const Header = () => {
                       setIsProgramsOpen(false);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="block w-full text-left px-4 py-3 hover:bg-accent/10 hover:text-accent transition-colors font-medium border-b border-border last:border-b-0"
+                    className="block w-full text-left px-4 py-3 bg-card hover:bg-accent/10 hover:text-accent transition-colors font-medium border-b border-border last:border-b-0"
                   >
                     {program.name}
                   </Link>

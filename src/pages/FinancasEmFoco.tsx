@@ -4,11 +4,15 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LeadModal from "@/components/LeadModal";
-import { useState } from "react";
-import financasImage from "@/assets/financas-em-foco.jpg";
+import { useState, useEffect } from "react";
+import financasImage from "@/assets/financas-em-foco.png";
 
 const FinancasEmFoco = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen">
