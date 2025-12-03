@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import SafeKids from "./pages/SafeKids";
 import FinancasEmFoco from "./pages/FinancasEmFoco";
 import RumoLiberdade from "./pages/RumoLiberdade";
+import SafeCompany from "./pages/SafeCompany";
 import Safety from "./pages/Safety";
 import SafeStories from "./pages/SafeStories";
 import NotFound from "./pages/NotFound";
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/safe-kids" element={<SafeKids />} />
           <Route path="/financas-em-foco" element={<FinancasEmFoco />} />
           <Route path="/rumo-liberdade" element={<RumoLiberdade />} />
+          <Route path="/safe-company" element={<SafeCompany />} />
           <Route path="/safety" element={<Safety />} />
           <Route path="/safe-stories" element={<SafeStories />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

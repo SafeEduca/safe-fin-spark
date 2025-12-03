@@ -33,8 +33,23 @@ const Header = () => {
     { name: "SAFE Kids", path: "/safe-kids" },
     { name: "Finanças em Foco", path: "/financas-em-foco" },
     { name: "Rumo à Liberdade", path: "/rumo-liberdade" },
+    { name: "SAFE Company", path: "/safe-company" },
     { name: "SAFETY", path: "/safety" },
   ];
+
+  // Timeout for dropdown to prevent it from closing too fast
+  let dropdownTimeout: NodeJS.Timeout;
+
+  const handleMouseEnter = () => {
+    clearTimeout(dropdownTimeout);
+    setIsProgramsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    dropdownTimeout = setTimeout(() => {
+      setIsProgramsOpen(false);
+    }, 300);
+  };
 
   return (
     <header
@@ -64,8 +79,8 @@ const Header = () => {
           {/* Programs Dropdown */}
           <div 
             className="relative"
-            onMouseEnter={() => setIsProgramsOpen(true)}
-            onMouseLeave={() => setIsProgramsOpen(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <button
               onClick={() => setIsProgramsOpen(!isProgramsOpen)}
