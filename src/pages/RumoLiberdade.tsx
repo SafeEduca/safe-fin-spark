@@ -4,11 +4,15 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LeadModal from "@/components/LeadModal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import rumoImage from "@/assets/rumo-liberdade.jpg";
 
 const RumoLiberdade = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen">
