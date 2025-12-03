@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, Users, Target, Rocket } from "lucide-react";
 import LeadModal from "./LeadModal";
 import safeKidsImage from "@/assets/safe-kids-program.jpg";
-import financasEmFocoImage from "@/assets/financas-em-foco.jpg";
+import financasEmFocoImage from "@/assets/financas-em-foco.png";
 import rumoLiberdadeImage from "@/assets/rumo-liberdade.jpg";
 import safeCompanyImage from "@/assets/safe-company.jpg";
 

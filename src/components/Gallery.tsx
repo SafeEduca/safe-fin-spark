@@ -9,11 +9,23 @@ import certificates from "@/assets/gallery/certificates.jpg";
 import kidsClassroom from "@/assets/gallery/kids-classroom.jpg";
 import groupPhoto from "@/assets/gallery/group-photo.jpg";
 import kidsLearning from "@/assets/gallery/kids-learning.jpg";
+import presentation from "@/assets/gallery/presentation.jpg";
+import teamPhoto from "@/assets/gallery/team-photo.jpg";
+import kidsCooperativa from "@/assets/gallery/kids-cooperativa.jpg";
+import classroomSession from "@/assets/gallery/classroom-session.jpg";
+import kidsGroupCelebration from "@/assets/gallery/kids-group-celebration.jpg";
+import teensClassroom from "@/assets/gallery/teens-classroom.png";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const images = [
+    { src: teamPhoto, alt: "Turma SAFE - Foto em grupo" },
+    { src: presentation, alt: "Apresentação SAFE Educação Financeira" },
+    { src: kidsCooperativa, alt: "Aula Cooperativa Mirim com crianças" },
+    { src: classroomSession, alt: "Sessão em sala de aula SAFE Kids" },
+    { src: kidsGroupCelebration, alt: "Celebração com alunos SAFE Kids" },
+    { src: teensClassroom, alt: "Aula para adolescentes - Finanças em Foco" },
     { src: safeKidsClass, alt: "Aula SAFE Kids - Turma interativa" },
     { src: classroomLecture, alt: "Palestra em sala de aula" },
     { src: inoveClass1, alt: "Workshop Comportamento Financeiro" },
