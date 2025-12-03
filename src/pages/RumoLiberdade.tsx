@@ -1,18 +1,69 @@
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Check, Clock, Users, Award, Crown, Gem, TrendingUp, Building } from "lucide-react";
+import { ArrowLeft, Check, Clock, Users, Award, Crown, Gem, TrendingUp, Building, HelpCircle, Quote, Shield, Wallet } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LeadModal from "@/components/LeadModal";
 import { useState, useEffect } from "react";
 import rumoImage from "@/assets/rumo-liberdade.jpg";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const RumoLiberdade = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [animatedStats, setAnimatedStats] = useState({ adults: 0, saved: 0, freedom: 0 });
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    const duration = 2000;
+    const steps = 60;
+    const interval = duration / steps;
+    
+    let step = 0;
+    const timer = setInterval(() => {
+      step++;
+      const progress = step / steps;
+      setAnimatedStats({
+        adults: Math.floor(800 * progress),
+        saved: Math.floor(2.5 * progress * 10) / 10,
+        freedom: Math.floor(45 * progress),
+      });
+      if (step >= steps) clearInterval(timer);
+    }, interval);
+    
+    return () => clearInterval(timer);
   }, []);
+
+  const faqs = [
+    {
+      question: "O programa serve para quem está endividado?",
+      answer: "Sim! A primeira fase do programa foca exatamente em reorganização financeira e eliminação de dívidas. Muitos alunos chegam endividados e saem com um plano claro de quitação."
+    },
+    {
+      question: "Quanto tempo leva para ver resultados?",
+      answer: "Os primeiros resultados aparecem já nas primeiras semanas com a reorganização do orçamento. Resultados mais significativos em investimentos são visíveis em 3-6 meses de aplicação consistente."
+    },
+    {
+      question: "A mentoria é individual ou em grupo?",
+      answer: "O programa combina ambos: você terá acesso a mentorias em grupo semanais e sessões individuais mensais para acompanhamento personalizado do seu progresso."
+    },
+    {
+      question: "Preciso ter muito dinheiro para começar a investir?",
+      answer: "Não! Você pode começar com qualquer valor. O importante é criar o hábito. Ensinamos estratégias para começar com pouco e aumentar gradualmente seus aportes."
+    },
+  ];
+
+  const benefits = [
+    { icon: Shield, title: "Segurança Financeira", desc: "Fundo de emergência e proteção patrimonial" },
+    { icon: TrendingUp, title: "Crescimento", desc: "Investimentos inteligentes e rentáveis" },
+    { icon: Wallet, title: "Renda Passiva", desc: "Dinheiro trabalhando para você" },
+    { icon: Crown, title: "Liberdade", desc: "Escolhas sem preocupação financeira" },
+  ];
 
   return (
     <div className="min-h-screen">
@@ -81,6 +132,46 @@ const RumoLiberdade = () => {
           </div>
         </section>
 
+        {/* Benefits Grid */}
+        <section className="py-16 bg-gradient-to-b from-amber-100 to-white">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {benefits.map((benefit, index) => {
+                const Icon = benefit.icon;
+                return (
+                  <div key={index} className="text-center group">
+                    <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <Icon className="w-10 h-10 text-white" />
+                    </div>
+                    <h3 className="font-heading font-bold text-amber-900">{benefit.title}</h3>
+                    <p className="text-sm text-amber-700">{benefit.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="py-12 bg-gradient-to-r from-amber-800 to-yellow-700">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-yellow-300 mb-2">+{animatedStats.adults}</div>
+                <p className="text-amber-100">Adultos Transformados</p>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-yellow-300 mb-2">R$ {animatedStats.saved}M</div>
+                <p className="text-amber-100">Economizados pelos Alunos</p>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-yellow-300 mb-2">{animatedStats.freedom}%</div>
+                <p className="text-amber-100">Alcançaram Independência</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Quick Info */}
         <section className="py-12 bg-gradient-to-b from-amber-50 to-white">
           <div className="container mx-auto px-4">
@@ -93,7 +184,7 @@ const RumoLiberdade = () => {
               ].map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <div key={index} className="bg-white rounded-xl p-6 text-center shadow-lg border border-amber-200 hover:border-yellow-400 transition-colors">
+                  <div key={index} className="bg-white rounded-xl p-6 text-center shadow-lg border border-amber-200 hover:border-yellow-400 transition-all hover:-translate-y-1">
                     <Icon className={`w-10 h-10 ${item.color} mx-auto mb-3`} />
                     <div className="text-sm text-amber-600 mb-1">{item.label}</div>
                     <div className="font-heading font-bold text-amber-900 text-lg">{item.value}</div>
@@ -112,7 +203,7 @@ const RumoLiberdade = () => {
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-8 shadow-lg border border-amber-200">
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-8 shadow-lg border border-amber-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-amber-600 to-amber-700 rounded-xl flex items-center justify-center">
                     <Building className="w-6 h-6 text-yellow-300" />
@@ -136,7 +227,7 @@ const RumoLiberdade = () => {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-8 shadow-lg border border-yellow-200">
+              <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-8 shadow-lg border border-yellow-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-xl flex items-center justify-center">
                     <TrendingUp className="w-6 h-6 text-white" />
@@ -160,7 +251,7 @@ const RumoLiberdade = () => {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-8 shadow-lg border border-amber-200">
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-8 shadow-lg border border-amber-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-amber-600 to-amber-700 rounded-xl flex items-center justify-center">
                     <Gem className="w-6 h-6 text-yellow-300" />
@@ -184,7 +275,7 @@ const RumoLiberdade = () => {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-2xl p-8 shadow-lg border border-yellow-300">
+              <div className="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-2xl p-8 shadow-lg border border-yellow-300 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-xl flex items-center justify-center">
                     <Crown className="w-6 h-6 text-white" />
@@ -226,16 +317,78 @@ const RumoLiberdade = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
 
-            <div className="text-center">
-              <Button 
-                size="lg" 
-                onClick={() => setIsModalOpen(true)}
-                className="bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-700 hover:to-yellow-600 text-white font-bold text-lg px-8 py-6 shadow-xl"
-              >
-                Quero iniciar minha jornada rumo à liberdade
-              </Button>
+        {/* Testimonial */}
+        <section className="py-16 bg-gradient-to-br from-amber-800 to-yellow-700">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 text-center border border-yellow-400/20">
+              <Quote className="w-12 h-12 text-yellow-400/50 mx-auto mb-6" />
+              <p className="text-xl md:text-2xl text-white font-medium mb-6 leading-relaxed">
+                "Em 18 meses quitei R$ 45 mil em dívidas e comecei a investir. Hoje tenho um patrimônio que nunca imaginei ter. O programa mudou minha vida!"
+              </p>
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center">
+                  <span className="font-bold text-amber-900">RS</span>
+                </div>
+                <div className="text-left">
+                  <p className="font-bold text-white">Roberto S.</p>
+                  <p className="text-amber-200 text-sm">42 anos, Empresário</p>
+                </div>
+              </div>
             </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 bg-amber-50">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-amber-200 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <HelpCircle className="w-4 h-4" />
+                Perguntas Frequentes
+              </div>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-amber-900">
+                Tire suas dúvidas
+              </h2>
+            </div>
+            
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="bg-white rounded-2xl shadow-md border border-amber-200 overflow-hidden"
+                >
+                  <AccordionTrigger className="px-6 py-5 text-left font-heading font-bold text-amber-900 hover:no-underline hover:text-yellow-600">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-5 text-amber-700">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-amber-900 mb-4">
+              Pronto para conquistar sua liberdade financeira?
+            </h2>
+            <p className="text-amber-700 mb-8 max-w-2xl mx-auto">
+              O melhor momento para começar foi ontem. O segundo melhor momento é agora.
+            </p>
+            <Button 
+              size="lg" 
+              onClick={() => setIsModalOpen(true)}
+              className="bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-700 hover:to-yellow-600 text-white font-bold text-lg px-8 py-6 shadow-xl"
+            >
+              Quero iniciar minha jornada rumo à liberdade
+            </Button>
           </div>
         </section>
       </main>

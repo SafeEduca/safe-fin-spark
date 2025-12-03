@@ -1,18 +1,69 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Check, Clock, Users, Award, Building2, Target, BarChart3, Users2 } from "lucide-react";
+import { ArrowLeft, Check, Clock, Users, Award, Building2, Target, BarChart3, Users2, HelpCircle, Quote, TrendingUp, Heart, Briefcase } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LeadModal from "@/components/LeadModal";
 import safeCompanyImage from "@/assets/safe-company.jpg";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const SafeCompany = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [animatedStats, setAnimatedStats] = useState({ companies: 0, employees: 0, roi: 0 });
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    const duration = 2000;
+    const steps = 60;
+    const interval = duration / steps;
+    
+    let step = 0;
+    const timer = setInterval(() => {
+      step++;
+      const progress = step / steps;
+      setAnimatedStats({
+        companies: Math.floor(50 * progress),
+        employees: Math.floor(3000 * progress),
+        roi: Math.floor(300 * progress),
+      });
+      if (step >= steps) clearInterval(timer);
+    }, interval);
+    
+    return () => clearInterval(timer);
   }, []);
+
+  const faqs = [
+    {
+      question: "Como funciona a implementação na empresa?",
+      answer: "Realizamos um diagnóstico inicial para entender as necessidades da sua equipe. O programa pode ser implementado de forma presencial, online ou híbrida, adaptando-se à rotina da empresa."
+    },
+    {
+      question: "Qual o investimento necessário?",
+      answer: "O investimento varia conforme o número de colaboradores e formato escolhido. Entre em contato para uma proposta personalizada sem compromisso."
+    },
+    {
+      question: "Como medir os resultados do programa?",
+      answer: "Fornecemos relatórios completos com métricas de engajamento, evolução do conhecimento financeiro e pesquisas de satisfação. Muitas empresas relatam redução de pedidos de adiantamento e empréstimos consignados."
+    },
+    {
+      question: "O programa serve para todos os níveis hierárquicos?",
+      answer: "Sim! Adaptamos o conteúdo para diferentes públicos: operacional, administrativo, gestores e diretoria. Cada grupo recebe conteúdo relevante para sua realidade."
+    },
+  ];
+
+  const results = [
+    { icon: TrendingUp, value: "40%", label: "Aumento na produtividade" },
+    { icon: Heart, value: "65%", label: "Redução do estresse" },
+    { icon: Users, value: "35%", label: "Menos turnover" },
+    { icon: Briefcase, value: "50%", label: "Menos pedidos de adiantamento" },
+  ];
 
   return (
     <div className="min-h-screen">
@@ -80,6 +131,49 @@ const SafeCompany = () => {
           </div>
         </section>
 
+        {/* Results Section */}
+        <section className="py-16 bg-gradient-to-b from-emerald-100 to-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-center mb-12 text-emerald-900">
+              Resultados Comprovados
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {results.map((result, index) => {
+                const Icon = result.icon;
+                return (
+                  <div key={index} className="text-center group">
+                    <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <Icon className="w-10 h-10 text-white" />
+                    </div>
+                    <div className="text-3xl font-bold text-emerald-700">{result.value}</div>
+                    <p className="text-sm text-emerald-600">{result.label}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="py-12 bg-gradient-to-r from-emerald-800 to-teal-700">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-teal-300 mb-2">+{animatedStats.companies}</div>
+                <p className="text-emerald-100">Empresas Atendidas</p>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-teal-300 mb-2">+{animatedStats.employees.toLocaleString()}</div>
+                <p className="text-emerald-100">Colaboradores Impactados</p>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-teal-300 mb-2">{animatedStats.roi}%</div>
+                <p className="text-emerald-100">ROI Médio do Programa</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Quick Info */}
         <section className="py-12 bg-gradient-to-b from-emerald-50 to-white">
           <div className="container mx-auto px-4">
@@ -92,7 +186,7 @@ const SafeCompany = () => {
               ].map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <div key={index} className="bg-white rounded-xl p-6 text-center shadow-lg border border-emerald-200 hover:border-teal-400 transition-colors">
+                  <div key={index} className="bg-white rounded-xl p-6 text-center shadow-lg border border-emerald-200 hover:border-teal-400 transition-all hover:-translate-y-1">
                     <Icon className={`w-10 h-10 ${item.color} mx-auto mb-3`} />
                     <div className="text-sm text-emerald-600 mb-1">{item.label}</div>
                     <div className="font-heading font-bold text-emerald-900 text-lg">{item.value}</div>
@@ -111,7 +205,7 @@ const SafeCompany = () => {
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 shadow-lg border border-emerald-200">
+              <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 shadow-lg border border-emerald-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center">
                     <Users2 className="w-6 h-6 text-white" />
@@ -135,7 +229,7 @@ const SafeCompany = () => {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl p-8 shadow-lg border border-teal-200">
+              <div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl p-8 shadow-lg border border-teal-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center">
                     <BarChart3 className="w-6 h-6 text-white" />
@@ -159,7 +253,7 @@ const SafeCompany = () => {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 shadow-lg border border-emerald-200">
+              <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 shadow-lg border border-emerald-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center">
                     <Target className="w-6 h-6 text-white" />
@@ -183,7 +277,7 @@ const SafeCompany = () => {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl p-8 shadow-lg border border-teal-200">
+              <div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl p-8 shadow-lg border border-teal-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center">
                     <Building2 className="w-6 h-6 text-white" />
@@ -207,16 +301,78 @@ const SafeCompany = () => {
                 </ul>
               </div>
             </div>
+          </div>
+        </section>
 
-            <div className="text-center">
-              <Button 
-                size="lg" 
-                onClick={() => setIsModalOpen(true)}
-                className="bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-700 hover:to-teal-600 text-white font-bold text-lg px-8 py-6 shadow-xl"
-              >
-                Solicitar proposta para minha empresa
-              </Button>
+        {/* Testimonial */}
+        <section className="py-16 bg-gradient-to-br from-emerald-800 to-teal-700">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 text-center border border-teal-400/20">
+              <Quote className="w-12 h-12 text-teal-400/50 mx-auto mb-6" />
+              <p className="text-xl md:text-2xl text-white font-medium mb-6 leading-relaxed">
+                "Após implementar o programa SAFE Company, vimos uma redução de 60% nos pedidos de adiantamento salarial e um aumento significativo no engajamento da equipe."
+              </p>
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-12 h-12 bg-teal-400 rounded-full flex items-center justify-center">
+                  <span className="font-bold text-emerald-900">MC</span>
+                </div>
+                <div className="text-left">
+                  <p className="font-bold text-white">Mariana C.</p>
+                  <p className="text-emerald-200 text-sm">Diretora de RH, Empresa de Tecnologia</p>
+                </div>
+              </div>
             </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 bg-emerald-50">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-emerald-200 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <HelpCircle className="w-4 h-4" />
+                Perguntas Frequentes
+              </div>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-emerald-900">
+                Tire suas dúvidas
+              </h2>
+            </div>
+            
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="bg-white rounded-2xl shadow-md border border-emerald-200 overflow-hidden"
+                >
+                  <AccordionTrigger className="px-6 py-5 text-left font-heading font-bold text-emerald-900 hover:no-underline hover:text-teal-600">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-5 text-emerald-700">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-emerald-900 mb-4">
+              Invista no bem-estar financeiro da sua equipe
+            </h2>
+            <p className="text-emerald-700 mb-8 max-w-2xl mx-auto">
+              Colaboradores financeiramente saudáveis são mais produtivos, engajados e comprometidos.
+            </p>
+            <Button 
+              size="lg" 
+              onClick={() => setIsModalOpen(true)}
+              className="bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-700 hover:to-teal-600 text-white font-bold text-lg px-8 py-6 shadow-xl"
+            >
+              Solicitar proposta para minha empresa
+            </Button>
           </div>
         </section>
       </main>
