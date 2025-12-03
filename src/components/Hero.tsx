@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, TrendingUp, Users, Award, Sparkles, BookOpen } from "lucide-react";
+import { ArrowRight, Shield, TrendingUp, Users, Award, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-safe-education.jpg";
 
 const Hero = () => {
@@ -10,144 +11,142 @@ const Hero = () => {
     }
   };
 
-  const features = [
-    { icon: Shield, label: "Metodologia Comprovada" },
-    { icon: Users, label: "+5000 Vidas Transformadas" },
-    { icon: Award, label: "Certificação Reconhecida" },
-    { icon: BookOpen, label: "Educação Prática" },
+  const stats = [
+    { value: "+5000", label: "Vidas Transformadas" },
+    { value: "98%", label: "Satisfação" },
+    { value: "+50", label: "Empresas Parceiras" },
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-primary">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }}></div>
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0">
+        <img 
+          src={heroImage} 
+          alt="SAFE Educação Financeira"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent"></div>
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-10 right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse hidden lg:block"></div>
-      <div className="absolute bottom-10 left-10 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse hidden lg:block" style={{ animationDelay: '1s' }}></div>
-      <div className="absolute top-1/2 left-1/4 w-40 h-40 bg-accent/5 rounded-full blur-2xl animate-pulse hidden xl:block" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-20 right-20 w-96 h-96 bg-accent/20 rounded-full blur-[100px] animate-pulse hidden lg:block"></div>
+      <div className="absolute bottom-20 left-20 w-64 h-64 bg-accent/10 rounded-full blur-[80px] animate-pulse hidden lg:block" style={{ animationDelay: '1s' }}></div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-16 md:py-20 lg:py-32 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+      <div className="container mx-auto px-4 py-32 md:py-40 relative z-10">
+        <div className="max-w-4xl mx-auto text-center lg:text-left lg:max-w-none lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
           {/* Left Column - Content */}
-          <div className="animate-fade-in-up space-y-6 md:space-y-8">
-            {/* Tag */}
-            <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold backdrop-blur-sm border border-accent/20">
-              <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
-              Educação Financeira que Transforma
+          <div className="animate-fade-in-up space-y-8">
+            {/* Impact Phrase */}
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-white leading-[1.1]">
+                <span className="block">Transformar</span>
+                <span className="block">financeiramente é</span>
+                <span className="block text-accent" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  investir no futuro
+                </span>
+                <span className="block">de todas as gerações!</span>
+              </h1>
             </div>
 
-            {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-primary-foreground leading-tight">
-              Domine suas{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10 text-accent">finanças</span>
-                <span className="absolute bottom-1 md:bottom-2 left-0 w-full h-2 md:h-3 bg-accent/30 -rotate-1"></span>
-              </span>
-              {" "}e construa seu futuro
-            </h1>
-
             {/* Subheadline */}
-            <p className="text-base md:text-xl lg:text-2xl text-primary-foreground/80 font-light leading-relaxed max-w-xl">
+            <p className="text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
               Educação financeira prática e acessível para todas as idades.{" "}
               <span className="text-accent font-semibold">Do primeiro cofrinho à independência financeira.</span>
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button 
-                variant="hero" 
                 size="lg" 
                 onClick={scrollToPrograms}
-                className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6 shadow-gold group"
+                className="bg-accent hover:bg-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 group"
               >
-                Transforme sua vida financeira
-                <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
+                Conheça nossos programas
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
-                variant="outlineGold" 
+                variant="outline" 
                 size="lg" 
-                onClick={() => {
-                  const element = document.getElementById("sobre");
-                  if (element) element.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6"
+                asChild
+                className="border-2 border-white/30 text-white hover:bg-white/10 font-bold text-lg px-8 py-6 rounded-full backdrop-blur-sm"
               >
-                Conheça nossa história
+                <Link to="/safe-stories">
+                  <Play className="mr-2 w-5 h-5" />
+                  Ver depoimentos
+                </Link>
               </Button>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="pt-6 md:pt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
-              {features.map((feature, index) => {
-                const Icon = feature.icon;
-                return (
-                  <div 
-                    key={index}
-                    className="flex flex-col items-center text-center gap-2 animate-fade-in-up"
-                    style={{ animationDelay: `${index * 0.1 + 0.3}s` }}
-                  >
-                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-accent/20 flex items-center justify-center">
-                      <Icon className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-                    </div>
-                    <span className="text-xs text-primary-foreground/70 font-medium leading-tight">
-                      {feature.label}
-                    </span>
-                  </div>
-                );
-              })}
+            {/* Stats */}
+            <div className="pt-8 flex flex-wrap justify-center lg:justify-start gap-8 md:gap-12">
+              {stats.map((stat, index) => (
+                <div 
+                  key={index}
+                  className="text-center animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1 + 0.4}s` }}
+                >
+                  <div className="text-3xl md:text-4xl font-heading font-bold text-accent">{stat.value}</div>
+                  <div className="text-sm text-white/70 mt-1">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right Column - Image */}
-          <div className="relative hidden lg:block animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          {/* Right Column - Visual Element */}
+          <div className="hidden lg:block animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <div className="relative">
-              {/* Main Image with Enhanced Shadow */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img
-                  src={heroImage}
-                  alt="SAFE Educação Financeira - Transformando vidas"
-                  className="w-full h-[500px] xl:h-[600px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent"></div>
-                
-                {/* Overlay Text on Image */}
-                <div className="absolute bottom-8 left-8 right-8 text-primary-foreground">
-                  <p className="text-lg font-semibold mb-2">Educação Financeira SAFE</p>
-                  <p className="text-sm opacity-90">Facilitando o acesso ao conhecimento financeiro</p>
-                </div>
+              {/* Decorative Frame */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-accent/30 to-accent/10 rounded-[2rem] blur-xl"></div>
+              
+              {/* Feature Cards */}
+              <div className="relative grid grid-cols-2 gap-4">
+                {[
+                  { icon: Shield, title: "Metodologia", desc: "Comprovada" },
+                  { icon: Users, title: "Comunidade", desc: "Engajada" },
+                  { icon: TrendingUp, title: "Resultados", desc: "Reais" },
+                  { icon: Award, title: "Certificação", desc: "Reconhecida" },
+                ].map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <div 
+                      key={index}
+                      className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 animate-scale-in"
+                      style={{ animationDelay: `${index * 0.1 + 0.5}s` }}
+                    >
+                      <div className="w-14 h-14 mx-auto mb-3 rounded-xl bg-accent/20 flex items-center justify-center">
+                        <Icon className="w-7 h-7 text-accent" />
+                      </div>
+                      <h3 className="font-heading font-bold text-white text-lg">{item.title}</h3>
+                      <p className="text-white/70 text-sm">{item.desc}</p>
+                    </div>
+                  );
+                })}
               </div>
 
-              {/* Floating Card - Enhanced */}
-              <div className="absolute -bottom-6 -left-6 bg-card p-4 md:p-6 rounded-2xl shadow-2xl border-2 border-accent/30 animate-scale-in backdrop-blur-sm" style={{ animationDelay: '0.5s' }}>
-                <div className="flex items-center gap-3 md:gap-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-gold flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-accent-foreground" />
+              {/* Floating Badge */}
+              <div className="absolute -bottom-8 -right-8 bg-white rounded-2xl p-4 shadow-2xl animate-scale-in" style={{ animationDelay: '0.8s' }}>
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-amber-400 flex items-center justify-center">
+                    <TrendingUp className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <div className="text-xl md:text-2xl font-heading font-bold text-foreground">95%</div>
-                    <div className="text-xs md:text-sm text-muted-foreground">Satisfação dos alunos</div>
+                    <div className="text-2xl font-heading font-bold text-primary">95%</div>
+                    <div className="text-xs text-muted-foreground">Recomendam</div>
                   </div>
                 </div>
               </div>
-
-              {/* Decorative Border with Glow */}
-              <div className="absolute -top-4 -right-4 w-full h-full border-2 border-accent/40 rounded-3xl -z-10 shadow-lg shadow-accent/20"></div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden sm:block">
-        <div className="w-5 h-8 md:w-6 md:h-10 border-2 border-accent/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-2 md:w-1.5 md:h-3 bg-accent rounded-full"></div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden md:block">
+        <div className="w-6 h-10 border-2 border-white/40 rounded-full flex items-start justify-center p-2">
+          <div className="w-1.5 h-3 bg-accent rounded-full"></div>
         </div>
       </div>
     </section>

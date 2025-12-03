@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import safeLogo from "@/assets/safe-logo.png";
 
@@ -30,14 +30,13 @@ const Header = () => {
   };
 
   const programs = [
-    { name: "SAFE Kids", path: "/safe-kids" },
-    { name: "Finanças em Foco", path: "/financas-em-foco" },
-    { name: "Rumo à Liberdade", path: "/rumo-liberdade" },
-    { name: "SAFE Company", path: "/safe-company" },
-    { name: "SAFETY", path: "/safety" },
+    { name: "SAFE Kids", path: "/safe-kids", color: "bg-orange-500" },
+    { name: "Finanças em Foco", path: "/financas-em-foco", color: "bg-amber-500" },
+    { name: "Rumo à Liberdade", path: "/rumo-liberdade", color: "bg-yellow-500" },
+    { name: "SAFE Company", path: "/safe-company", color: "bg-emerald-500" },
+    { name: "SAFETY", path: "/safety", color: "bg-violet-500" },
   ];
 
-  // Timeout for dropdown to prevent it from closing too fast
   let dropdownTimeout: NodeJS.Timeout;
 
   const handleMouseEnter = () => {
@@ -53,90 +52,150 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background shadow-md" : "bg-background/95 backdrop-blur-sm"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled 
+          ? "bg-white/95 backdrop-blur-lg shadow-lg border-b border-border/50" 
+          : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <img 
-            src={safeLogo} 
-            alt="SAFE Educação Financeira" 
-            className="h-10 md:h-12 w-auto"
-          />
-        </Link>
+      {/* Top Bar - Only on scroll */}
+      <div className={`overflow-hidden transition-all duration-300 ${isScrolled ? 'h-0' : 'h-8 bg-primary'}`}>
+        <div className="container mx-auto px-4 h-full flex items-center justify-end gap-6 text-xs text-white/90">
+          <a href="tel:+5546933005265" className="flex items-center gap-1 hover:text-accent transition-colors">
+            <Phone className="w-3 h-3" />
+            (46) 93300-5265
+          </a>
+        </div>
+      </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          <button
-            onClick={() => scrollToSection("sobre")}
-            className="text-foreground hover:text-accent transition-colors font-medium"
-          >
-            Sobre
-          </button>
-          
-          {/* Programs Dropdown */}
-          <div 
-            className="relative"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <button
-              onClick={() => setIsProgramsOpen(!isProgramsOpen)}
-              className="text-foreground hover:text-accent transition-colors font-medium flex items-center gap-1"
+      <nav className={`container mx-auto px-4 transition-all duration-300 ${isScrolled ? 'py-3' : 'py-4'}`}>
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center group">
+            <img 
+              src={safeLogo} 
+              alt="SAFE Educação Financeira" 
+              className={`transition-all duration-300 ${isScrolled ? 'h-10' : 'h-12 md:h-14'}`}
+            />
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-1">
+            <Link
+              to="/"
+              className={`px-4 py-2.5 rounded-full text-base font-semibold transition-all duration-300 ${
+                isScrolled 
+                  ? 'text-foreground hover:bg-primary/10 hover:text-primary' 
+                  : 'text-white hover:bg-white/10'
+              }`}
             >
-              Programas
-              <ChevronDown className={`w-4 h-4 transition-transform ${isProgramsOpen ? 'rotate-180' : ''}`} />
+              Início
+            </Link>
+            
+            <button
+              onClick={() => scrollToSection("sobre")}
+              className={`px-4 py-2.5 rounded-full text-base font-semibold transition-all duration-300 ${
+                isScrolled 
+                  ? 'text-foreground hover:bg-primary/10 hover:text-primary' 
+                  : 'text-white hover:bg-white/10'
+              }`}
+            >
+              Sobre
             </button>
             
-            {isProgramsOpen && (
-              <div className="absolute top-full left-0 mt-2 w-56 bg-card border border-border rounded-lg shadow-xl overflow-hidden z-[100] animate-scale-in">
-                {programs.map((program) => (
-                  <Link
-                    key={program.path}
-                    to={program.path}
-                    onClick={() => {
-                      setIsProgramsOpen(false);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="block w-full text-left px-4 py-3 bg-card hover:bg-accent/10 hover:text-accent transition-colors font-medium border-b border-border last:border-b-0"
-                  >
-                    {program.name}
-                  </Link>
-                ))}
-              </div>
-            )}
+            {/* Programs Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                onClick={() => setIsProgramsOpen(!isProgramsOpen)}
+                className={`px-4 py-2.5 rounded-full text-base font-semibold transition-all duration-300 flex items-center gap-1 ${
+                  isScrolled 
+                    ? 'text-foreground hover:bg-primary/10 hover:text-primary' 
+                    : 'text-white hover:bg-white/10'
+                }`}
+              >
+                Programas
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isProgramsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isProgramsOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-white rounded-2xl shadow-2xl overflow-hidden z-[100] animate-scale-in border border-border/50">
+                  <div className="p-2">
+                    {programs.map((program) => (
+                      <Link
+                        key={program.path}
+                        to={program.path}
+                        onClick={() => {
+                          setIsProgramsOpen(false);
+                          setIsMobileMenuOpen(false);
+                        }}
+                        className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-muted transition-all duration-200 group"
+                      >
+                        <div className={`w-2.5 h-2.5 rounded-full ${program.color}`}></div>
+                        <span className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                          {program.name}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <button
+              onClick={() => navigate("/safe-stories")}
+              className={`px-4 py-2.5 rounded-full text-base font-semibold transition-all duration-300 ${
+                isScrolled 
+                  ? 'text-foreground hover:bg-primary/10 hover:text-primary' 
+                  : 'text-white hover:bg-white/10'
+              }`}
+            >
+              SAFE Stories
+            </button>
+            
+            <Link
+              to="/contato"
+              className={`ml-2 px-6 py-2.5 rounded-full text-base font-bold transition-all duration-300 ${
+                isScrolled 
+                  ? 'bg-accent text-white hover:bg-accent/90 shadow-md hover:shadow-lg' 
+                  : 'bg-white text-primary hover:bg-white/90 shadow-lg'
+              }`}
+            >
+              Fale Conosco
+            </Link>
           </div>
 
+          {/* Mobile Menu Button */}
           <button
-            onClick={() => navigate("/safe-stories")}
-            className="text-foreground hover:text-accent transition-colors font-medium"
+            className={`lg:hidden p-2 rounded-lg transition-colors ${
+              isScrolled ? 'text-primary hover:bg-primary/10' : 'text-white hover:bg-white/10'
+            }`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
-            SAFE Stories
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
-          <Button variant="hero" asChild>
-            <Link to="/contato">Contato</Link>
-          </Button>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-primary"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </nav>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background border-t border-border animate-scale-in">
-          <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+        <div className="lg:hidden bg-white border-t border-border animate-scale-in shadow-xl">
+          <div className="container mx-auto px-4 py-6 flex flex-col gap-2">
+            <Link
+              to="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="px-4 py-3 rounded-xl text-foreground hover:bg-muted transition-colors font-semibold text-lg"
+            >
+              Início
+            </Link>
+            
             <button
               onClick={() => scrollToSection("sobre")}
-              className="text-foreground hover:text-accent transition-colors font-medium text-left py-2"
+              className="px-4 py-3 rounded-xl text-foreground hover:bg-muted transition-colors font-semibold text-lg text-left"
             >
               Sobre
             </button>
@@ -145,14 +204,14 @@ const Header = () => {
             <div>
               <button
                 onClick={() => setIsMobileProgramsOpen(!isMobileProgramsOpen)}
-                className="text-foreground hover:text-accent transition-colors font-medium text-left py-2 flex items-center justify-between w-full"
+                className="w-full px-4 py-3 rounded-xl text-foreground hover:bg-muted transition-colors font-semibold text-lg flex items-center justify-between"
               >
                 Programas
-                <ChevronDown className={`w-4 h-4 transition-transform ${isMobileProgramsOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-5 h-5 transition-transform ${isMobileProgramsOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {isMobileProgramsOpen && (
-                <div className="pl-4 mt-2 space-y-2 animate-scale-in">
+                <div className="mt-2 ml-4 space-y-1 animate-scale-in">
                   {programs.map((program) => (
                     <Link
                       key={program.path}
@@ -161,8 +220,9 @@ const Header = () => {
                         setIsMobileProgramsOpen(false);
                         setIsMobileMenuOpen(false);
                       }}
-                      className="block text-muted-foreground hover:text-accent transition-colors font-medium text-left py-2 w-full"
+                      className="flex items-center gap-3 px-4 py-3 rounded-xl text-muted-foreground hover:bg-muted hover:text-foreground transition-colors font-medium"
                     >
+                      <div className={`w-2 h-2 rounded-full ${program.color}`}></div>
                       {program.name}
                     </Link>
                   ))}
@@ -175,13 +235,18 @@ const Header = () => {
                 navigate("/safe-stories");
                 setIsMobileMenuOpen(false);
               }}
-              className="text-foreground hover:text-accent transition-colors font-medium text-left py-2"
+              className="px-4 py-3 rounded-xl text-foreground hover:bg-muted transition-colors font-semibold text-lg text-left"
             >
               SAFE Stories
             </button>
-            <Button variant="hero" asChild className="w-full">
-              <Link to="/contato" onClick={() => setIsMobileMenuOpen(false)}>Contato</Link>
-            </Button>
+            
+            <Link
+              to="/contato"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="mt-4 px-6 py-4 rounded-xl bg-accent text-white font-bold text-lg text-center shadow-md"
+            >
+              Fale Conosco
+            </Link>
           </div>
         </div>
       )}
