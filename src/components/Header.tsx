@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import safeLogo from "@/assets/safe-logo.png";
 
@@ -58,16 +58,6 @@ const Header = () => {
           : "bg-transparent"
       }`}
     >
-      {/* Top Bar - Only on scroll */}
-      <div className={`overflow-hidden transition-all duration-300 ${isScrolled ? 'h-0' : 'h-8 bg-primary'}`}>
-        <div className="container mx-auto px-4 h-full flex items-center justify-end gap-6 text-xs text-white/90">
-          <a href="tel:+5546933005265" className="flex items-center gap-1 hover:text-accent transition-colors">
-            <Phone className="w-3 h-3" />
-            (46) 93300-5265
-          </a>
-        </div>
-      </div>
-
       <nav className={`container mx-auto px-4 transition-all duration-300 ${isScrolled ? 'py-3' : 'py-4'}`}>
         <div className="flex items-center justify-between">
           {/* Logo */}
