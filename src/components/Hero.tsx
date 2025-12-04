@@ -41,7 +41,7 @@ const Hero = () => {
           <div className="animate-fade-in-up space-y-6 sm:space-y-8">
             {/* Impact Phrase */}
             <div className="space-y-4 sm:space-y-6">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-white leading-[1.15]">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white leading-[1.2]">
                 <span className="block">Transformar</span>
                 <span className="block">financeiramente é</span>
                 <span className="block text-accent" style={{ fontFamily: "'Playfair Display', serif" }}>
