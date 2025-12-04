@@ -49,23 +49,23 @@ const Contato = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative py-20 md:py-28 bg-gradient-to-br from-primary via-primary/90 to-primary/80 overflow-hidden">
+        <section className="relative py-24 sm:py-28 md:py-32 bg-gradient-to-br from-primary via-primary/90 to-primary/80 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/20 rounded-full blur-3xl" />
-            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
+            <div className="absolute -top-40 -right-40 w-60 sm:w-80 h-60 sm:h-80 bg-accent/20 rounded-full blur-3xl" />
+            <div className="absolute -bottom-40 -left-40 w-60 sm:w-80 h-60 sm:h-80 bg-white/10 rounded-full blur-3xl" />
           </div>
           
-          <div className="container mx-auto px-4 relative z-10">
-            <Link to="/" className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors">
-              <ArrowLeft className="mr-2" />
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
+            <Link to="/" className="inline-flex items-center text-white/80 hover:text-white mb-6 sm:mb-8 transition-colors text-sm sm:text-base">
+              <ArrowLeft className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
               Voltar para Home
             </Link>
             
             <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4 sm:mb-6">
                 Fale <span className="text-accent">Conosco</span>
               </h1>
-              <p className="text-xl text-white/90">
+              <p className="text-base sm:text-lg md:text-xl text-white/90">
                 Estamos prontos para ajudar você a transformar sua vida financeira!
               </p>
             </div>
@@ -129,15 +129,15 @@ const Contato = () => {
         </section>
 
         {/* Main Content */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <section className="py-12 sm:py-16 bg-muted/30">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
               {/* Contact Form */}
-              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-border/50">
-                <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-2">
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-border/50">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground mb-2">
                   Envie sua mensagem
                 </h2>
-                <p className="text-muted-foreground mb-8">
+                <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8">
                   Preencha o formulário abaixo e entraremos em contato o mais breve possível.
                 </p>
                 
@@ -228,46 +228,47 @@ const Contato = () => {
               </div>
 
               {/* Map and WhatsApp */}
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 {/* Map */}
-                <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-border/50">
-                  <div className="p-6 border-b border-border">
-                    <h3 className="font-heading font-bold text-xl text-foreground flex items-center gap-2">
-                      <MapPin className="w-5 h-5 text-accent" />
+                <div className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-border/50">
+                  <div className="p-4 sm:p-6 border-b border-border">
+                    <h3 className="font-heading font-bold text-lg sm:text-xl text-foreground flex items-center gap-2">
+                      <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                       Nossa localização
                     </h3>
-                    <p className="text-muted-foreground text-sm mt-1">
+                    <p className="text-muted-foreground text-xs sm:text-sm mt-1">
                       Rua Lidio Oltramari 1628, Sala 19 - Parque Tecnológico de Pato Branco
                     </p>
                   </div>
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.873437687949!2d-52.66888892402867!3d-26.230099963825954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e5339e5e3c6c8f%3A0x8f7c8c9c8c9c8c9c!2sParque%20Tecnol%C3%B3gico%20de%20Pato%20Branco!5e0!3m2!1spt-BR!2sbr!4v1699000000000!5m2!1spt-BR!2sbr"
                     width="100%"
-                    height="300"
+                    height="250"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Localização SAFE"
+                    className="sm:h-[300px]"
                   />
                 </div>
 
                 {/* WhatsApp CTA */}
-                <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-3xl p-8 text-white shadow-xl">
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <MessageCircle className="w-8 h-8" />
+                <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white shadow-xl">
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8" />
                     </div>
                     <div>
-                      <h3 className="font-heading font-bold text-2xl mb-2">
+                      <h3 className="font-heading font-bold text-xl sm:text-2xl mb-2">
                         Prefere WhatsApp?
                       </h3>
-                      <p className="text-white/90 mb-4">
+                      <p className="text-sm sm:text-base text-white/90 mb-4">
                         Fale diretamente com nossa equipe e tire suas dúvidas em tempo real!
                       </p>
                       <Button 
                         onClick={handleWhatsApp}
-                        className="bg-white text-green-600 hover:bg-white/90 font-bold"
+                        className="bg-white text-green-600 hover:bg-white/90 font-bold w-full sm:w-auto"
                       >
                         Iniciar conversa
                       </Button>

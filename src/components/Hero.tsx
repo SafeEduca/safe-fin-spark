@@ -35,13 +35,13 @@ const Hero = () => {
       <div className="absolute bottom-20 left-20 w-64 h-64 bg-accent/10 rounded-full blur-[80px] animate-pulse hidden lg:block" style={{ animationDelay: '1s' }}></div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-32 md:py-40 relative z-10">
-        <div className="max-w-4xl mx-auto text-center lg:text-left lg:max-w-none lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+      <div className="container mx-auto px-4 sm:px-6 py-24 sm:py-32 md:py-40 relative z-10">
+        <div className="max-w-4xl mx-auto text-center lg:text-left lg:max-w-none lg:grid lg:grid-cols-2 lg:gap-12 xl:gap-16 lg:items-center">
           {/* Left Column - Content */}
-          <div className="animate-fade-in-up space-y-8">
+          <div className="animate-fade-in-up space-y-6 sm:space-y-8">
             {/* Impact Phrase */}
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-white leading-[1.1]">
+            <div className="space-y-4 sm:space-y-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-white leading-[1.15]">
                 <span className="block">Transformar</span>
                 <span className="block">financeiramente é</span>
                 <span className="block text-accent" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -52,44 +52,44 @@ const Hero = () => {
             </div>
 
             {/* Subheadline */}
-            <p className="text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
               Educação financeira prática e acessível para todas as idades.{" "}
               <span className="text-accent font-semibold">Do primeiro cofrinho à independência financeira.</span>
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
               <Button 
                 size="lg" 
                 onClick={scrollToPrograms}
-                className="bg-accent hover:bg-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 group"
+                className="bg-accent hover:bg-accent/90 text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 group"
               >
                 Conheça nossos programas
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
                 asChild
-                className="border-2 border-white/30 text-white hover:bg-white/10 font-bold text-lg px-8 py-6 rounded-full backdrop-blur-sm"
+                className="border-2 border-white/30 text-white hover:bg-white/10 font-bold text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-full backdrop-blur-sm"
               >
                 <Link to="/safe-stories">
-                  <Play className="mr-2 w-5 h-5" />
+                  <Play className="mr-2 w-4 sm:w-5 h-4 sm:h-5" />
                   Ver depoimentos
                 </Link>
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="pt-8 flex flex-wrap justify-center lg:justify-start gap-8 md:gap-12">
+            <div className="pt-6 sm:pt-8 flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-8 md:gap-12">
               {stats.map((stat, index) => (
                 <div 
                   key={index}
                   className="text-center animate-fade-in-up"
                   style={{ animationDelay: `${index * 0.1 + 0.4}s` }}
                 >
-                  <div className="text-3xl md:text-4xl font-heading font-bold text-accent">{stat.value}</div>
-                  <div className="text-sm text-white/70 mt-1">{stat.label}</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-accent">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-white/70 mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>
