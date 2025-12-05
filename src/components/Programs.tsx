@@ -40,9 +40,9 @@ const Programs = () => {
     {
       id: "rumo-liberdade",
       path: "/rumo-liberdade",
-      title: "Rumo à Liberdade",
+      title: "Imersão Rumo à Liberdade",
       subtitle: "Para Adultos",
-      description: "Conquiste sua independência financeira e construa seu futuro.",
+      description: "Uma imersão transformadora para conquistar sua independência financeira.",
       image: rumoLiberdadeImage,
       highlights: ["Adultos 18+", "Mentoria", "Renda passiva"],
       ctaText: "Começar jornada",

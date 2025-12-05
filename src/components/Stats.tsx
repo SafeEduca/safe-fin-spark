@@ -1,30 +1,18 @@
 import { useEffect, useState, useRef } from "react";
-import { Users, GraduationCap, Building2, TrendingUp } from "lucide-react";
+import { Users, GraduationCap } from "lucide-react";
 
 const stats = [
   {
     icon: Users,
-    value: 5000,
+    value: 1500,
     suffix: "+",
     label: "Vidas Impactadas",
   },
   {
     icon: GraduationCap,
-    value: 150,
-    suffix: "+",
-    label: "Cursos Realizados",
-  },
-  {
-    icon: Building2,
     value: 50,
     suffix: "+",
-    label: "Empresas Atendidas",
-  },
-  {
-    icon: TrendingUp,
-    value: 95,
-    suffix: "%",
-    label: "Satisfação",
+    label: "Cursos, Oficinas e Workshops",
   },
 ];
 
