@@ -90,15 +90,15 @@ const RumoLiberdade = () => {
               <div className="animate-fade-in-up">
                 <div className="inline-flex items-center gap-2 bg-yellow-400/20 text-yellow-300 px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-yellow-400/30">
                   <Crown className="w-4 h-4" />
-                  Para Adultos
+                  Imersão para Adultos
                 </div>
                 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 leading-tight">
-                  Rumo à <span className="text-yellow-300">Liberdade</span>
+                  Imersão <span className="text-yellow-300">Rumo à Liberdade</span>
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-amber-100 mb-8 leading-relaxed">
-                  Conquiste sua Independência Financeira e construa o futuro dos seus sonhos.
+                  Uma imersão transformadora para conquistar sua Independência Financeira e construir o futuro dos seus sonhos.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">

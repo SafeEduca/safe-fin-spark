@@ -4,7 +4,7 @@ import Stats from "@/components/Stats";
 import About from "@/components/About";
 import Programs from "@/components/Programs";
 import Gallery from "@/components/Gallery";
-import Testimonials from "@/components/Testimonials";
+// import Testimonials from "@/components/Testimonials"; // Temporariamente desabilitado
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -17,7 +17,7 @@ const Index = () => {
         <About />
         <Programs />
         <Gallery />
-        <Testimonials />
+        {/* Depoimentos temporariamente desabilitados */}
       </main>
       <Footer />
     </div>
