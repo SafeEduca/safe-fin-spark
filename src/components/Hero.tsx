@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, TrendingUp, Users, Award, Play } from "lucide-react";
+import { ArrowRight, Users, Award, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-safe-education.jpg";
 
@@ -77,47 +77,36 @@ const Hero = () => {
 
           </div>
 
-          {/* Right Column - Visual Element */}
-          <div className="hidden lg:block animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+          {/* Right Column - Impact Stats */}
+          <div className="hidden lg:flex flex-col items-center justify-center gap-8 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <div className="relative">
               {/* Decorative Frame */}
               <div className="absolute -inset-4 bg-gradient-to-br from-accent/30 to-accent/10 rounded-[2rem] blur-xl"></div>
               
-              {/* Feature Cards */}
-              <div className="relative grid grid-cols-2 gap-4">
-                {[
-                  { icon: Shield, title: "Metodologia", desc: "Comprovada" },
-                  { icon: Users, title: "Comunidade", desc: "Engajada" },
-                  { icon: TrendingUp, title: "Resultados", desc: "Reais" },
-                  { icon: Award, title: "Certificação", desc: "Reconhecida" },
-                ].map((item, index) => {
-                  const Icon = item.icon;
-                  return (
-                    <div 
-                      key={index}
-                      className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 animate-scale-in"
-                      style={{ animationDelay: `${index * 0.1 + 0.5}s` }}
-                    >
-                      <div className="w-14 h-14 mx-auto mb-3 rounded-xl bg-accent/20 flex items-center justify-center">
-                        <Icon className="w-7 h-7 text-accent" />
-                      </div>
-                      <h3 className="font-heading font-bold text-white text-lg">{item.title}</h3>
-                      <p className="text-white/70 text-sm">{item.desc}</p>
-                    </div>
-                  );
-                })}
-              </div>
+              {/* Impact Cards */}
+              <div className="relative flex flex-col gap-6">
+                {/* Vidas Impactadas */}
+                <div 
+                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 animate-scale-in"
+                  style={{ animationDelay: '0.5s' }}
+                >
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-accent/20 flex items-center justify-center">
+                    <Users className="w-8 h-8 text-accent" />
+                  </div>
+                  <div className="text-5xl font-heading font-bold text-white mb-2">1500+</div>
+                  <p className="text-white/80 text-lg font-medium">Vidas Impactadas</p>
+                </div>
 
-              {/* Floating Badge */}
-              <div className="absolute -bottom-8 -right-8 bg-white rounded-2xl p-4 shadow-2xl animate-scale-in" style={{ animationDelay: '0.8s' }}>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-amber-400 flex items-center justify-center">
-                    <TrendingUp className="w-6 h-6 text-white" />
+                {/* Cursos Realizados */}
+                <div 
+                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 animate-scale-in"
+                  style={{ animationDelay: '0.7s' }}
+                >
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-accent/20 flex items-center justify-center">
+                    <Award className="w-8 h-8 text-accent" />
                   </div>
-                  <div>
-                    <div className="text-2xl font-heading font-bold text-primary">95%</div>
-                    <div className="text-xs text-muted-foreground">Recomendam</div>
-                  </div>
+                  <div className="text-5xl font-heading font-bold text-white mb-2">50+</div>
+                  <p className="text-white/80 text-lg font-medium">Cursos, Oficinas e Workshops</p>
                 </div>
               </div>
             </div>
