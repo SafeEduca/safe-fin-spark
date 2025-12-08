@@ -11,11 +11,6 @@ const Hero = () => {
     }
   };
 
-  const stats = [
-    { value: "+5000", label: "Vidas Transformadas" },
-    { value: "98%", label: "Satisfação" },
-    { value: "+50", label: "Empresas Parceiras" },
-  ];
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -80,19 +75,6 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Stats */}
-            <div className="pt-6 sm:pt-8 flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-8 md:gap-12">
-              {stats.map((stat, index) => (
-                <div 
-                  key={index}
-                  className="text-center animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.1 + 0.4}s` }}
-                >
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-accent">{stat.value}</div>
-                  <div className="text-xs sm:text-sm text-white/70 mt-1">{stat.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Right Column - Visual Element */}
