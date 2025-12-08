@@ -129,28 +129,12 @@ const SafeKids = () => {
         <section className="py-16 bg-gradient-to-b from-orange-100 to-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZiOTIzYyIgc3Ryb2tlLXdpZHRoPSIwLjUiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-50"></div>
           <div className="container mx-auto px-4 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <div className="text-center group">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-orange-400 to-amber-500 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-                  <span className="text-3xl font-bold text-white">+{animatedStats.kids}</span>
-                </div>
-                <p className="font-heading font-bold text-xl text-gray-800">Crianças Impactadas</p>
-                <p className="text-gray-600 text-sm">e contando!</p>
+            <div className="max-w-2xl mx-auto text-center">
+              <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-orange-400 to-amber-500 rounded-full flex items-center justify-center shadow-xl animate-pulse">
+                <span className="text-4xl font-bold text-white">+{animatedStats.kids}</span>
               </div>
-              <div className="text-center group">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-                  <span className="text-3xl font-bold text-white">+{animatedStats.schools}</span>
-                </div>
-                <p className="font-heading font-bold text-xl text-gray-800">Escolas Parceiras</p>
-                <p className="text-gray-600 text-sm">em todo o Brasil</p>
-              </div>
-              <div className="text-center group">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-                  <span className="text-3xl font-bold text-white">{animatedStats.satisfaction}%</span>
-                </div>
-                <p className="font-heading font-bold text-xl text-gray-800">Satisfação dos Pais</p>
-                <p className="text-gray-600 text-sm">avaliação positiva</p>
-              </div>
+              <p className="font-heading font-bold text-2xl text-gray-800 mb-2">Crianças Impactadas</p>
+              <p className="text-gray-600">Já transformamos a vida financeira de mais de 500 crianças em todo o Brasil!</p>
             </div>
           </div>
         </section>
@@ -161,7 +145,7 @@ const SafeKids = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {[
                 { icon: Users, label: "Idade", value: "7 a 14 anos", color: "text-orange-500" },
-                { icon: Clock, label: "Duração", value: "12 semanas", color: "text-amber-500" },
+                { icon: Clock, label: "Cada Trilha", value: "4 meses (12 semanas)", color: "text-amber-500" },
                 { icon: Award, label: "Certificado", value: "Incluído", color: "text-yellow-500" },
                 { icon: Check, label: "Formato", value: "Online/Presencial", color: "text-orange-600" },
               ].map((item, index) => {
@@ -178,108 +162,106 @@ const SafeKids = () => {
           </div>
         </section>
 
-        {/* Program Details */}
+        {/* Trilhas de Aprendizagem */}
         <section id="programa" className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-5xl">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-gray-800">
-              O que seu filho vai <span className="text-orange-500">aprender</span> ✨
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-4 text-gray-800">
+              Trilhas de <span className="text-orange-500">Aprendizagem</span> ✨
             </h2>
+            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+              Cada trilha tem duração de 4 meses (12 semanas) e oferece uma experiência completa de educação financeira de forma lúdica e prática.
+            </p>
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 shadow-lg border border-orange-100 hover:shadow-xl transition-shadow">
+              {/* Trilha 1: Jornada do Dinheiro */}
+              <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 shadow-lg border-2 border-orange-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xl">1</span>
+                  <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center shadow-lg">
+                    <span className="text-white text-2xl">💰</span>
                   </div>
-                  <h3 className="text-2xl font-heading font-bold text-gray-800">Fundamentos</h3>
+                  <div>
+                    <span className="text-xs font-semibold text-orange-600 bg-orange-100 px-2 py-1 rounded-full">TRILHA 1</span>
+                    <h3 className="text-2xl font-heading font-bold text-gray-800">Jornada do Dinheiro</h3>
+                  </div>
                 </div>
-                <ul className="space-y-4">
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  Explora a <strong>origem, evolução e o valor do dinheiro</strong>, mostrando como ele influencia escolhas e hábitos.
+                </p>
+                <ul className="space-y-3">
                   {[
-                    "O que é dinheiro e sua importância",
-                    "Diferença entre necessidade e desejo",
-                    "Valor do trabalho e remuneração",
-                    "Conceito de poupança",
+                    "História e evolução do dinheiro",
+                    "Meios de pagamento modernos",
+                    "Armadilhas financeiras do dia a dia",
+                    "Atividades práticas e lúdicas",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check className="w-4 h-4 text-white" />
                       </div>
-                      <span className="text-gray-700">{item}</span>
+                      <span className="text-gray-700 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
+                <div className="mt-6 p-4 bg-orange-100 rounded-xl">
+                  <p className="text-sm text-orange-800 font-medium text-center">
+                    🏛️ Finaliza com um <strong>Museu do Dinheiro</strong>!
+                  </p>
+                </div>
               </div>
 
-              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-8 shadow-lg border border-amber-100 hover:shadow-xl transition-shadow">
+              {/* Trilha 2: Mini Empresa */}
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-8 shadow-lg border-2 border-amber-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xl">2</span>
+                  <div className="w-14 h-14 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg">
+                    <span className="text-white text-2xl">🏪</span>
                   </div>
-                  <h3 className="text-2xl font-heading font-bold text-gray-800">Gestão Prática</h3>
+                  <div>
+                    <span className="text-xs font-semibold text-amber-600 bg-amber-100 px-2 py-1 rounded-full">TRILHA 2</span>
+                    <h3 className="text-2xl font-heading font-bold text-gray-800">Mini Empresa</h3>
+                  </div>
                 </div>
-                <ul className="space-y-4">
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  Apresenta o <strong>funcionamento de uma empresa</strong>, da ideia ao caixa, incentivando a mentalidade empreendedora.
+                </p>
+                <ul className="space-y-3">
                   {[
-                    "Como administrar mesada",
-                    "Estabelecimento de metas financeiras",
-                    "Introdução ao empreendedorismo infantil",
-                    "Jogos educativos sobre finanças",
+                    "Como criar uma empresa do zero",
+                    "Negociação e custos básicos",
+                    "Sociedade e responsabilidade",
+                    "Gestão financeira simplificada",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check className="w-4 h-4 text-white" />
                       </div>
-                      <span className="text-gray-700">{item}</span>
+                      <span className="text-gray-700 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
-
-              <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-8 shadow-lg border border-yellow-100 hover:shadow-xl transition-shadow">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center">
-                    <Heart className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-heading font-bold text-gray-800">Valores</h3>
+                <div className="mt-6 p-4 bg-amber-100 rounded-xl">
+                  <p className="text-sm text-amber-800 font-medium text-center">
+                    🎪 Finaliza com uma <strong>Feira de Negócios</strong>!
+                  </p>
                 </div>
-                <ul className="space-y-4">
-                  {[
-                    "Generosidade e doação",
-                    "Consumo consciente",
-                    "Responsabilidade financeira",
-                    "Planejamento para o futuro",
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-yellow-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
+            </div>
 
-              <div className="bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl p-8 shadow-lg border border-orange-200 hover:shadow-xl transition-shadow">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center">
-                    <Sparkles className="w-5 h-5 text-white" />
+            {/* Diferenciais */}
+            <div className="bg-gradient-to-r from-orange-100 via-amber-100 to-yellow-100 rounded-2xl p-8 border border-orange-200">
+              <h3 className="text-2xl font-heading font-bold text-center mb-6 text-gray-800">Diferenciais do Programa</h3>
+              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                  { icon: "🎮", title: "Metodologia Lúdica", desc: "Aprendizado através de jogos" },
+                  { icon: "👨‍👩‍👧", title: "Apoio aos Pais", desc: "Material e reuniões periódicas" },
+                  { icon: "📚", title: "Material Exclusivo", desc: "Didático e interativo" },
+                  { icon: "🎓", title: "Certificado", desc: "Ao final de cada trilha" },
+                ].map((item, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-4xl mb-3">{item.icon}</div>
+                    <h4 className="font-heading font-bold text-gray-800">{item.title}</h4>
+                    <p className="text-sm text-gray-600">{item.desc}</p>
                   </div>
-                  <h3 className="text-2xl font-heading font-bold text-gray-800">Diferenciais</h3>
-                </div>
-                <ul className="space-y-4">
-                  {[
-                    "Metodologia lúdica e interativa",
-                    "Acompanhamento para os pais",
-                    "Material didático exclusivo",
-                    "Certificado de conclusão",
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-orange-600 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                ))}
               </div>
             </div>
           </div>

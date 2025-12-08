@@ -92,7 +92,7 @@ const FinancasEmFoco = () => {
               <div className="animate-fade-in-up">
                 <div className="inline-flex items-center gap-2 bg-amber-400/20 text-amber-400 px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-amber-400/30">
                   <Target className="w-4 h-4" />
-                  Para Adolescentes
+                  Para Adolescentes de 15 a 18 anos
                 </div>
                 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 leading-tight">
@@ -100,7 +100,7 @@ const FinancasEmFoco = () => {
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
-                  Preparando-se para o Futuro com inteligência financeira desde cedo.
+                  Preparando jovens para o futuro com inteligência financeira. Turmas <strong className="text-amber-400">Online e Presenciais</strong> disponíveis!
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -165,20 +165,19 @@ const FinancasEmFoco = () => {
         {/* Stats Section */}
         <section className="py-12 bg-slate-800">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto text-center">
               <div>
                 <div className="text-4xl md:text-5xl font-bold text-amber-400 mb-2">+{animatedStats.teens}</div>
-                <p className="text-slate-300">Adolescentes Formados</p>
+                <p className="text-slate-300">Adolescentes Impactados</p>
               </div>
               <div>
                 <div className="text-4xl md:text-5xl font-bold text-amber-400 mb-2">{animatedStats.hours}h</div>
                 <p className="text-slate-300">de Conteúdo Prático</p>
               </div>
-              <div>
-                <div className="text-4xl md:text-5xl font-bold text-amber-400 mb-2">+{animatedStats.projects}</div>
-                <p className="text-slate-300">Projetos Realizados</p>
-              </div>
             </div>
+            <p className="text-center text-slate-400 mt-6 text-sm">
+              Já impactamos centenas de jovens. Faça parte da próxima turma!
+            </p>
           </div>
         </section>
 
@@ -208,30 +207,33 @@ const FinancasEmFoco = () => {
         {/* Program Details */}
         <section id="programa" className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-5xl">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-slate-800">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-4 text-slate-800">
               O que você vai <span className="text-amber-500">aprender</span>
             </h2>
+            <p className="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
+              Conteúdo completo para transformar sua relação com o dinheiro e preparar você para o futuro financeiro.
+            </p>
             
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl flex items-center justify-center">
-                    <Briefcase className="w-6 h-6 text-amber-400" />
+                    <Brain className="w-6 h-6 text-amber-400" />
                   </div>
-                  <h3 className="text-2xl font-heading font-bold text-slate-800">Gestão Pessoal</h3>
+                  <h3 className="text-xl font-heading font-bold text-slate-800">Comportamento Financeiro</h3>
                 </div>
-                <ul className="space-y-4">
+                <ul className="space-y-3">
                   {[
-                    "Gestão de mesada e primeiros ganhos",
-                    "Orçamento pessoal e controle de gastos",
-                    "Importância da poupança e juros compostos",
-                    "Primeiro cartão de crédito e responsabilidade",
+                    "Mentalidade e hábitos financeiros",
+                    "Consumo consciente",
+                    "Diferença entre desejos e necessidades",
+                    "Autoconhecimento financeiro",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-4 h-4 text-slate-900" />
+                      <div className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-slate-900" />
                       </div>
-                      <span className="text-slate-700">{item}</span>
+                      <span className="text-slate-700 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -242,20 +244,20 @@ const FinancasEmFoco = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center">
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-heading font-bold text-slate-800">Investimentos</h3>
+                  <h3 className="text-xl font-heading font-bold text-slate-800">Economia e Mercado</h3>
                 </div>
-                <ul className="space-y-4">
+                <ul className="space-y-3">
                   {[
-                    "Introdução ao mercado financeiro",
-                    "Tipos de investimentos (Renda Fixa e Variável)",
-                    "Como começar a investir ainda jovem",
-                    "Simuladores e prática de investimentos",
+                    "Inflação e juros",
+                    "Crédito e financiamentos",
+                    "Como o mercado funciona",
+                    "Cenário econômico atual",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-4 h-4 text-amber-400" />
+                      <div className="w-5 h-5 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-amber-400" />
                       </div>
-                      <span className="text-slate-700">{item}</span>
+                      <span className="text-slate-700 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -266,20 +268,20 @@ const FinancasEmFoco = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl flex items-center justify-center">
                     <Target className="w-6 h-6 text-amber-400" />
                   </div>
-                  <h3 className="text-2xl font-heading font-bold text-slate-800">Carreira</h3>
+                  <h3 className="text-xl font-heading font-bold text-slate-800">Organização Financeira</h3>
                 </div>
-                <ul className="space-y-4">
+                <ul className="space-y-3">
                   {[
-                    "Planejamento financeiro para universidade",
-                    "Empreendedorismo juvenil",
-                    "Primeiras experiências profissionais",
-                    "Como negociar salário e benefícios",
+                    "Orçamento pessoal",
+                    "Controle de gastos",
+                    "Metas financeiras",
+                    "Reserva de emergência",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-4 h-4 text-slate-900" />
+                      <div className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-slate-900" />
                       </div>
-                      <span className="text-slate-700">{item}</span>
+                      <span className="text-slate-700 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -288,47 +290,98 @@ const FinancasEmFoco = () => {
               <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center">
-                    <Brain className="w-6 h-6 text-white" />
+                    <Briefcase className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-heading font-bold text-slate-800">Mentalidade</h3>
+                  <h3 className="text-xl font-heading font-bold text-slate-800">Investimentos</h3>
                 </div>
-                <ul className="space-y-4">
+                <ul className="space-y-3">
                   {[
-                    "Desenvolvimento de mentalidade empreendedora",
-                    "Consumo consciente e sustentabilidade",
-                    "Objetivos financeiros de curto e longo prazo",
-                    "Independência financeira desde cedo",
+                    "Renda fixa e ações",
+                    "Fundos imobiliários",
+                    "Diversificação de carteira",
+                    "Análise de risco",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-4 h-4 text-amber-400" />
+                      <div className="w-5 h-5 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-amber-400" />
                       </div>
-                      <span className="text-slate-700">{item}</span>
+                      <span className="text-slate-700 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
+              </div>
+
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-8 shadow-lg border border-amber-200 hover:shadow-xl transition-shadow md:col-span-2 lg:col-span-2">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center">
+                    <Rocket className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-heading font-bold text-slate-800">Aposentadoria e Futuro Financeiro</h3>
+                </div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {[
+                    "Previdência privada e pública",
+                    "Construção de patrimônio",
+                    "Liberdade financeira",
+                    "Independência desde jovem",
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full bg-amber-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-white" />
+                      </div>
+                      <span className="text-slate-700 text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Testimonial */}
+        {/* Testimonials */}
         <section className="py-16 bg-gradient-to-br from-slate-800 to-slate-700">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 text-center border border-amber-400/20">
-              <Quote className="w-12 h-12 text-amber-400/50 mx-auto mb-6" />
-              <p className="text-xl md:text-2xl text-white font-medium mb-6 leading-relaxed">
-                "Antes do curso eu não sabia nem o que era um CDB. Hoje já tenho meus primeiros investimentos e um plano para a faculdade!"
-              </p>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-12 h-12 bg-amber-400 rounded-full flex items-center justify-center">
-                  <span className="font-bold text-slate-900">LM</span>
-                </div>
-                <div className="text-left">
-                  <p className="font-bold text-white">Lucas M.</p>
-                  <p className="text-slate-300 text-sm">17 anos, Curitiba</p>
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-center mb-10 text-white">
+              O que nossos alunos <span className="text-amber-400">dizem</span>
+            </h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-amber-400/20">
+                <Quote className="w-10 h-10 text-amber-400/50 mb-4" />
+                <p className="text-lg text-white font-medium mb-6 leading-relaxed">
+                  "Foi muito bom aprender sobre o valor das coisas e como poder me organizar, a aprender a fazer planilhas e a guardar o meu dinheiro corretamente, e não só sobre economizar mas sobre todos os tipos de juros e taxas que nos impõem. Foi um curso muito importante e que vou levar comigo!"
+                </p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-amber-400 rounded-full flex items-center justify-center">
+                    <span className="font-bold text-slate-900">A</span>
+                  </div>
+                  <div className="text-left">
+                    <p className="font-bold text-white">Aluna do Finanças em Foco</p>
+                    <p className="text-slate-300 text-sm">Adolescente, Pato Branco</p>
+                  </div>
                 </div>
               </div>
+
+              <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-amber-400/20">
+                <Quote className="w-10 h-10 text-amber-400/50 mb-4" />
+                <p className="text-lg text-white font-medium mb-6 leading-relaxed">
+                  "Curso incrível demais! Tudo superou minhas expectativas. Agora, toda vez que penso no dinheiro, lembro das aulas e das dicas fantásticas. Espero que o SAFE alcance ainda mais adolescentes que vão ter suas cabeças abertas a uma nova visão do mundo das finanças."
+                </p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-amber-400 rounded-full flex items-center justify-center">
+                    <span className="font-bold text-slate-900">A</span>
+                  </div>
+                  <div className="text-left">
+                    <p className="font-bold text-white">Aluno do Finanças em Foco</p>
+                    <p className="text-slate-300 text-sm">Adolescente, Pato Branco</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 bg-gradient-to-r from-amber-400/20 to-yellow-400/20 rounded-2xl p-6 text-center border border-amber-400/30">
+              <p className="text-amber-200 text-lg">
+                <strong className="text-amber-400">Curso incrível!</strong> Me ajudou a abrir os olhos para o mercado financeiro e saber como e onde investir. Os professores são incríveis e bem generosos, sanaram todas as minhas dúvidas. <strong className="text-amber-400">Recomendo muito!</strong>
+              </p>
             </div>
           </div>
         </section>
