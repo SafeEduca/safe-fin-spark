@@ -46,19 +46,44 @@ const SafinhoAI = () => {
           {/* Chat Container */}
           <div className="bg-card border border-border rounded-3xl shadow-xl overflow-hidden">
             {/* Chat Header */}
-            <div className="bg-primary text-primary-foreground p-6 flex items-center gap-4">
-              {/* Mascote Safinho - Moeda animada */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 via-amber-500 to-yellow-600 flex items-center justify-center shadow-lg border-4 border-yellow-300 relative animate-pulse">
-                <span className="text-amber-900 font-bold text-xl">$</span>
-                {/* Olhinhos da moeda */}
-                <div className="absolute top-3 left-3 w-2 h-2 bg-amber-900 rounded-full"></div>
-                <div className="absolute top-3 right-3 w-2 h-2 bg-amber-900 rounded-full"></div>
-                {/* Sorriso */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-6 h-2 border-b-2 border-amber-900 rounded-b-full"></div>
+            <div className="bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground p-6 flex items-center gap-4">
+              {/* Mascote Safinho - Personagem amigável */}
+              <div className="relative group">
+                <div className="w-20 h-20 relative">
+                  {/* Corpo do mascote - formato de cofre/porquinho estilizado */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent via-amber-400 to-orange-500 rounded-2xl shadow-lg transform rotate-3 group-hover:rotate-6 transition-transform duration-300">
+                    {/* Brilho */}
+                    <div className="absolute top-2 left-2 w-4 h-4 bg-white/40 rounded-full blur-sm"></div>
+                  </div>
+                  {/* Rosto */}
+                  <div className="absolute inset-1 bg-gradient-to-br from-amber-300 via-yellow-400 to-amber-500 rounded-xl flex flex-col items-center justify-center">
+                    {/* Olhos */}
+                    <div className="flex gap-3 mb-1">
+                      <div className="w-3 h-4 bg-amber-900 rounded-full relative">
+                        <div className="absolute top-0.5 left-0.5 w-1.5 h-1.5 bg-white rounded-full"></div>
+                      </div>
+                      <div className="w-3 h-4 bg-amber-900 rounded-full relative">
+                        <div className="absolute top-0.5 left-0.5 w-1.5 h-1.5 bg-white rounded-full"></div>
+                      </div>
+                    </div>
+                    {/* Sorriso */}
+                    <div className="w-6 h-3 border-b-[3px] border-amber-900 rounded-b-full"></div>
+                    {/* Bochechas */}
+                    <div className="absolute bottom-3 left-2 w-2 h-1.5 bg-orange-400/60 rounded-full"></div>
+                    <div className="absolute bottom-3 right-2 w-2 h-1.5 bg-orange-400/60 rounded-full"></div>
+                  </div>
+                  {/* Símbolo $ no topo */}
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center shadow-md border-2 border-white">
+                    <span className="text-white font-bold text-xs">$</span>
+                  </div>
+                  {/* Orelhinhas */}
+                  <div className="absolute -top-1 -left-1 w-4 h-4 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full"></div>
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full"></div>
+                </div>
               </div>
               <div>
                 <h3 className="text-xl font-heading font-bold">Safinho</h3>
-                <p className="text-sm text-primary-foreground/80">Sua moeda amiga das finanças • Online</p>
+                <p className="text-sm text-primary-foreground/80">Seu amigo da educação financeira • Online</p>
               </div>
               <div className="ml-auto flex items-center gap-2">
                 <span className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></span>
@@ -70,10 +95,22 @@ const SafinhoAI = () => {
             <div className="p-6 min-h-[300px] bg-gradient-to-b from-muted/20 to-transparent">
               {/* Welcome Message */}
               <div className="flex gap-3 mb-6">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 via-amber-500 to-yellow-600 flex items-center justify-center shrink-0 border-2 border-yellow-300 relative">
-                  <span className="text-amber-900 font-bold text-sm">$</span>
-                  <div className="absolute top-1 left-1 w-1 h-1 bg-amber-900 rounded-full"></div>
-                  <div className="absolute top-1 right-1 w-1 h-1 bg-amber-900 rounded-full"></div>
+                {/* Mini mascote no chat */}
+                <div className="w-12 h-12 shrink-0 relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-300 via-yellow-400 to-amber-500 rounded-xl flex flex-col items-center justify-center shadow-md">
+                    <div className="flex gap-1.5 mb-0.5">
+                      <div className="w-2 h-2.5 bg-amber-900 rounded-full relative">
+                        <div className="absolute top-0 left-0 w-1 h-1 bg-white rounded-full"></div>
+                      </div>
+                      <div className="w-2 h-2.5 bg-amber-900 rounded-full relative">
+                        <div className="absolute top-0 left-0 w-1 h-1 bg-white rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="w-4 h-2 border-b-2 border-amber-900 rounded-b-full"></div>
+                  </div>
+                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-4 h-4 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center border border-white">
+                    <span className="text-white font-bold text-[8px]">$</span>
+                  </div>
                 </div>
                 <div className="bg-card border border-border rounded-2xl rounded-tl-md p-4 max-w-[80%] shadow-sm">
                   <p className="text-foreground">
