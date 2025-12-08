@@ -155,18 +155,23 @@ const RumoLiberdade = () => {
         {/* Stats Section */}
         <section className="py-12 bg-gradient-to-r from-amber-800 to-yellow-700">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
-              <div>
-                <div className="text-4xl md:text-5xl font-bold text-yellow-300 mb-2">+{animatedStats.adults}</div>
-                <p className="text-amber-100">Adultos Transformados</p>
-              </div>
-              <div>
-                <div className="text-4xl md:text-5xl font-bold text-yellow-300 mb-2">R$ {animatedStats.saved}M</div>
-                <p className="text-amber-100">Economizados pelos Alunos</p>
-              </div>
-              <div>
-                <div className="text-4xl md:text-5xl font-bold text-yellow-300 mb-2">{animatedStats.freedom}%</div>
-                <p className="text-amber-100">Alcançaram Independência</p>
+            <div className="max-w-3xl mx-auto text-center">
+              <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-6">
+                Transformando <span className="text-yellow-300">Vidas Financeiras</span>
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                  <div className="text-3xl mb-2">📚</div>
+                  <p className="text-amber-100 font-medium">Adultos aprendendo sobre investimentos</p>
+                </div>
+                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                  <div className="text-3xl mb-2">💰</div>
+                  <p className="text-amber-100 font-medium">Economizando dinheiro de forma inteligente</p>
+                </div>
+                <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                  <div className="text-3xl mb-2">📈</div>
+                  <p className="text-amber-100 font-medium">Aprendendo a investir para o futuro</p>
+                </div>
               </div>
             </div>
           </div>
@@ -320,23 +325,36 @@ const RumoLiberdade = () => {
           </div>
         </section>
 
-        {/* Testimonial */}
+        {/* Por que participar */}
         <section className="py-16 bg-gradient-to-br from-amber-800 to-yellow-700">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 text-center border border-yellow-400/20">
-              <Quote className="w-12 h-12 text-yellow-400/50 mx-auto mb-6" />
-              <p className="text-xl md:text-2xl text-white font-medium mb-6 leading-relaxed">
-                "Em 18 meses quitei R$ 45 mil em dívidas e comecei a investir. Hoje tenho um patrimônio que nunca imaginei ter. O programa mudou minha vida!"
-              </p>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center">
-                  <span className="font-bold text-amber-900">RS</span>
+              <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-6">
+                Por que participar da <span className="text-yellow-300">Imersão</span>?
+              </h3>
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-yellow-400 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">💡</span>
+                  </div>
+                  <p className="text-amber-100">Aprenda a <strong className="text-white">investir com segurança</strong></p>
                 </div>
-                <div className="text-left">
-                  <p className="font-bold text-white">Roberto S.</p>
-                  <p className="text-amber-200 text-sm">42 anos, Empresário</p>
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-yellow-400 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">💰</span>
+                  </div>
+                  <p className="text-amber-100">Descubra como <strong className="text-white">economizar de verdade</strong></p>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-yellow-400 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">🎯</span>
+                  </div>
+                  <p className="text-amber-100">Construa seu caminho para a <strong className="text-white">liberdade financeira</strong></p>
                 </div>
               </div>
+              <p className="text-lg text-amber-100">
+                Já ensinamos adultos sobre investimentos, ajudamos a economizar dinheiro e aprender a investir para o futuro!
+              </p>
             </div>
           </div>
         </section>
