@@ -146,7 +146,7 @@ const SafeKids = () => {
               {[
                 { icon: Users, label: "Idade", value: "7 a 14 anos", color: "text-orange-500" },
                 { icon: Clock, label: "Cada Trilha", value: "4 meses (12 semanas)", color: "text-amber-500" },
-                { icon: Award, label: "Certificado", value: "Incluído", color: "text-yellow-500" },
+                { icon: Award, label: "Certificado", value: "Incluso", color: "text-yellow-500" },
                 { icon: Check, label: "Formato", value: "Online/Presencial", color: "text-orange-600" },
               ].map((item, index) => {
                 const Icon = item.icon;
