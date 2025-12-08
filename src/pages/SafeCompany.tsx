@@ -15,28 +15,8 @@ import {
 
 const SafeCompany = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [animatedStats, setAnimatedStats] = useState({ companies: 0, employees: 0, roi: 0 });
-
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-    const duration = 2000;
-    const steps = 60;
-    const interval = duration / steps;
-    
-    let step = 0;
-    const timer = setInterval(() => {
-      step++;
-      const progress = step / steps;
-      setAnimatedStats({
-        companies: Math.floor(50 * progress),
-        employees: Math.floor(3000 * progress),
-        roi: Math.floor(300 * progress),
-      });
-      if (step >= steps) clearInterval(timer);
-    }, interval);
-    
-    return () => clearInterval(timer);
   }, []);
 
   const faqs = [
@@ -58,12 +38,6 @@ const SafeCompany = () => {
     },
   ];
 
-  const results = [
-    { icon: TrendingUp, value: "40%", label: "Aumento na produtividade" },
-    { icon: Heart, value: "65%", label: "Redução do estresse" },
-    { icon: Users, value: "35%", label: "Menos turnover" },
-    { icon: Briefcase, value: "50%", label: "Menos pedidos de adiantamento" },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -135,18 +109,22 @@ const SafeCompany = () => {
         <section className="py-16 bg-gradient-to-b from-emerald-100 to-white">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-center mb-12 text-emerald-900">
-              Resultados Comprovados
+              Resultados
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-              {results.map((result, index) => {
+              {[
+                { icon: TrendingUp, label: "Aumento na produtividade" },
+                { icon: Heart, label: "Redução do estresse" },
+                { icon: Users, label: "Menos turnover" },
+                { icon: Briefcase, label: "Menos pedidos de adiantamento" },
+              ].map((result, index) => {
                 const Icon = result.icon;
                 return (
                   <div key={index} className="text-center group">
                     <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
                       <Icon className="w-10 h-10 text-white" />
                     </div>
-                    <div className="text-3xl font-bold text-emerald-700">{result.value}</div>
-                    <p className="text-sm text-emerald-600">{result.label}</p>
+                    <p className="text-sm text-emerald-600 font-medium">{result.label}</p>
                   </div>
                 );
               })}
@@ -157,18 +135,10 @@ const SafeCompany = () => {
         {/* Stats Section */}
         <section className="py-12 bg-gradient-to-r from-emerald-800 to-teal-700">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
+            <div className="max-w-md mx-auto text-center">
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-teal-300 mb-2">+{animatedStats.companies}</div>
-                <p className="text-emerald-100">Empresas Atendidas</p>
-              </div>
-              <div>
-                <div className="text-4xl md:text-5xl font-bold text-teal-300 mb-2">+{animatedStats.employees.toLocaleString()}</div>
+                <div className="text-4xl md:text-5xl font-bold text-teal-300 mb-2">+10</div>
                 <p className="text-emerald-100">Colaboradores Impactados</p>
-              </div>
-              <div>
-                <div className="text-4xl md:text-5xl font-bold text-teal-300 mb-2">{animatedStats.roi}%</div>
-                <p className="text-emerald-100">ROI Médio do Programa</p>
               </div>
             </div>
           </div>

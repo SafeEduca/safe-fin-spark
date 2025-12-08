@@ -171,7 +171,7 @@ const FinancasEmFoco = () => {
                 <p className="text-slate-300">Adolescentes Impactados</p>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-amber-400 mb-2">{animatedStats.hours}h</div>
+                <div className="text-4xl md:text-5xl font-bold text-amber-400 mb-2">18h</div>
                 <p className="text-slate-300">de Conteúdo Prático</p>
               </div>
             </div>
