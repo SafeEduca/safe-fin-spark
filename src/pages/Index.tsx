@@ -4,8 +4,10 @@ import Stats from "@/components/Stats";
 import About from "@/components/About";
 import Programs from "@/components/Programs";
 import Gallery from "@/components/Gallery";
+import SafinhoAI from "@/components/SafinhoAI";
 // import Testimonials from "@/components/Testimonials"; // Temporariamente desabilitado
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -17,9 +19,11 @@ const Index = () => {
         <About />
         <Programs />
         <Gallery />
+        <SafinhoAI />
         {/* Depoimentos temporariamente desabilitados */}
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
