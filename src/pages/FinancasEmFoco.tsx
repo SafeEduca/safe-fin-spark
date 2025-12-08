@@ -3,7 +3,6 @@ import { ArrowLeft, Check, Clock, Users, Award, Target, TrendingUp, Briefcase, B
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import LeadModal from "@/components/LeadModal";
 import { useState, useEffect } from "react";
 import financasImage from "@/assets/financas-em-foco.png";
 import {
@@ -14,7 +13,6 @@ import {
 } from "@/components/ui/accordion";
 
 const FinancasEmFoco = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [animatedStats, setAnimatedStats] = useState({ teens: 0, hours: 0, projects: 0 });
 
   useEffect(() => {
@@ -106,10 +104,12 @@ const FinancasEmFoco = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button 
                     size="lg" 
-                    onClick={() => setIsModalOpen(true)}
+                    asChild
                     className="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-slate-900 font-bold shadow-lg"
                   >
-                    Quero participar
+                    <a href="https://forms.clickup.com/9013166793/f/8ckm0p9-493/CY67TPPLS59JI586TO" target="_blank" rel="noopener noreferrer">
+                      Quero participar
+                    </a>
                   </Button>
                   <Button 
                     variant="outline" 
@@ -429,21 +429,17 @@ const FinancasEmFoco = () => {
             </p>
             <Button 
               size="lg" 
-              onClick={() => setIsModalOpen(true)}
+              asChild
               className="bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 text-amber-400 font-bold text-lg px-8 py-6 shadow-lg border border-amber-400/30"
             >
-              Quero participar do Finanças em Foco
+              <a href="https://forms.clickup.com/9013166793/f/8ckm0p9-493/CY67TPPLS59JI586TO" target="_blank" rel="noopener noreferrer">
+                Quero participar do Finanças em Foco
+              </a>
             </Button>
           </div>
         </section>
       </main>
       <Footer />
-      
-      <LeadModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        programName="Finanças em Foco"
-      />
     </div>
   );
 };

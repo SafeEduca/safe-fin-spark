@@ -3,7 +3,6 @@ import { ArrowLeft, Check, Clock, Users, Award, Star, Heart, Sparkles, HelpCircl
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import LeadModal from "@/components/LeadModal";
 import { useState, useEffect } from "react";
 import safeKidsImage from "@/assets/safe-kids-program.jpg";
 import {
@@ -14,7 +13,6 @@ import {
 } from "@/components/ui/accordion";
 
 const SafeKids = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [animatedStats, setAnimatedStats] = useState({ kids: 0, schools: 0, satisfaction: 0 });
 
   useEffect(() => {
@@ -97,10 +95,12 @@ const SafeKids = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button 
                     size="lg" 
-                    onClick={() => setIsModalOpen(true)}
+                    asChild
                     className="bg-white text-orange-600 hover:bg-white/90 font-bold shadow-lg"
                   >
-                    Inscrever meu filho
+                    <a href="https://forms.clickup.com/9013166793/f/8ckm0p9-733/LKETIYOASY407ACE1T" target="_blank" rel="noopener noreferrer">
+                      Inscrever meu filho
+                    </a>
                   </Button>
                   <Button 
                     variant="outline" 
@@ -331,21 +331,17 @@ const SafeKids = () => {
             </p>
             <Button 
               size="lg" 
-              onClick={() => setIsModalOpen(true)}
+              asChild
               className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-lg px-8 py-6 shadow-lg"
             >
-              Quero inscrever meu filho no SAFE Kids 🌟
+              <a href="https://forms.clickup.com/9013166793/f/8ckm0p9-733/LKETIYOASY407ACE1T" target="_blank" rel="noopener noreferrer">
+                Quero inscrever meu filho no SAFE Kids 🌟
+              </a>
             </Button>
           </div>
         </section>
       </main>
       <Footer />
-      
-      <LeadModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        programName="SAFE Kids"
-      />
     </div>
   );
 };
