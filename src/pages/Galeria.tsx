@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 import safeKidsClass from "@/assets/gallery/safe-kids-class.jpg";
 import classroomLecture from "@/assets/gallery/classroom-lecture.png";
@@ -19,10 +20,10 @@ import teensClassroom from "@/assets/gallery/teens-classroom.png";
 import acepbCertificates from "@/assets/gallery/acepb-certificates.jpg";
 import kidsActivity from "@/assets/gallery/kids-activity.jpg";
 
-const Gallery = () => {
+const Galeria = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const allImages = [
+  const images = [
     { src: teamPhoto, alt: "Turma SAFE - Foto em grupo" },
     { src: acepbCertificates, alt: "Entrega de certificados ACEPB" },
     { src: kidsActivity, alt: "Atividade prática com crianças" },
@@ -41,9 +42,6 @@ const Gallery = () => {
     { src: kidsLearning, alt: "Crianças aprendendo finanças" },
   ];
 
-  // Show only first 8 images on homepage
-  const images = allImages.slice(0, 8);
-
   const openLightbox = (index: number) => setSelectedImage(index);
   const closeLightbox = () => setSelectedImage(null);
   
@@ -60,49 +58,43 @@ const Gallery = () => {
   };
 
   return (
-    <section id="galeria" className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-            Nossa <span className="text-accent">Galeria</span>
-          </h2>
-          <div className="w-24 h-1 bg-accent mx-auto mb-6"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Veja momentos especiais das nossas aulas e eventos
-          </p>
-        </div>
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <main className="pt-24 pb-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
+              Nossa <span className="text-accent">Galeria</span>
+            </h1>
+            <div className="w-24 h-1 bg-accent mx-auto mb-6"></div>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Veja momentos especiais das nossas aulas, eventos e transformações
+            </p>
+          </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className="aspect-square overflow-hidden rounded-xl cursor-pointer group relative"
-              onClick={() => openLightbox(index)}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/30 transition-colors duration-300 flex items-center justify-center">
-                <span className="text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity font-semibold text-sm">
-                  Ver foto
-                </span>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className="aspect-square overflow-hidden rounded-xl cursor-pointer group relative"
+                onClick={() => openLightbox(index)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/30 transition-colors duration-300 flex items-center justify-center">
+                  <span className="text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity font-semibold text-sm">
+                    Ver foto
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-
-        {/* Ver mais link */}
-        <div className="text-center mt-10">
-          <Link 
-            to="/galeria"
-            className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
-          >
-            Ver Galeria Completa
-          </Link>
-        </div>
-      </div>
+      </main>
 
       {/* Lightbox */}
       {selectedImage !== null && (
@@ -139,8 +131,10 @@ const Gallery = () => {
           </p>
         </div>
       )}
-    </section>
+
+      <Footer />
+    </div>
   );
 };
 
-export default Gallery;
+export default Galeria;
