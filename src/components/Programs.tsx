@@ -65,28 +65,28 @@ const Programs = () => {
 
   const colorClasses = {
     kids: {
-      bg: "bg-gradient-to-br from-orange-500 to-amber-500",
-      hover: "hover:from-orange-600 hover:to-amber-600",
-      badge: "bg-orange-100 text-orange-700",
-      border: "border-orange-400",
+      bg: "bg-gradient-to-br from-pink-500 to-rose-500",
+      hover: "hover:from-pink-600 hover:to-rose-600",
+      badge: "bg-pink-100 text-pink-700",
+      border: "border-pink-400",
     },
     teens: {
-      bg: "bg-gradient-to-br from-blue-600 to-cyan-500",
-      hover: "hover:from-blue-700 hover:to-cyan-600",
-      badge: "bg-blue-100 text-blue-700",
-      border: "border-blue-400",
+      bg: "bg-gradient-to-br from-slate-600 to-slate-700",
+      hover: "hover:from-slate-700 hover:to-slate-800",
+      badge: "bg-slate-100 text-slate-700",
+      border: "border-slate-400",
     },
     adults: {
+      bg: "bg-gradient-to-br from-amber-500 to-yellow-600",
+      hover: "hover:from-amber-600 hover:to-yellow-700",
+      badge: "bg-amber-100 text-amber-700",
+      border: "border-amber-400",
+    },
+    company: {
       bg: "bg-gradient-to-br from-emerald-600 to-teal-500",
       hover: "hover:from-emerald-700 hover:to-teal-600",
       badge: "bg-emerald-100 text-emerald-700",
       border: "border-emerald-400",
-    },
-    company: {
-      bg: "bg-gradient-to-br from-purple-600 to-violet-500",
-      hover: "hover:from-purple-700 hover:to-violet-600",
-      badge: "bg-purple-100 text-purple-700",
-      border: "border-purple-400",
     },
   };
 

@@ -61,15 +61,16 @@ const SafeKids = () => {
     <div className="min-h-screen">
       <Header />
       <main>
-        {/* Hero Section - Laranja e Infantil */}
-        <section className="relative py-20 md:py-32 bg-gradient-to-br from-orange-400 via-amber-500 to-yellow-400 overflow-hidden">
+        {/* Hero Section - Rosa/Magenta Infantil */}
+        <section className="relative py-20 md:py-32 bg-gradient-to-br from-pink-500 via-rose-500 to-fuchsia-500 overflow-hidden">
           {/* Fun decorative elements */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-10 left-10 w-20 h-20 bg-white/20 rounded-full animate-pulse"></div>
-            <div className="absolute top-32 right-20 w-12 h-12 bg-white/15 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
-            <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-white/10 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute top-1/2 right-10 w-8 h-8 bg-white/20 rounded-full animate-bounce"></div>
-            <div className="absolute bottom-32 right-1/3 w-24 h-24 bg-yellow-300/20 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+            <div className="absolute top-10 left-10 w-20 h-20 bg-yellow-300/30 rounded-full animate-pulse"></div>
+            <div className="absolute top-32 right-20 w-12 h-12 bg-cyan-300/30 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-lime-300/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 right-10 w-8 h-8 bg-orange-300/30 rounded-full animate-bounce"></div>
+            <div className="absolute bottom-32 right-1/3 w-24 h-24 bg-purple-300/20 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+            <div className="absolute top-1/4 left-1/3 w-10 h-10 bg-blue-300/25 rounded-full animate-bounce" style={{ animationDelay: '0.7s' }}></div>
           </div>
           
           <div className="container mx-auto px-4 relative z-10">
@@ -97,7 +98,7 @@ const SafeKids = () => {
                   <Button 
                     size="lg" 
                     asChild
-                    className="bg-white text-orange-600 hover:bg-white/90 font-bold shadow-lg"
+                    className="bg-white text-pink-600 hover:bg-white/90 font-bold shadow-lg"
                   >
                     <a href="https://forms.clickup.com/9013166793/f/8ckm0p9-733/LKETIYOASY407ACE1T" target="_blank" rel="noopener noreferrer">
                       Inscrever meu filho
@@ -127,11 +128,11 @@ const SafeKids = () => {
         </section>
 
         {/* Animated Stats Section */}
-        <section className="py-16 bg-gradient-to-b from-orange-100 to-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y5NzMxNiIgc3Ryb2tlLXdpZHRoPSIwLjUiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-50"></div>
+        <section className="py-16 bg-gradient-to-b from-pink-100 to-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2VjNDg5OSIgc3Ryb2tlLXdpZHRoPSIwLjUiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-50"></div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-2xl mx-auto text-center">
-              <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-orange-400 to-amber-500 rounded-full flex items-center justify-center shadow-xl animate-pulse">
+              <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center shadow-xl animate-pulse">
                 <span className="text-4xl font-bold text-white">+{animatedStats.kids}</span>
               </div>
               <p className="font-heading font-bold text-2xl text-gray-800 mb-2">Crianças Impactadas</p>
@@ -141,18 +142,18 @@ const SafeKids = () => {
         </section>
 
         {/* Quick Info */}
-        <section className="py-12 bg-amber-50">
+        <section className="py-12 bg-pink-50">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {[
-                { icon: Users, label: "Idade", value: "7 a 14 anos", color: "text-orange-500" },
-                { icon: Clock, label: "Cada Trilha", value: "4 meses (12 semanas)", color: "text-amber-600" },
-                { icon: Award, label: "Certificado", value: "Incluso", color: "text-yellow-600" },
-                { icon: Check, label: "Formato", value: "Online/Presencial", color: "text-orange-600" },
+                { icon: Users, label: "Idade", value: "7 a 14 anos", color: "text-pink-500" },
+                { icon: Clock, label: "Cada Trilha", value: "4 meses (12 semanas)", color: "text-rose-500" },
+                { icon: Award, label: "Certificado", value: "Incluso", color: "text-fuchsia-500" },
+                { icon: Check, label: "Formato", value: "Online/Presencial", color: "text-pink-600" },
               ].map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <div key={index} className="bg-white rounded-2xl p-6 text-center shadow-lg border-2 border-orange-100 hover:border-orange-300 transition-all hover:-translate-y-1">
+                  <div key={index} className="bg-white rounded-2xl p-6 text-center shadow-lg border-2 border-pink-100 hover:border-pink-300 transition-all hover:-translate-y-1">
                     <Icon className={`w-10 h-10 ${item.color} mx-auto mb-3`} />
                     <div className="text-sm text-gray-500 mb-1">{item.label}</div>
                     <div className="font-heading font-bold text-gray-800 text-lg">{item.value}</div>
@@ -167,7 +168,7 @@ const SafeKids = () => {
         <section id="programa" className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-5xl">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-4 text-gray-800">
-              Trilhas de <span className="text-orange-500">Aprendizagem</span> ✨
+              Trilhas de <span className="text-pink-500">Aprendizagem</span> ✨
             </h2>
             <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
               Cada trilha tem duração de 4 meses (12 semanas) e oferece uma experiência completa de educação financeira de forma lúdica e prática.
@@ -175,13 +176,13 @@ const SafeKids = () => {
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {/* Trilha 1: Jornada do Dinheiro */}
-              <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 shadow-lg border-2 border-orange-200 hover:shadow-xl transition-shadow">
+              <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-8 shadow-lg border-2 border-pink-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center shadow-lg">
+                  <div className="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center shadow-lg">
                     <span className="text-white text-2xl">💰</span>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-orange-600 bg-orange-100 px-2 py-1 rounded-full">TRILHA 1</span>
+                    <span className="text-xs font-semibold text-pink-600 bg-pink-100 px-2 py-1 rounded-full">TRILHA 1</span>
                     <h3 className="text-2xl font-heading font-bold text-gray-800">Jornada do Dinheiro</h3>
                   </div>
                 </div>
@@ -196,28 +197,28 @@ const SafeKids = () => {
                     "Atividades práticas e lúdicas",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-6 h-6 rounded-full bg-pink-500 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check className="w-4 h-4 text-white" />
                       </div>
                       <span className="text-gray-700 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 p-4 bg-orange-100 rounded-xl">
-                  <p className="text-sm text-orange-800 font-medium text-center">
+                <div className="mt-6 p-4 bg-pink-100 rounded-xl">
+                  <p className="text-sm text-pink-800 font-medium text-center">
                     🏛️ Finaliza com um <strong>Museu do Dinheiro</strong>!
                   </p>
                 </div>
               </div>
 
               {/* Trilha 2: Mini Empresa */}
-              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-8 shadow-lg border-2 border-amber-200 hover:shadow-xl transition-shadow">
+              <div className="bg-gradient-to-br from-fuchsia-50 to-purple-50 rounded-2xl p-8 shadow-lg border-2 border-fuchsia-200 hover:shadow-xl transition-shadow">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg">
+                  <div className="w-14 h-14 bg-gradient-to-br from-fuchsia-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
                     <span className="text-white text-2xl">🏪</span>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-amber-600 bg-amber-100 px-2 py-1 rounded-full">TRILHA 2</span>
+                    <span className="text-xs font-semibold text-fuchsia-600 bg-fuchsia-100 px-2 py-1 rounded-full">TRILHA 2</span>
                     <h3 className="text-2xl font-heading font-bold text-gray-800">Mini Empresa</h3>
                   </div>
                 </div>
@@ -232,15 +233,15 @@ const SafeKids = () => {
                     "Gestão financeira simplificada",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-6 h-6 rounded-full bg-fuchsia-500 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check className="w-4 h-4 text-white" />
                       </div>
                       <span className="text-gray-700 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 p-4 bg-amber-100 rounded-xl">
-                  <p className="text-sm text-amber-800 font-medium text-center">
+                <div className="mt-6 p-4 bg-fuchsia-100 rounded-xl">
+                  <p className="text-sm text-fuchsia-800 font-medium text-center">
                     🎪 Finaliza com uma <strong>Feira de Negócios</strong>!
                   </p>
                 </div>
@@ -248,7 +249,7 @@ const SafeKids = () => {
             </div>
 
             {/* Diferenciais */}
-            <div className="bg-gradient-to-r from-orange-100 via-amber-100 to-yellow-100 rounded-2xl p-8 border border-orange-200">
+            <div className="bg-gradient-to-r from-pink-100 via-rose-100 to-fuchsia-100 rounded-2xl p-8 border border-pink-200">
               <h3 className="text-2xl font-heading font-bold text-center mb-6 text-gray-800">Diferenciais do Programa</h3>
               <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
                 {[
@@ -269,7 +270,7 @@ const SafeKids = () => {
         </section>
 
         {/* Testimonial Section */}
-        <section className="py-16 bg-gradient-to-br from-orange-500 to-amber-500">
+        <section className="py-16 bg-gradient-to-br from-pink-500 to-rose-500">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 text-center">
               <Quote className="w-12 h-12 text-white/50 mx-auto mb-6" />
@@ -278,7 +279,7 @@ const SafeKids = () => {
               </p>
               <div className="flex items-center justify-center gap-4">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                  <span className="font-bold text-orange-500">AM</span>
+                  <span className="font-bold text-pink-500">AM</span>
                 </div>
                 <div className="text-left">
                   <p className="font-bold text-white">Ana Maria</p>
@@ -290,10 +291,10 @@ const SafeKids = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 bg-orange-50">
+        <section className="py-20 bg-pink-50">
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <div className="inline-flex items-center gap-2 bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
                 <HelpCircle className="w-4 h-4" />
                 Perguntas Frequentes
               </div>
@@ -307,9 +308,9 @@ const SafeKids = () => {
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="bg-white rounded-2xl shadow-md border-2 border-orange-100 overflow-hidden"
+                  className="bg-white rounded-2xl shadow-md border-2 border-pink-100 overflow-hidden"
                 >
-                  <AccordionTrigger className="px-6 py-5 text-left font-heading font-bold text-gray-800 hover:no-underline hover:text-orange-600">
+                  <AccordionTrigger className="px-6 py-5 text-left font-heading font-bold text-gray-800 hover:no-underline hover:text-pink-600">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="px-6 pb-5 text-gray-600">
@@ -333,7 +334,7 @@ const SafeKids = () => {
             <Button 
               size="lg" 
               asChild
-              className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-lg px-8 py-6 shadow-lg"
+              className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold text-lg px-8 py-6 shadow-lg"
             >
               <a href="https://forms.clickup.com/9013166793/f/8ckm0p9-733/LKETIYOASY407ACE1T" target="_blank" rel="noopener noreferrer">
                 Quero inscrever meu filho no SAFE Kids 🌟
