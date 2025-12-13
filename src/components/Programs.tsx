@@ -65,10 +65,10 @@ const Programs = () => {
 
   const colorClasses = {
     kids: {
-      bg: "bg-gradient-to-br from-pink-500 to-rose-500",
-      hover: "hover:from-pink-600 hover:to-rose-600",
-      badge: "bg-pink-100 text-pink-700",
-      border: "border-pink-400",
+      bg: "bg-gradient-to-br from-cyan-500 to-teal-500",
+      hover: "hover:from-cyan-600 hover:to-teal-600",
+      badge: "bg-cyan-100 text-cyan-700",
+      border: "border-cyan-400",
     },
     teens: {
       bg: "bg-gradient-to-br from-slate-600 to-slate-700",
