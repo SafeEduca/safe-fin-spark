@@ -39,16 +39,36 @@ const LeadModal = ({ isOpen, onClose, programName }: LeadModalProps) => {
       return;
     }
 
+    // Validate input lengths
+    if (formData.name.length > 100 || formData.email.length > 255 || formData.phone.length > 20) {
+      toast.error("Por favor, verifique os dados informados.");
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Lead submitted:", { ...formData, program: programName });
-      toast.success("Interesse registrado com sucesso! Entraremos em contato em breve.");
+    try {
+      // Send email using mailto link as fallback (opens email client)
+      const subject = encodeURIComponent(`Interesse em ${programName} - ${formData.name}`);
+      const body = encodeURIComponent(
+        `Nome: ${formData.name}\n` +
+        `E-mail: ${formData.email}\n` +
+        `Telefone: ${formData.phone}\n` +
+        `Programa: ${programName}\n` +
+        `Mensagem: ${formData.message || 'Nenhuma mensagem adicional'}`
+      );
+      
+      // Open mailto link
+      window.location.href = `mailto:contato@safeeduca.com.br?subject=${subject}&body=${body}`;
+      
+      toast.success("Redirecionando para seu cliente de e-mail. Envie a mensagem para concluir!");
       setFormData({ name: "", email: "", phone: "", message: "" });
-      setIsSubmitting(false);
       onClose();
-    }, 1000);
+    } catch (error) {
+      toast.error("Erro ao processar. Tente novamente ou entre em contato pelo WhatsApp.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

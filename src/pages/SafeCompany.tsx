@@ -147,12 +147,11 @@ const SafeCompany = () => {
         {/* Quick Info */}
         <section className="py-12 bg-gradient-to-b from-emerald-50 to-white">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {[
                 { icon: Users, label: "Público", value: "Colaboradores", color: "text-emerald-600" },
-                { icon: Clock, label: "Formato", value: "Flexível", color: "text-teal-600" },
                 { icon: Award, label: "Certificação", value: "Incluída", color: "text-emerald-600" },
-                { icon: Check, label: "Modalidade", value: "In-company/Online", color: "text-teal-600" },
+                { icon: Check, label: "Modalidade", value: "Presencial", color: "text-teal-600" },
               ].map((item, index) => {
                 const Icon = item.icon;
                 return (
