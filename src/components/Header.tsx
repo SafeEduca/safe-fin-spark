@@ -37,7 +37,7 @@ const Header = () => {
     { name: "SAFETY", path: "/safety", color: "bg-violet-500" },
   ];
 
-  let dropdownTimeout: NodeJS.Timeout;
+  let dropdownTimeout: ReturnType<typeof setTimeout>;
 
   const handleMouseEnter = () => {
     clearTimeout(dropdownTimeout);
