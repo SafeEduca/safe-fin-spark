@@ -41,15 +41,58 @@ const features = [
   { icon: Award, title: "Certificados Digitais", description: "Conquiste badges, troféus e certificados reconhecidos ao concluir módulos." },
 ];
 
-const planFeatures = [
-  "Acesso completo à plataforma",
-  "Todos os módulos e trilhas",
-  "Simuladores financeiros ilimitados",
-  "Rankings e desafios semanais",
-  "Certificados digitais",
-  "IA personalizada",
-  "Suporte via chat",
-  "Comunidade exclusiva",
+const plans = [
+  {
+    name: "Essencial",
+    icon: Smartphone,
+    price: "29,90",
+    total: "358,80",
+    description: "Acesso ao aplicativo",
+    features: [
+      "Acesso completo à plataforma",
+      "Todos os módulos e trilhas",
+      "Simuladores financeiros",
+      "Rankings e desafios semanais",
+      "Certificados digitais",
+    ],
+    highlighted: false,
+    cta: "Começar agora",
+  },
+  {
+    name: "Completo",
+    icon: Star,
+    price: "49,90",
+    total: "598,80",
+    description: "App + Campanhas",
+    features: [
+      "Tudo do plano Essencial",
+      "Campanhas financeiras mensais",
+      "IA personalizada",
+      "Comunidade exclusiva",
+      "Suporte via chat prioritário",
+      "Conteúdos extras e bônus",
+    ],
+    highlighted: true,
+    cta: "Escolher Completo",
+    badge: "Mais popular",
+  },
+  {
+    name: "Premium",
+    icon: Crown,
+    price: "89,90",
+    total: "1.078,80",
+    description: "App + Consultoria",
+    features: [
+      "Tudo do plano Completo",
+      "Consultoria financeira individual",
+      "Plano financeiro personalizado",
+      "Acompanhamento mensal com consultor",
+      "Acesso a workshops exclusivos",
+      "Suporte VIP",
+    ],
+    highlighted: false,
+    cta: "Quero Premium",
+  },
 ];
 
 const faqs = [
