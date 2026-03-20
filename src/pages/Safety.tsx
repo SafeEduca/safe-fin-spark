@@ -215,8 +215,8 @@ const Safety = () => {
           <div className="container mx-auto px-4 max-w-6xl relative z-10">
             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
               <div className="flex-shrink-0 relative">
-                <div className="absolute inset-0 bg-cyan-500/15 rounded-full blur-[80px] scale-75" />
-                <img src={phoneLessons} alt="SAFETY App - Lições interativas" className="relative z-10 w-56 md:w-72 drop-shadow-2xl" />
+                <div className="absolute inset-0 bg-cyan-500/15 rounded-3xl blur-[80px] scale-75" />
+                <img src={phoneUpdate} alt="SAFETY App - Atualizações" className="relative z-10 w-48 md:w-64 rounded-2xl drop-shadow-2xl" />
               </div>
 
               <div className="flex-1">
