@@ -187,8 +187,8 @@ const Safety = () => {
 
               {/* Right - Phone mockup */}
               <div className="flex-shrink-0 relative">
-                <div className="absolute inset-0 bg-violet-500/20 rounded-full blur-[80px] scale-75" />
-                <img src={phoneHero} alt="SAFETY App - Dashboard" className="relative z-10 w-64 md:w-80 drop-shadow-2xl" />
+                <div className="absolute inset-0 bg-violet-500/20 rounded-3xl blur-[80px] scale-75" />
+                <img src={phoneHero} alt="SAFETY App - Splash" className="relative z-10 w-56 md:w-72 rounded-2xl drop-shadow-2xl" />
               </div>
             </div>
           </div>
