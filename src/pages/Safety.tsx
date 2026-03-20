@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import { ArrowLeft, Sparkles, Gamepad2, TrendingUp, Users, Zap, Award, Layers, Building2, Check, ChevronDown, Smartphone, Trophy, Target, BookOpen } from "lucide-react";
+import { ArrowLeft, Sparkles, Gamepad2, TrendingUp, Users, Zap, Award, Layers, Building2, Check, ChevronDown, Smartphone, Trophy, Target, BookOpen, Star, Crown } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LeadModal from "@/components/LeadModal";
-import phoneHero from "@/assets/safety-phone-hero.png";
-import phoneFeatures from "@/assets/safety-phone-features.png";
-import phoneLessons from "@/assets/safety-phone-lessons.png";
+import phoneHero from "@/assets/safety-screen-splash.jpeg";
+import phoneFeatures from "@/assets/safety-screen-ranking.jpeg";
+import phoneLessons from "@/assets/safety-screen-trilhas.jpeg";
+import phoneAvatar from "@/assets/safety-screen-avatar.jpeg";
+import phoneUpdate from "@/assets/safety-screen-update.jpeg";
 
 const glassCard = {
   background: 'rgba(255,255,255,0.06)',
@@ -39,15 +41,58 @@ const features = [
   { icon: Award, title: "Certificados Digitais", description: "Conquiste badges, troféus e certificados reconhecidos ao concluir módulos." },
 ];
 
-const planFeatures = [
-  "Acesso completo à plataforma",
-  "Todos os módulos e trilhas",
-  "Simuladores financeiros ilimitados",
-  "Rankings e desafios semanais",
-  "Certificados digitais",
-  "IA personalizada",
-  "Suporte via chat",
-  "Comunidade exclusiva",
+const plans = [
+  {
+    name: "Essencial",
+    icon: Smartphone,
+    price: "29,90",
+    total: "358,80",
+    description: "Acesso ao aplicativo",
+    features: [
+      "Acesso completo à plataforma",
+      "Todos os módulos e trilhas",
+      "Simuladores financeiros",
+      "Rankings e desafios semanais",
+      "Certificados digitais",
+    ],
+    highlighted: false,
+    cta: "Começar agora",
+  },
+  {
+    name: "Completo",
+    icon: Star,
+    price: "49,90",
+    total: "598,80",
+    description: "App + Campanhas",
+    features: [
+      "Tudo do plano Essencial",
+      "Campanhas financeiras mensais",
+      "IA personalizada",
+      "Comunidade exclusiva",
+      "Suporte via chat prioritário",
+      "Conteúdos extras e bônus",
+    ],
+    highlighted: true,
+    cta: "Escolher Completo",
+    badge: "Mais popular",
+  },
+  {
+    name: "Premium",
+    icon: Crown,
+    price: "89,90",
+    total: "1.078,80",
+    description: "App + Consultoria",
+    features: [
+      "Tudo do plano Completo",
+      "Consultoria financeira individual",
+      "Plano financeiro personalizado",
+      "Acompanhamento mensal com consultor",
+      "Acesso a workshops exclusivos",
+      "Suporte VIP",
+    ],
+    highlighted: false,
+    cta: "Quero Premium",
+  },
 ];
 
 const faqs = [
@@ -142,8 +187,8 @@ const Safety = () => {
 
               {/* Right - Phone mockup */}
               <div className="flex-shrink-0 relative">
-                <div className="absolute inset-0 bg-violet-500/20 rounded-full blur-[80px] scale-75" />
-                <img src={phoneHero} alt="SAFETY App - Dashboard" className="relative z-10 w-64 md:w-80 drop-shadow-2xl" />
+                <div className="absolute inset-0 bg-violet-500/20 rounded-3xl blur-[80px] scale-75" />
+                <img src={phoneHero} alt="SAFETY App - Splash" className="relative z-10 w-56 md:w-72 rounded-2xl drop-shadow-2xl" />
               </div>
             </div>
           </div>
@@ -170,8 +215,8 @@ const Safety = () => {
           <div className="container mx-auto px-4 max-w-6xl relative z-10">
             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
               <div className="flex-shrink-0 relative">
-                <div className="absolute inset-0 bg-cyan-500/15 rounded-full blur-[80px] scale-75" />
-                <img src={phoneLessons} alt="SAFETY App - Lições interativas" className="relative z-10 w-56 md:w-72 drop-shadow-2xl" />
+                <div className="absolute inset-0 bg-cyan-500/15 rounded-3xl blur-[80px] scale-75" />
+                <img src={phoneUpdate} alt="SAFETY App - Atualizações" className="relative z-10 w-48 md:w-64 rounded-2xl drop-shadow-2xl" />
               </div>
 
               <div className="flex-1">
@@ -263,18 +308,18 @@ const Safety = () => {
               <p className="text-white/40 max-w-xl mx-auto">Disponível no celular, tablet e computador com progresso sincronizado</p>
             </div>
 
-            <div className="flex justify-center items-end gap-6 md:gap-10">
+            <div className="flex justify-center items-end gap-4 md:gap-8">
               <div className="relative">
-                <div className="absolute inset-0 bg-violet-500/20 rounded-full blur-[60px] scale-90" />
-                <img src={phoneFeatures} alt="SAFETY - Rankings e desafios" className="relative z-10 w-44 md:w-56 drop-shadow-2xl opacity-80 -mb-4" />
+                <div className="absolute inset-0 bg-violet-500/20 rounded-3xl blur-[60px] scale-90" />
+                <img src={phoneAvatar} alt="SAFETY - Perfil e estatísticas" className="relative z-10 w-36 md:w-52 rounded-2xl drop-shadow-2xl opacity-80 -mb-4" />
               </div>
               <div className="relative">
-                <div className="absolute inset-0 bg-cyan-500/20 rounded-full blur-[80px] scale-90" />
-                <img src={phoneHero} alt="SAFETY - Dashboard principal" className="relative z-10 w-56 md:w-72 drop-shadow-2xl" />
+                <div className="absolute inset-0 bg-cyan-500/20 rounded-3xl blur-[80px] scale-90" />
+                <img src={phoneLessons} alt="SAFETY - Trilhas de aprendizado" className="relative z-10 w-48 md:w-64 rounded-2xl drop-shadow-2xl" />
               </div>
               <div className="relative hidden sm:block">
-                <div className="absolute inset-0 bg-violet-500/20 rounded-full blur-[60px] scale-90" />
-                <img src={phoneLessons} alt="SAFETY - Lições" className="relative z-10 w-44 md:w-56 drop-shadow-2xl opacity-80 -mb-4" />
+                <div className="absolute inset-0 bg-violet-500/20 rounded-3xl blur-[60px] scale-90" />
+                <img src={phoneFeatures} alt="SAFETY - Rankings" className="relative z-10 w-36 md:w-52 rounded-2xl drop-shadow-2xl opacity-80 -mb-4" />
               </div>
             </div>
           </div>
@@ -287,62 +332,96 @@ const Safety = () => {
           <div className="absolute top-1/4 left-[15%] w-72 h-72 rounded-full opacity-20 blur-[120px]" style={{ background: '#7c3aed' }} />
           <div className="absolute bottom-1/4 right-[15%] w-64 h-64 rounded-full opacity-15 blur-[100px]" style={{ background: '#06b6d4' }} />
 
-          <div className="container mx-auto px-4 max-w-4xl relative z-10">
+          <div className="container mx-auto px-4 max-w-6xl relative z-10">
             <div className="text-center mb-14">
-              <span className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4 block">Nosso preço</span>
+              <span className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4 block">Planos</span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
                 Invista no seu{" "}
                 <span className="text-transparent bg-clip-text" style={{
                   backgroundImage: 'linear-gradient(135deg, #a78bfa, #22d3ee)',
                 }}>futuro financeiro</span>
               </h2>
-              <p className="text-white/40 max-w-lg mx-auto">Um plano que cabe no seu bolso e transforma sua vida</p>
+              <p className="text-white/40 max-w-lg mx-auto">Escolha o plano ideal para sua jornada</p>
             </div>
 
-            {/* Pricing Card */}
-            <div className="max-w-md mx-auto rounded-3xl p-1" style={{
-              background: 'linear-gradient(135deg, rgba(139,92,246,0.4), rgba(6,182,212,0.3))',
-            }}>
-              <div className="rounded-[1.35rem] p-8 md:p-10" style={{
-                background: 'rgba(15,12,41,0.9)',
-                backdropFilter: 'blur(24px)',
-                WebkitBackdropFilter: 'blur(24px)',
-              }}>
-                <div className="text-center mb-8">
-                  <h3 className="text-xl font-heading font-bold text-white mb-2">Plano Anual</h3>
-                  <p className="text-white/40 text-sm mb-6">Acesso completo por 12 meses</p>
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-white/40 text-lg">12x</span>
-                    <span className="text-5xl font-heading font-bold text-white">R$ 49</span>
-                    <span className="text-2xl font-heading font-bold text-white">,90</span>
-                  </div>
-                  <p className="text-white/30 text-sm mt-2">ou R$ 598,80 à vista</p>
-                </div>
-
-                <ul className="space-y-3 mb-8">
-                  {planFeatures.map((feat, i) => (
-                    <li key={i} className="flex items-center gap-3 text-white/60 text-sm">
-                      <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{
-                        background: 'rgba(34,211,238,0.15)',
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              {plans.map((plan, index) => {
+                const Icon = plan.icon;
+                return (
+                  <div key={index} className="relative rounded-3xl p-[1px]" style={{
+                    background: plan.highlighted
+                      ? 'linear-gradient(135deg, rgba(139,92,246,0.6), rgba(6,182,212,0.5))'
+                      : 'linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))',
+                  }}>
+                    {plan.badge && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 px-4 py-1 rounded-full text-xs font-bold text-white" style={{
+                        background: 'linear-gradient(135deg, #8b5cf6, #06b6d4)',
                       }}>
-                        <Check className="w-3 h-3 text-cyan-400" />
+                        {plan.badge}
                       </div>
-                      {feat}
-                    </li>
-                  ))}
-                </ul>
+                    )}
+                    <div className={`rounded-[1.4rem] p-7 md:p-8 h-full flex flex-col ${plan.highlighted ? 'ring-1 ring-violet-400/30' : ''}`} style={{
+                      background: plan.highlighted ? 'rgba(15,12,41,0.95)' : 'rgba(15,12,41,0.8)',
+                      backdropFilter: 'blur(24px)',
+                      WebkitBackdropFilter: 'blur(24px)',
+                    }}>
+                      {/* Header */}
+                      <div className="text-center mb-6">
+                        <div className={`w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center ${plan.highlighted ? '' : ''}`} style={{
+                          background: plan.highlighted ? 'linear-gradient(135deg, rgba(139,92,246,0.25), rgba(6,182,212,0.2))' : 'rgba(255,255,255,0.06)',
+                          border: `1px solid ${plan.highlighted ? 'rgba(139,92,246,0.3)' : 'rgba(255,255,255,0.1)'}`,
+                        }}>
+                          <Icon className={`w-7 h-7 ${plan.highlighted ? 'text-violet-300' : 'text-white/50'}`} />
+                        </div>
+                        <h3 className="text-xl font-heading font-bold text-white mb-1">{plan.name}</h3>
+                        <p className="text-white/40 text-sm">{plan.description}</p>
+                      </div>
 
-                <button
-                  onClick={() => openModal("SAFETY - Plano Anual (12x R$49,90)")}
-                  className="w-full py-4 rounded-xl text-base font-bold text-white transition-all duration-300 hover:scale-[1.02]"
-                  style={glassButton}
-                >
-                  <span className="flex items-center justify-center gap-2">
-                    <Zap className="w-5 h-5" />
-                    Assinar agora
-                  </span>
-                </button>
-              </div>
+                      {/* Divider */}
+                      <div className="w-full h-px mb-6" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)' }} />
+
+                      {/* Price */}
+                      <div className="text-center mb-6">
+                        <div className="flex items-baseline justify-center gap-1">
+                          <span className="text-white/40 text-sm">12x</span>
+                          <span className={`text-4xl font-heading font-bold ${plan.highlighted ? 'text-white' : 'text-white/90'}`}>R$ {plan.price.split(',')[0]}</span>
+                          <span className="text-xl font-heading font-bold text-white/80">,{plan.price.split(',')[1]}</span>
+                        </div>
+                        <p className="text-white/25 text-xs mt-1">ou R$ {plan.total} à vista</p>
+                      </div>
+
+                      {/* Divider */}
+                      <div className="w-full h-px mb-6" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)' }} />
+
+                      {/* Features */}
+                      <ul className="space-y-3 mb-8 flex-1">
+                        {plan.features.map((feat, i) => (
+                          <li key={i} className="flex items-start gap-3 text-white/55 text-sm">
+                            <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{
+                              background: plan.highlighted ? 'rgba(139,92,246,0.2)' : 'rgba(34,211,238,0.12)',
+                            }}>
+                              <Check className={`w-3 h-3 ${plan.highlighted ? 'text-violet-300' : 'text-cyan-400'}`} />
+                            </div>
+                            {feat}
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* CTA */}
+                      <button
+                        onClick={() => openModal(`SAFETY - Plano ${plan.name} (12x R$${plan.price})`)}
+                        className="w-full py-3.5 rounded-xl text-sm font-bold text-white transition-all duration-300 hover:scale-[1.02]"
+                        style={plan.highlighted ? glassButton : {
+                          background: 'rgba(255,255,255,0.08)',
+                          border: '1px solid rgba(255,255,255,0.15)',
+                        }}
+                      >
+                        {plan.cta}
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
