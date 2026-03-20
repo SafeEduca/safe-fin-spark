@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import { ArrowLeft, Sparkles, Gamepad2, TrendingUp, Users, Zap, Award, Layers, Building2, Check, ChevronDown, Smartphone, Trophy, Target, BookOpen } from "lucide-react";
+import { ArrowLeft, Sparkles, Gamepad2, TrendingUp, Users, Zap, Award, Layers, Building2, Check, ChevronDown, Smartphone, Trophy, Target, BookOpen, Star, Crown } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LeadModal from "@/components/LeadModal";
-import phoneHero from "@/assets/safety-phone-hero.png";
-import phoneFeatures from "@/assets/safety-phone-features.png";
-import phoneLessons from "@/assets/safety-phone-lessons.png";
+import phoneHero from "@/assets/safety-screen-splash.jpeg";
+import phoneFeatures from "@/assets/safety-screen-ranking.jpeg";
+import phoneLessons from "@/assets/safety-screen-trilhas.jpeg";
+import phoneAvatar from "@/assets/safety-screen-avatar.jpeg";
+import phoneUpdate from "@/assets/safety-screen-update.jpeg";
 
 const glassCard = {
   background: 'rgba(255,255,255,0.06)',
