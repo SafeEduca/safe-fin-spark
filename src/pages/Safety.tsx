@@ -308,18 +308,18 @@ const Safety = () => {
               <p className="text-white/40 max-w-xl mx-auto">Disponível no celular, tablet e computador com progresso sincronizado</p>
             </div>
 
-            <div className="flex justify-center items-end gap-6 md:gap-10">
+            <div className="flex justify-center items-end gap-4 md:gap-8">
               <div className="relative">
-                <div className="absolute inset-0 bg-violet-500/20 rounded-full blur-[60px] scale-90" />
-                <img src={phoneFeatures} alt="SAFETY - Rankings e desafios" className="relative z-10 w-44 md:w-56 drop-shadow-2xl opacity-80 -mb-4" />
+                <div className="absolute inset-0 bg-violet-500/20 rounded-3xl blur-[60px] scale-90" />
+                <img src={phoneAvatar} alt="SAFETY - Perfil e estatísticas" className="relative z-10 w-36 md:w-52 rounded-2xl drop-shadow-2xl opacity-80 -mb-4" />
               </div>
               <div className="relative">
-                <div className="absolute inset-0 bg-cyan-500/20 rounded-full blur-[80px] scale-90" />
-                <img src={phoneHero} alt="SAFETY - Dashboard principal" className="relative z-10 w-56 md:w-72 drop-shadow-2xl" />
+                <div className="absolute inset-0 bg-cyan-500/20 rounded-3xl blur-[80px] scale-90" />
+                <img src={phoneLessons} alt="SAFETY - Trilhas de aprendizado" className="relative z-10 w-48 md:w-64 rounded-2xl drop-shadow-2xl" />
               </div>
               <div className="relative hidden sm:block">
-                <div className="absolute inset-0 bg-violet-500/20 rounded-full blur-[60px] scale-90" />
-                <img src={phoneLessons} alt="SAFETY - Lições" className="relative z-10 w-44 md:w-56 drop-shadow-2xl opacity-80 -mb-4" />
+                <div className="absolute inset-0 bg-violet-500/20 rounded-3xl blur-[60px] scale-90" />
+                <img src={phoneFeatures} alt="SAFETY - Rankings" className="relative z-10 w-36 md:w-52 rounded-2xl drop-shadow-2xl opacity-80 -mb-4" />
               </div>
             </div>
           </div>
