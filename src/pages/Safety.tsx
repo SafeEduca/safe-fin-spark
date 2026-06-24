@@ -140,9 +140,31 @@ const Safety = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Reveal-on-scroll observer (inspired by in.com.br scroll interactions)
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   const openModal = (program: string) => {
     setModalProgram(program);
     setIsModalOpen(true);
+  };
+
+  const scrollToSuporte = () => {
+    document.getElementById('suporte')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleSupportSubmit = (e: React.FormEvent) => {
@@ -156,14 +178,57 @@ const Safety = () => {
   return (
     <div className="min-h-screen" style={{ background: '#0a0a1a' }}>
       <Header />
+
+      {/* ========== STICKY SUB-NAV (in-page) ========== */}
+      <nav className="sticky top-16 z-30 backdrop-blur-xl border-b" style={{
+        background: 'rgba(10,10,26,0.65)',
+        borderColor: 'rgba(255,255,255,0.06)',
+        WebkitBackdropFilter: 'blur(20px)',
+      }}>
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-2.5 text-xs">
+            {[
+              { label: 'Sobre', href: '#sobre' },
+              { label: 'Funcionalidades', href: '#funcionalidades' },
+              { label: 'Planos', href: '#planos' },
+              { label: 'Empresas', href: '#empresas' },
+              { label: 'FAQ', href: '#faq' },
+              { label: 'Propósito', href: '#proposito' },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={(e) => { e.preventDefault(); document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' }); }}
+                className="px-3.5 py-1.5 rounded-full text-white/55 hover:text-white hover:bg-white/5 whitespace-nowrap font-medium transition-all"
+              >
+                {item.label}
+              </a>
+            ))}
+            <div className="flex-1" />
+            <button
+              onClick={scrollToSuporte}
+              className="px-4 py-1.5 rounded-full text-white font-semibold inline-flex items-center gap-1.5 whitespace-nowrap transition-all hover:scale-[1.04]"
+              style={{
+                background: 'linear-gradient(135deg, rgba(34,211,238,0.25), rgba(139,92,246,0.25))',
+                border: '1px solid rgba(34,211,238,0.4)',
+                boxShadow: '0 0 20px rgba(34,211,238,0.2)',
+              }}
+            >
+              <LifeBuoy className="w-3.5 h-3.5" />
+              Suporte
+            </button>
+          </div>
+        </div>
+      </nav>
+
       <main>
         {/* ========== HERO ========== */}
         <section className="relative py-20 md:py-32 overflow-hidden" style={{
           background: 'linear-gradient(160deg, #0f0c29 0%, #1a1640 40%, #16213e 100%)'
         }}>
           {/* Decorative orbs */}
-          <div className="absolute top-20 left-[5%] w-80 h-80 rounded-full opacity-25 blur-[120px]" style={{ background: '#7c3aed' }} />
-          <div className="absolute bottom-0 right-[10%] w-[500px] h-[400px] rounded-full opacity-15 blur-[140px]" style={{ background: '#06b6d4' }} />
+          <div className="absolute top-20 left-[5%] w-80 h-80 rounded-full opacity-25 blur-[120px] animate-float-slow" style={{ background: '#7c3aed' }} />
+          <div className="absolute bottom-0 right-[10%] w-[500px] h-[400px] rounded-full opacity-15 blur-[140px] animate-float-slow" style={{ background: '#06b6d4', animationDelay: '2s' }} />
 
           <div className="container mx-auto px-4 relative z-10">
             <Link to="/" className="inline-flex items-center text-white/40 hover:text-white/70 mb-10 transition-colors text-sm">
@@ -172,7 +237,7 @@ const Safety = () => {
             </Link>
 
             <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
-              <div className="flex-1 text-center lg:text-left">
+              <div className="flex-1 text-center lg:text-left reveal">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-8 text-cyan-300/80" style={{
                   ...glass.card,
                   border: '1px solid rgba(6,182,212,0.2)',
@@ -183,8 +248,8 @@ const Safety = () => {
 
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-[1.05]">
                   Aprenda finanças{" "}
-                  <span className="text-transparent bg-clip-text" style={{
-                    backgroundImage: 'linear-gradient(135deg, #c4b5fd, #22d3ee)',
+                  <span className="text-transparent bg-clip-text animate-gradient-shift" style={{
+                    backgroundImage: 'linear-gradient(135deg, #c4b5fd, #22d3ee, #c4b5fd)',
                   }}>jogando</span>
                 </h1>
 
@@ -209,10 +274,21 @@ const Safety = () => {
                     <Building2 className="w-4 h-4" />
                     Para Empresas
                   </button>
+                  <button
+                    onClick={scrollToSuporte}
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl text-sm font-semibold text-cyan-200 transition-all duration-300 active:scale-[0.97] hover:scale-[1.03]"
+                    style={{
+                      background: 'rgba(34,211,238,0.08)',
+                      border: '1px solid rgba(34,211,238,0.25)',
+                    }}
+                  >
+                    <LifeBuoy className="w-4 h-4" />
+                    Suporte
+                  </button>
                 </div>
               </div>
 
-              <PhoneMockup src={phoneHero} alt="SAFETY App" className="w-52 md:w-64 flex-shrink-0" />
+              <PhoneMockup src={phoneHero} alt="SAFETY App" className="w-52 md:w-64 flex-shrink-0 reveal reveal-delay-2 animate-float-slow" />
             </div>
           </div>
         </section>
@@ -230,7 +306,7 @@ const Safety = () => {
         </section>
 
         {/* ========== ABOUT ========== */}
-        <section className="relative py-24 overflow-hidden" style={{
+        <section id="sobre" className="reveal scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #16213e 0%, #12122a 100%)'
         }}>
           <div className="absolute top-1/3 right-0 w-72 h-72 rounded-full opacity-15 blur-[120px]" style={{ background: '#7c3aed' }} />
@@ -275,7 +351,7 @@ const Safety = () => {
         </section>
 
         {/* ========== FEATURES ========== */}
-        <section className="relative py-24 overflow-hidden" style={{
+        <section id="funcionalidades" className="reveal scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #12122a 0%, #0f0c29 100%)'
         }}>
           <div className="absolute bottom-1/4 left-0 w-64 h-64 rounded-full opacity-20 blur-[100px]" style={{ background: '#7c3aed' }} />
@@ -341,7 +417,7 @@ const Safety = () => {
         </section>
 
         {/* ========== PRICING ========== */}
-        <section className="relative py-24 overflow-hidden" style={{
+        <section id="planos" className="reveal scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #1a1640 0%, #16213e 100%)'
         }}>
           <div className="absolute top-1/4 left-[10%] w-72 h-72 rounded-full opacity-15 blur-[120px]" style={{ background: '#7c3aed' }} />
@@ -440,7 +516,7 @@ const Safety = () => {
         </section>
 
         {/* ========== EMPRESAS ========== */}
-        <section id="empresas" className="relative py-24 overflow-hidden" style={{
+        <section id="empresas" className="reveal scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #16213e 0%, #12122a 100%)'
         }}>
           <div className="absolute top-1/2 right-0 w-80 h-80 rounded-full opacity-10 blur-[140px]" style={{ background: '#06b6d4' }} />
@@ -518,7 +594,7 @@ const Safety = () => {
         </section>
 
         {/* ========== FAQ ========== */}
-        <section className="relative py-24 overflow-hidden" style={{
+        <section id="faq" className="reveal scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #12122a 0%, #0a0a1a 100%)'
         }}>
           <div className="absolute top-1/3 left-[15%] w-64 h-64 rounded-full opacity-10 blur-[120px]" style={{ background: '#8b5cf6' }} />
@@ -551,7 +627,7 @@ const Safety = () => {
         </section>
 
         {/* ========== PROPÓSITO ========== */}
-        <section className="relative py-24 overflow-hidden" style={{
+        <section id="proposito" className="reveal scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #0a0a1a 0%, #12122a 100%)'
         }}>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-10 blur-[160px]" style={{ background: '#8b5cf6' }} />
@@ -622,14 +698,14 @@ const Safety = () => {
         </section>
 
         {/* ========== SUPORTE ========== */}
-        <section id="suporte" className="relative py-24 overflow-hidden" style={{
+        <section id="suporte" className="scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #12122a 0%, #16213e 100%)'
         }}>
           <div className="absolute top-1/4 right-[5%] w-80 h-80 rounded-full opacity-15 blur-[140px]" style={{ background: '#06b6d4' }} />
           <div className="absolute bottom-0 left-[5%] w-72 h-72 rounded-full opacity-10 blur-[120px]" style={{ background: '#7c3aed' }} />
 
           <div className="container mx-auto px-4 max-w-6xl relative z-10">
-            <div className="text-center mb-14">
+            <div className="text-center mb-14 reveal scroll-mt-32">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 text-cyan-300/80" style={{
                 ...glass.card,
                 border: '1px solid rgba(6,182,212,0.2)',
@@ -894,6 +970,22 @@ const Safety = () => {
         onClose={() => setIsModalOpen(false)}
         programName={modalProgram}
       />
+
+      {/* ========== FLOATING SUPPORT BUTTON ========== */}
+      <button
+        onClick={scrollToSuporte}
+        aria-label="Ir para o suporte"
+        className="fixed bottom-6 left-6 z-40 inline-flex items-center gap-2 px-5 py-3.5 rounded-full text-sm font-bold text-white animate-support-pulse hover:scale-105 active:scale-95 transition-transform"
+        style={{
+          background: 'linear-gradient(135deg, #06b6d4, #8b5cf6)',
+          border: '1px solid rgba(255,255,255,0.2)',
+          backdropFilter: 'blur(12px)',
+        }}
+      >
+        <LifeBuoy className="w-4 h-4" />
+        <span className="hidden sm:inline">Precisa de ajuda?</span>
+        <span className="sm:hidden">Suporte</span>
+      </button>
     </div>
   );
 };
