@@ -705,7 +705,9 @@ const Safety = () => {
           <div className="absolute bottom-0 left-[5%] w-72 h-72 rounded-full opacity-10 blur-[120px]" style={{ background: '#7c3aed' }} />
 
           <div className="container mx-auto px-4 max-w-6xl relative z-10">
-            <div className="text-center mb-14">
+            <div className="text-center mb-14 reveal scroll-mt-32">
+              <span className="inline-block text-cyan-400/70 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Atendimento dedicado</span>
+              <div className="block" />
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 text-cyan-300/80" style={{
                 ...glass.card,
                 border: '1px solid rgba(6,182,212,0.2)',
