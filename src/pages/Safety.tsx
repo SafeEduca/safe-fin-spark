@@ -133,6 +133,8 @@ const Safety = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalProgram, setModalProgram] = useState("SAFETY - Plano Anual");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [supportForm, setSupportForm] = useState({ nome: "", email: "", assunto: "", mensagem: "" });
+  const [supportSent, setSupportSent] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -141,6 +143,14 @@ const Safety = () => {
   const openModal = (program: string) => {
     setModalProgram(program);
     setIsModalOpen(true);
+  };
+
+  const handleSupportSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const body = `Nome: ${supportForm.nome}%0AEmail: ${supportForm.email}%0AAssunto: ${supportForm.assunto}%0A%0A${supportForm.mensagem}`;
+    window.location.href = `mailto:contato@safeeduca.com.br?subject=${encodeURIComponent('[SAFETY Suporte] ' + supportForm.assunto)}&body=${body}`;
+    setSupportSent(true);
+    setTimeout(() => setSupportSent(false), 4000);
   };
 
   return (
