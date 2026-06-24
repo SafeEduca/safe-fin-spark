@@ -550,6 +550,307 @@ const Safety = () => {
           </div>
         </section>
 
+        {/* ========== PROPÓSITO ========== */}
+        <section className="relative py-24 overflow-hidden" style={{
+          background: 'linear-gradient(180deg, #0a0a1a 0%, #12122a 100%)'
+        }}>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-10 blur-[160px]" style={{ background: '#8b5cf6' }} />
+          <div className="absolute bottom-0 right-0 w-72 h-72 rounded-full opacity-10 blur-[120px]" style={{ background: '#06b6d4' }} />
+
+          <div className="container mx-auto px-4 max-w-6xl relative z-10">
+            <div className="text-center mb-14">
+              <span className="text-violet-400/70 text-xs font-semibold tracking-[0.2em] uppercase mb-5 block">Nosso propósito</span>
+              <h2 className="text-2xl md:text-4xl font-heading font-bold text-white mb-5 leading-tight">
+                Transformar financeiramente é{" "}
+                <span className="text-transparent bg-clip-text" style={{
+                  backgroundImage: 'linear-gradient(135deg, #c4b5fd, #22d3ee)',
+                }}>investir no futuro</span>
+                {" "}de todas as gerações
+              </h2>
+              <p className="text-white/40 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                A SAFE Educação Financeira nasceu em 2023 com a missão de democratizar o acesso ao conhecimento financeiro,
+                impactando pessoas e transformando vidas com ensino prático, lúdico e didático.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-5 mb-10">
+              {[
+                {
+                  icon: Heart,
+                  title: "Missão",
+                  text: "Proporcionar qualidade de vida e transformação por meio do ensino da educação financeira, de forma acessível e divertida."
+                },
+                {
+                  icon: Compass,
+                  title: "Visão",
+                  text: "Ser referência nacional em educação financeira, reconhecida pela qualidade, alcançando o Brasil e o mundo."
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "Valores",
+                  text: "Ética, transparência, inovação, responsabilidade, diversão, respeito, empreendedorismo e educação."
+                },
+              ].map((item, i) => (
+                <div key={i} className="rounded-2xl p-7 transition-all duration-500 hover:-translate-y-1" style={glass.card}>
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{
+                    background: 'linear-gradient(135deg, rgba(139,92,246,0.18), rgba(6,182,212,0.12))',
+                    border: '1px solid rgba(139,92,246,0.18)',
+                  }}>
+                    <item.icon className="w-5 h-5 text-violet-300/85" />
+                  </div>
+                  <h3 className="text-base font-heading font-bold mb-2 text-white/90">{item.title}</h3>
+                  <p className="text-white/40 text-sm leading-relaxed">{item.text}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { icon: Lightbulb, label: "Ensino didático", value: "100%" },
+                { icon: Users, label: "Vidas impactadas", value: "+10k" },
+                { icon: Globe, label: "Alcance", value: "Brasil" },
+                { icon: Award, label: "Desde", value: "2023" },
+              ].map((stat, i) => (
+                <div key={i} className="rounded-xl p-5 text-center" style={glass.card}>
+                  <stat.icon className="w-5 h-5 text-cyan-300/70 mx-auto mb-2" />
+                  <div className="text-2xl font-heading font-bold text-white/90">{stat.value}</div>
+                  <div className="text-white/35 text-xs mt-1">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ========== SUPORTE ========== */}
+        <section id="suporte" className="relative py-24 overflow-hidden" style={{
+          background: 'linear-gradient(180deg, #12122a 0%, #16213e 100%)'
+        }}>
+          <div className="absolute top-1/4 right-[5%] w-80 h-80 rounded-full opacity-15 blur-[140px]" style={{ background: '#06b6d4' }} />
+          <div className="absolute bottom-0 left-[5%] w-72 h-72 rounded-full opacity-10 blur-[120px]" style={{ background: '#7c3aed' }} />
+
+          <div className="container mx-auto px-4 max-w-6xl relative z-10">
+            <div className="text-center mb-14">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 text-cyan-300/80" style={{
+                ...glass.card,
+                border: '1px solid rgba(6,182,212,0.2)',
+              }}>
+                <LifeBuoy className="w-3.5 h-3.5" />
+                Central de Suporte
+              </div>
+              <h2 className="text-2xl md:text-4xl font-heading font-bold text-white mb-4 leading-tight">
+                Estamos aqui para{" "}
+                <span className="text-transparent bg-clip-text" style={{
+                  backgroundImage: 'linear-gradient(135deg, #c4b5fd, #22d3ee)',
+                }}>te ajudar</span>
+              </h2>
+              <p className="text-white/40 max-w-xl mx-auto text-sm md:text-base">
+                Nossa equipe está pronta para responder dúvidas sobre o SAFETY, planos, pagamentos e funcionalidades do app.
+              </p>
+            </div>
+
+            {/* Channels */}
+            <div className="grid md:grid-cols-3 gap-4 mb-10">
+              {[
+                {
+                  icon: MessageCircle,
+                  title: "WhatsApp",
+                  desc: "Atendimento rápido pelo nosso canal oficial.",
+                  action: "Abrir conversa",
+                  href: "https://wa.me/5546933005265?text=Olá!%20Preciso%20de%20suporte%20sobre%20o%20SAFETY.",
+                  color: "#22c55e",
+                },
+                {
+                  icon: Mail,
+                  title: "E-mail",
+                  desc: "contato@safeeduca.com.br",
+                  action: "Enviar e-mail",
+                  href: "mailto:contato@safeeduca.com.br?subject=Suporte%20SAFETY",
+                  color: "#22d3ee",
+                },
+                {
+                  icon: Phone,
+                  title: "Telefone",
+                  desc: "(46) 93300-5265",
+                  action: "Ligar agora",
+                  href: "tel:+5546933005265",
+                  color: "#a78bfa",
+                },
+              ].map((ch, i) => (
+                <a
+                  key={i}
+                  href={ch.href}
+                  target={ch.href.startsWith('http') ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  className="rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 group block"
+                  style={glass.card}
+                >
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110" style={{
+                    background: `${ch.color}1f`,
+                    border: `1px solid ${ch.color}33`,
+                  }}>
+                    <ch.icon className="w-5 h-5" style={{ color: ch.color }} />
+                  </div>
+                  <h3 className="text-base font-heading font-bold mb-1.5 text-white/90">{ch.title}</h3>
+                  <p className="text-white/40 text-sm leading-relaxed mb-4">{ch.desc}</p>
+                  <span className="text-xs font-semibold text-white/60 group-hover:text-white inline-flex items-center gap-1.5 transition-colors">
+                    {ch.action}
+                    <Send className="w-3 h-3" />
+                  </span>
+                </a>
+              ))}
+            </div>
+
+            <div className="grid lg:grid-cols-5 gap-6">
+              {/* Form */}
+              <div className="lg:col-span-3 rounded-[1.5rem] p-7 md:p-9" style={glass.cardLight}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{
+                    background: 'linear-gradient(135deg, rgba(139,92,246,0.2), rgba(6,182,212,0.15))',
+                    border: '1px solid rgba(139,92,246,0.2)',
+                  }}>
+                    <Headphones className="w-5 h-5 text-violet-300/85" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-heading font-bold text-white/95">Abrir um chamado</h3>
+                    <p className="text-white/35 text-xs">Resposta em até 24 horas úteis</p>
+                  </div>
+                </div>
+
+                <form onSubmit={handleSupportSubmit} className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-white/50 text-xs font-semibold mb-2">Nome</label>
+                      <input
+                        required
+                        type="text"
+                        value={supportForm.nome}
+                        onChange={(e) => setSupportForm({ ...supportForm, nome: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/25 outline-none focus:border-violet-400/40 transition-colors"
+                        style={{
+                          background: 'rgba(255,255,255,0.04)',
+                          border: '1px solid rgba(255,255,255,0.08)',
+                          backdropFilter: 'blur(12px)',
+                        }}
+                        placeholder="Seu nome"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-white/50 text-xs font-semibold mb-2">E-mail</label>
+                      <input
+                        required
+                        type="email"
+                        value={supportForm.email}
+                        onChange={(e) => setSupportForm({ ...supportForm, email: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/25 outline-none focus:border-violet-400/40 transition-colors"
+                        style={{
+                          background: 'rgba(255,255,255,0.04)',
+                          border: '1px solid rgba(255,255,255,0.08)',
+                          backdropFilter: 'blur(12px)',
+                        }}
+                        placeholder="voce@email.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-white/50 text-xs font-semibold mb-2">Assunto</label>
+                    <select
+                      required
+                      value={supportForm.assunto}
+                      onChange={(e) => setSupportForm({ ...supportForm, assunto: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl text-sm text-white outline-none focus:border-violet-400/40 transition-colors"
+                      style={{
+                        background: 'rgba(255,255,255,0.04)',
+                        border: '1px solid rgba(255,255,255,0.08)',
+                        backdropFilter: 'blur(12px)',
+                      }}
+                    >
+                      <option value="" className="bg-[#16213e]">Selecione um assunto</option>
+                      <option value="Dúvida sobre planos" className="bg-[#16213e]">Dúvida sobre planos</option>
+                      <option value="Suporte técnico" className="bg-[#16213e]">Suporte técnico</option>
+                      <option value="Pagamento e faturamento" className="bg-[#16213e]">Pagamento e faturamento</option>
+                      <option value="Plano empresarial" className="bg-[#16213e]">Plano empresarial</option>
+                      <option value="Outro" className="bg-[#16213e]">Outro</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-white/50 text-xs font-semibold mb-2">Mensagem</label>
+                    <textarea
+                      required
+                      rows={5}
+                      value={supportForm.mensagem}
+                      onChange={(e) => setSupportForm({ ...supportForm, mensagem: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/25 outline-none focus:border-violet-400/40 transition-colors resize-none"
+                      style={{
+                        background: 'rgba(255,255,255,0.04)',
+                        border: '1px solid rgba(255,255,255,0.08)',
+                        backdropFilter: 'blur(12px)',
+                      }}
+                      placeholder="Descreva sua dúvida ou solicitação..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full py-3.5 rounded-xl text-sm font-bold text-white transition-all duration-300 hover:scale-[1.01] active:scale-[0.98] inline-flex items-center justify-center gap-2"
+                    style={glass.button}
+                  >
+                    {supportSent ? (
+                      <>
+                        <Check className="w-4 h-4" />
+                        Mensagem enviada!
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        Enviar mensagem
+                      </>
+                    )}
+                  </button>
+                </form>
+              </div>
+
+              {/* Info side */}
+              <div className="lg:col-span-2 space-y-4">
+                <div className="rounded-2xl p-6" style={glass.card}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <Clock className="w-5 h-5 text-cyan-300/80" />
+                    <h4 className="text-sm font-heading font-bold text-white/90">Horário de atendimento</h4>
+                  </div>
+                  <div className="space-y-2 text-sm text-white/45">
+                    <div className="flex justify-between"><span>Segunda a sexta</span><span className="text-white/70">08h – 18h</span></div>
+                    <div className="flex justify-between"><span>Sábado</span><span className="text-white/70">09h – 13h</span></div>
+                    <div className="flex justify-between"><span>Domingo</span><span className="text-white/40">Fechado</span></div>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl p-6" style={glass.card}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <MapPin className="w-5 h-5 text-violet-300/80" />
+                    <h4 className="text-sm font-heading font-bold text-white/90">Endereço</h4>
+                  </div>
+                  <p className="text-white/45 text-sm leading-relaxed">
+                    Rua Lidio Oltramari, 1628 — Sala 19<br />
+                    Parque Tecnológico<br />
+                    Pato Branco — PR
+                  </p>
+                </div>
+
+                <div className="rounded-2xl p-6" style={glass.card}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <HelpCircle className="w-5 h-5 text-cyan-300/80" />
+                    <h4 className="text-sm font-heading font-bold text-white/90">Antes de abrir um chamado</h4>
+                  </div>
+                  <p className="text-white/45 text-sm leading-relaxed">
+                    Confira nossa seção de <a href="#" onClick={(e) => { e.preventDefault(); document.querySelectorAll('section')[6]?.scrollIntoView({ behavior: 'smooth' }); }} className="text-cyan-300/90 hover:text-cyan-300 underline-offset-2 hover:underline">perguntas frequentes</a> — muitas dúvidas já estão respondidas por lá.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ========== FINAL CTA ========== */}
         <section className="relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #0a0a1a 0%, #1a1640 100%)'
