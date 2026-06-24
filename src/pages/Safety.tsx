@@ -192,8 +192,8 @@ const Safety = () => {
               { label: 'Funcionalidades', href: '#funcionalidades' },
               { label: 'Planos', href: '#planos' },
               { label: 'Empresas', href: '#empresas' },
-              { label: 'Propósito', href: '#proposito' },
               { label: 'FAQ', href: '#faq' },
+              { label: 'Propósito', href: '#proposito' },
             ].map((item) => (
               <a
                 key={item.label}
