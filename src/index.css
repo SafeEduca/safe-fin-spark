@@ -136,6 +136,48 @@
   .animate-marquee {
     animation: marquee 20s linear infinite;
   }
+
+  /* Reveal on scroll (Intersection Observer adds .is-visible) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.08s; }
+  .reveal-delay-2 { transition-delay: 0.16s; }
+  .reveal-delay-3 { transition-delay: 0.24s; }
+  .reveal-delay-4 { transition-delay: 0.32s; }
+
+  /* Floating pulse for support button */
+  @keyframes support-pulse {
+    0%, 100% { box-shadow: 0 8px 32px rgba(34,211,238,0.35), 0 0 0 0 rgba(34,211,238,0.45); }
+    50% { box-shadow: 0 8px 32px rgba(34,211,238,0.5), 0 0 0 16px rgba(34,211,238,0); }
+  }
+  .animate-support-pulse {
+    animation: support-pulse 2.4s ease-in-out infinite;
+  }
+
+  /* Slow float */
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+
+  /* Gradient text shimmer */
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
+  }
 }
 
 @layer base {
