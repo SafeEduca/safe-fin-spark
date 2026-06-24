@@ -970,6 +970,22 @@ const Safety = () => {
         onClose={() => setIsModalOpen(false)}
         programName={modalProgram}
       />
+
+      {/* ========== FLOATING SUPPORT BUTTON ========== */}
+      <button
+        onClick={scrollToSuporte}
+        aria-label="Ir para o suporte"
+        className="fixed bottom-6 left-6 z-40 inline-flex items-center gap-2 px-5 py-3.5 rounded-full text-sm font-bold text-white animate-support-pulse hover:scale-105 active:scale-95 transition-transform"
+        style={{
+          background: 'linear-gradient(135deg, #06b6d4, #8b5cf6)',
+          border: '1px solid rgba(255,255,255,0.2)',
+          backdropFilter: 'blur(12px)',
+        }}
+      >
+        <LifeBuoy className="w-4 h-4" />
+        <span className="hidden sm:inline">Precisa de ajuda?</span>
+        <span className="sm:hidden">Suporte</span>
+      </button>
     </div>
   );
 };
