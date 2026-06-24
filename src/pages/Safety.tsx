@@ -178,14 +178,57 @@ const Safety = () => {
   return (
     <div className="min-h-screen" style={{ background: '#0a0a1a' }}>
       <Header />
+
+      {/* ========== STICKY SUB-NAV (in-page) ========== */}
+      <nav className="sticky top-16 z-30 backdrop-blur-xl border-b" style={{
+        background: 'rgba(10,10,26,0.65)',
+        borderColor: 'rgba(255,255,255,0.06)',
+        WebkitBackdropFilter: 'blur(20px)',
+      }}>
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-2.5 text-xs">
+            {[
+              { label: 'Sobre', href: '#sobre' },
+              { label: 'Funcionalidades', href: '#funcionalidades' },
+              { label: 'Planos', href: '#planos' },
+              { label: 'Empresas', href: '#empresas' },
+              { label: 'Propósito', href: '#proposito' },
+              { label: 'FAQ', href: '#faq' },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={(e) => { e.preventDefault(); document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' }); }}
+                className="px-3.5 py-1.5 rounded-full text-white/55 hover:text-white hover:bg-white/5 whitespace-nowrap font-medium transition-all"
+              >
+                {item.label}
+              </a>
+            ))}
+            <div className="flex-1" />
+            <button
+              onClick={scrollToSuporte}
+              className="px-4 py-1.5 rounded-full text-white font-semibold inline-flex items-center gap-1.5 whitespace-nowrap transition-all hover:scale-[1.04]"
+              style={{
+                background: 'linear-gradient(135deg, rgba(34,211,238,0.25), rgba(139,92,246,0.25))',
+                border: '1px solid rgba(34,211,238,0.4)',
+                boxShadow: '0 0 20px rgba(34,211,238,0.2)',
+              }}
+            >
+              <LifeBuoy className="w-3.5 h-3.5" />
+              Suporte
+            </button>
+          </div>
+        </div>
+      </nav>
+
       <main>
         {/* ========== HERO ========== */}
         <section className="relative py-20 md:py-32 overflow-hidden" style={{
           background: 'linear-gradient(160deg, #0f0c29 0%, #1a1640 40%, #16213e 100%)'
         }}>
           {/* Decorative orbs */}
-          <div className="absolute top-20 left-[5%] w-80 h-80 rounded-full opacity-25 blur-[120px]" style={{ background: '#7c3aed' }} />
-          <div className="absolute bottom-0 right-[10%] w-[500px] h-[400px] rounded-full opacity-15 blur-[140px]" style={{ background: '#06b6d4' }} />
+          <div className="absolute top-20 left-[5%] w-80 h-80 rounded-full opacity-25 blur-[120px] animate-float-slow" style={{ background: '#7c3aed' }} />
+          <div className="absolute bottom-0 right-[10%] w-[500px] h-[400px] rounded-full opacity-15 blur-[140px] animate-float-slow" style={{ background: '#06b6d4', animationDelay: '2s' }} />
 
           <div className="container mx-auto px-4 relative z-10">
             <Link to="/" className="inline-flex items-center text-white/40 hover:text-white/70 mb-10 transition-colors text-sm">
@@ -194,7 +237,7 @@ const Safety = () => {
             </Link>
 
             <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
-              <div className="flex-1 text-center lg:text-left">
+              <div className="flex-1 text-center lg:text-left reveal">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-8 text-cyan-300/80" style={{
                   ...glass.card,
                   border: '1px solid rgba(6,182,212,0.2)',
@@ -205,8 +248,8 @@ const Safety = () => {
 
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-[1.05]">
                   Aprenda finanças{" "}
-                  <span className="text-transparent bg-clip-text" style={{
-                    backgroundImage: 'linear-gradient(135deg, #c4b5fd, #22d3ee)',
+                  <span className="text-transparent bg-clip-text animate-gradient-shift" style={{
+                    backgroundImage: 'linear-gradient(135deg, #c4b5fd, #22d3ee, #c4b5fd)',
                   }}>jogando</span>
                 </h1>
 
@@ -231,10 +274,21 @@ const Safety = () => {
                     <Building2 className="w-4 h-4" />
                     Para Empresas
                   </button>
+                  <button
+                    onClick={scrollToSuporte}
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl text-sm font-semibold text-cyan-200 transition-all duration-300 active:scale-[0.97] hover:scale-[1.03]"
+                    style={{
+                      background: 'rgba(34,211,238,0.08)',
+                      border: '1px solid rgba(34,211,238,0.25)',
+                    }}
+                  >
+                    <LifeBuoy className="w-4 h-4" />
+                    Suporte
+                  </button>
                 </div>
               </div>
 
-              <PhoneMockup src={phoneHero} alt="SAFETY App" className="w-52 md:w-64 flex-shrink-0" />
+              <PhoneMockup src={phoneHero} alt="SAFETY App" className="w-52 md:w-64 flex-shrink-0 reveal reveal-delay-2 animate-float-slow" />
             </div>
           </div>
         </section>
