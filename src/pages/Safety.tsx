@@ -140,9 +140,31 @@ const Safety = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Reveal-on-scroll observer (inspired by in.com.br scroll interactions)
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   const openModal = (program: string) => {
     setModalProgram(program);
     setIsModalOpen(true);
+  };
+
+  const scrollToSuporte = () => {
+    document.getElementById('suporte')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleSupportSubmit = (e: React.FormEvent) => {
