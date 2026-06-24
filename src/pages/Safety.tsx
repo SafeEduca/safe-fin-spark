@@ -306,7 +306,7 @@ const Safety = () => {
         </section>
 
         {/* ========== ABOUT ========== */}
-        <section id="sobre" className="relative py-24 overflow-hidden" style={{
+        <section id="sobre" className="reveal scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #16213e 0%, #12122a 100%)'
         }}>
           <div className="absolute top-1/3 right-0 w-72 h-72 rounded-full opacity-15 blur-[120px]" style={{ background: '#7c3aed' }} />
@@ -351,7 +351,7 @@ const Safety = () => {
         </section>
 
         {/* ========== FEATURES ========== */}
-        <section id="funcionalidades" className="relative py-24 overflow-hidden" style={{
+        <section id="funcionalidades" className="reveal scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #12122a 0%, #0f0c29 100%)'
         }}>
           <div className="absolute bottom-1/4 left-0 w-64 h-64 rounded-full opacity-20 blur-[100px]" style={{ background: '#7c3aed' }} />
@@ -417,7 +417,7 @@ const Safety = () => {
         </section>
 
         {/* ========== PRICING ========== */}
-        <section id="planos" className="relative py-24 overflow-hidden" style={{
+        <section id="planos" className="reveal scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #1a1640 0%, #16213e 100%)'
         }}>
           <div className="absolute top-1/4 left-[10%] w-72 h-72 rounded-full opacity-15 blur-[120px]" style={{ background: '#7c3aed' }} />
@@ -516,7 +516,7 @@ const Safety = () => {
         </section>
 
         {/* ========== EMPRESAS ========== */}
-        <section id="empresas" className="relative py-24 overflow-hidden" style={{
+        <section id="empresas" className="reveal scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #16213e 0%, #12122a 100%)'
         }}>
           <div className="absolute top-1/2 right-0 w-80 h-80 rounded-full opacity-10 blur-[140px]" style={{ background: '#06b6d4' }} />
@@ -594,7 +594,7 @@ const Safety = () => {
         </section>
 
         {/* ========== FAQ ========== */}
-        <section id="faq" className="relative py-24 overflow-hidden" style={{
+        <section id="faq" className="reveal scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #12122a 0%, #0a0a1a 100%)'
         }}>
           <div className="absolute top-1/3 left-[15%] w-64 h-64 rounded-full opacity-10 blur-[120px]" style={{ background: '#8b5cf6' }} />
@@ -627,7 +627,7 @@ const Safety = () => {
         </section>
 
         {/* ========== PROPÓSITO ========== */}
-        <section id="proposito" className="relative py-24 overflow-hidden" style={{
+        <section id="proposito" className="reveal scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #0a0a1a 0%, #12122a 100%)'
         }}>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-10 blur-[160px]" style={{ background: '#8b5cf6' }} />
@@ -698,7 +698,7 @@ const Safety = () => {
         </section>
 
         {/* ========== SUPORTE ========== */}
-        <section id="suporte" className="relative py-24 overflow-hidden" style={{
+        <section id="suporte" className="scroll-mt-32 relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #12122a 0%, #16213e 100%)'
         }}>
           <div className="absolute top-1/4 right-[5%] w-80 h-80 rounded-full opacity-15 blur-[140px]" style={{ background: '#06b6d4' }} />
