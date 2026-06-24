@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowLeft, Sparkles, Gamepad2, TrendingUp, Users, Zap, Award, Layers, Building2, Check, ChevronDown, Smartphone, Trophy, Target, BookOpen, Star, Crown } from "lucide-react";
+import { ArrowLeft, Sparkles, Gamepad2, TrendingUp, Users, Zap, Award, Layers, Building2, Check, ChevronDown, Smartphone, Trophy, Target, BookOpen, Star, Crown, Mail, MessageCircle, Phone, Headphones, Heart, Compass, LifeBuoy, Clock, MapPin, Send, HelpCircle, ShieldCheck, Lightbulb, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
