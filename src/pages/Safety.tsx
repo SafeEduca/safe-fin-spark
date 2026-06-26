@@ -158,12 +158,19 @@ const Safety = () => {
       <Header />
       <main>
         {/* ========== HERO ========== */}
-        <section className="relative py-20 md:py-32 overflow-hidden" style={{
-          background: 'linear-gradient(160deg, #0f0c29 0%, #1a1640 40%, #16213e 100%)'
+        <section className="relative py-20 md:py-32 overflow-hidden tech-scanline" style={{
+          background: 'linear-gradient(160deg, #0a0820 0%, #1a1640 40%, #0c1830 100%)'
         }}>
+          {/* Tech grid */}
+          <div className="absolute inset-0 tech-grid opacity-70 pointer-events-none" />
           {/* Decorative orbs */}
-          <div className="absolute top-20 left-[5%] w-80 h-80 rounded-full opacity-25 blur-[120px]" style={{ background: '#7c3aed' }} />
-          <div className="absolute bottom-0 right-[10%] w-[500px] h-[400px] rounded-full opacity-15 blur-[140px]" style={{ background: '#06b6d4' }} />
+          <div className="absolute top-20 left-[5%] w-80 h-80 rounded-full opacity-30 pointer-events-none" style={{ background: '#7c3aed', animation: 'neon-pulse 6s ease-in-out infinite' }} />
+          <div className="absolute bottom-0 right-[10%] w-[500px] h-[400px] rounded-full opacity-20 pointer-events-none" style={{ background: '#06b6d4', animation: 'neon-pulse 8s ease-in-out infinite 1s' }} />
+          {/* Orbiting ring */}
+          <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full pointer-events-none opacity-20 hidden md:block" style={{
+            border: '1px dashed rgba(139,92,246,0.35)',
+            animation: 'orbit 60s linear infinite',
+          }} />
 
           <div className="container mx-auto px-4 relative z-10">
             <Link to="/" className="inline-flex items-center text-white/40 hover:text-white/70 mb-10 transition-colors text-sm">
@@ -173,29 +180,28 @@ const Safety = () => {
 
             <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
               <div className="flex-1 text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-8 text-cyan-300/80" style={{
-                  ...glass.card,
-                  border: '1px solid rgba(6,182,212,0.2)',
-                }}>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[11px] font-semibold mb-8 text-cyan-300 tech-chip tracking-wider uppercase">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+                  </span>
                   <Smartphone className="w-3.5 h-3.5" />
-                  Plataforma Gamificada de Educação Financeira
+                  Plataforma Gamificada · v2.0
                 </div>
 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-[1.05]">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-[1.05] tech-glow">
                   Aprenda finanças{" "}
-                  <span className="text-transparent bg-clip-text" style={{
-                    backgroundImage: 'linear-gradient(135deg, #c4b5fd, #22d3ee)',
-                  }}>jogando</span>
+                  <span className="tech-gradient-text">jogando</span>
                 </h1>
 
-                <p className="text-base md:text-lg text-white/45 mb-10 leading-relaxed max-w-md mx-auto lg:mx-0">
+                <p className="text-base md:text-lg text-white/55 mb-10 leading-relaxed max-w-md mx-auto lg:mx-0">
                   Transforme sua relação com o dinheiro de forma divertida e eficaz com a plataforma SAFETY.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <button
                     onClick={() => openModal("SAFETY - Plano Anual")}
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl text-sm font-bold text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl text-sm font-bold text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] tech-border"
                     style={glass.button}
                   >
                     <Zap className="w-4 h-4" />
@@ -203,7 +209,7 @@ const Safety = () => {
                   </button>
                   <button
                     onClick={() => document.getElementById('empresas')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl text-sm font-semibold text-white/60 hover:text-white/90 transition-all duration-300 active:scale-[0.97]"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl text-sm font-semibold text-white/70 hover:text-white transition-all duration-300 active:scale-[0.97] tech-border"
                     style={glass.buttonOutline}
                   >
                     <Building2 className="w-4 h-4" />
@@ -212,10 +218,24 @@ const Safety = () => {
                 </div>
               </div>
 
-              <PhoneMockup src={phoneHero} alt="SAFETY App" className="w-52 md:w-64 flex-shrink-0" />
+              <div className="relative">
+                {/* HUD corners */}
+                <div className="absolute -inset-6 pointer-events-none hidden md:block">
+                  {[
+                    'top-0 left-0 border-t-2 border-l-2',
+                    'top-0 right-0 border-t-2 border-r-2',
+                    'bottom-0 left-0 border-b-2 border-l-2',
+                    'bottom-0 right-0 border-b-2 border-r-2',
+                  ].map((pos, i) => (
+                    <div key={i} className={`absolute ${pos} w-6 h-6 border-cyan-400/50`} />
+                  ))}
+                </div>
+                <PhoneMockup src={phoneHero} alt="SAFETY App" className="w-52 md:w-64 flex-shrink-0" />
+              </div>
             </div>
           </div>
         </section>
+
 
         {/* ========== MARQUEE ========== */}
         <section className="py-3.5 overflow-hidden" style={{ background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
@@ -278,17 +298,16 @@ const Safety = () => {
         <section className="relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #12122a 0%, #0f0c29 100%)'
         }}>
+          <div className="absolute inset-0 tech-dots opacity-60 pointer-events-none" />
           <div className="absolute bottom-1/4 left-0 w-64 h-64 rounded-full opacity-20 blur-[100px]" style={{ background: '#7c3aed' }} />
           <div className="absolute top-1/4 right-[5%] w-48 h-48 rounded-full opacity-15 blur-[80px]" style={{ background: '#06b6d4' }} />
 
           <div className="container mx-auto px-4 max-w-6xl relative z-10">
             <div className="text-center mb-16">
-              <span className="text-violet-400/70 text-xs font-semibold tracking-[0.2em] uppercase mb-5 block">Funcionalidades</span>
+              <span className="text-violet-400/70 text-xs font-semibold tracking-[0.2em] uppercase mb-5 block">// Funcionalidades</span>
               <h2 className="text-2xl md:text-4xl font-heading font-bold text-white mb-4">
                 Tudo para{" "}
-                <span className="text-transparent bg-clip-text" style={{
-                  backgroundImage: 'linear-gradient(135deg, #c4b5fd, #22d3ee)',
-                }}>dominar suas finanças</span>
+                <span className="tech-gradient-text">dominar suas finanças</span>
               </h2>
               <p className="text-white/30 max-w-md mx-auto text-sm">Recursos pensados para transformar sua relação com o dinheiro</p>
             </div>
@@ -299,23 +318,26 @@ const Safety = () => {
                 return (
                   <div
                     key={index}
-                    className="rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 group"
+                    className="rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 group tech-border relative overflow-hidden"
                     style={glass.card}
                   >
-                    <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 group-hover:scale-110" style={{
-                      background: 'rgba(139,92,246,0.12)',
-                      border: '1px solid rgba(139,92,246,0.15)',
+                    <div className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" style={{
+                      background: 'linear-gradient(135deg, rgba(139,92,246,0.2), rgba(34,211,238,0.1))',
+                      border: '1px solid rgba(139,92,246,0.25)',
+                      boxShadow: '0 0 24px rgba(139,92,246,0.15)',
                     }}>
-                      <Icon className="w-5 h-5 text-violet-300/80" />
+                      <Icon className="w-5 h-5 text-violet-300" />
                     </div>
                     <h3 className="text-base font-heading font-bold mb-2 text-white/90">{feature.title}</h3>
-                    <p className="text-white/35 text-sm leading-relaxed">{feature.description}</p>
+                    <p className="text-white/40 text-sm leading-relaxed">{feature.description}</p>
                   </div>
                 );
               })}
             </div>
           </div>
         </section>
+
 
         {/* ========== PHONE SHOWCASE ========== */}
         <section className="relative py-24 overflow-hidden" style={{
