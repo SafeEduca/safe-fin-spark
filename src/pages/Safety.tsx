@@ -298,17 +298,16 @@ const Safety = () => {
         <section className="relative py-24 overflow-hidden" style={{
           background: 'linear-gradient(180deg, #12122a 0%, #0f0c29 100%)'
         }}>
+          <div className="absolute inset-0 tech-dots opacity-60 pointer-events-none" />
           <div className="absolute bottom-1/4 left-0 w-64 h-64 rounded-full opacity-20 blur-[100px]" style={{ background: '#7c3aed' }} />
           <div className="absolute top-1/4 right-[5%] w-48 h-48 rounded-full opacity-15 blur-[80px]" style={{ background: '#06b6d4' }} />
 
           <div className="container mx-auto px-4 max-w-6xl relative z-10">
             <div className="text-center mb-16">
-              <span className="text-violet-400/70 text-xs font-semibold tracking-[0.2em] uppercase mb-5 block">Funcionalidades</span>
+              <span className="text-violet-400/70 text-xs font-semibold tracking-[0.2em] uppercase mb-5 block">// Funcionalidades</span>
               <h2 className="text-2xl md:text-4xl font-heading font-bold text-white mb-4">
                 Tudo para{" "}
-                <span className="text-transparent bg-clip-text" style={{
-                  backgroundImage: 'linear-gradient(135deg, #c4b5fd, #22d3ee)',
-                }}>dominar suas finanças</span>
+                <span className="tech-gradient-text">dominar suas finanças</span>
               </h2>
               <p className="text-white/30 max-w-md mx-auto text-sm">Recursos pensados para transformar sua relação com o dinheiro</p>
             </div>
@@ -319,23 +318,26 @@ const Safety = () => {
                 return (
                   <div
                     key={index}
-                    className="rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 group"
+                    className="rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 group tech-border relative overflow-hidden"
                     style={glass.card}
                   >
-                    <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 group-hover:scale-110" style={{
-                      background: 'rgba(139,92,246,0.12)',
-                      border: '1px solid rgba(139,92,246,0.15)',
+                    <div className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" style={{
+                      background: 'linear-gradient(135deg, rgba(139,92,246,0.2), rgba(34,211,238,0.1))',
+                      border: '1px solid rgba(139,92,246,0.25)',
+                      boxShadow: '0 0 24px rgba(139,92,246,0.15)',
                     }}>
-                      <Icon className="w-5 h-5 text-violet-300/80" />
+                      <Icon className="w-5 h-5 text-violet-300" />
                     </div>
                     <h3 className="text-base font-heading font-bold mb-2 text-white/90">{feature.title}</h3>
-                    <p className="text-white/35 text-sm leading-relaxed">{feature.description}</p>
+                    <p className="text-white/40 text-sm leading-relaxed">{feature.description}</p>
                   </div>
                 );
               })}
             </div>
           </div>
         </section>
+
 
         {/* ========== PHONE SHOWCASE ========== */}
         <section className="relative py-24 overflow-hidden" style={{
